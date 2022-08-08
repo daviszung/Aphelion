@@ -19,7 +19,7 @@ controller.newUser = async function (req, res, next) {
 // Verify a user's login information
 controller.verifyUser = async function (req, res, next) {
   try {
-    const { username, password } = req.query;
+    const { username, password } = req.body;
     const data = await User.find({username: username, password: password});
     console.log("dataaaa:", data)
     if (data.length === 0) throw new Error;
