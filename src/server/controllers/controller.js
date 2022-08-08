@@ -21,9 +21,11 @@ controller.verifyUser = async function (req, res, next) {
   try {
     const { username, password } = req.body;
     const data = await User.find({username: username, password: password});
-    console.log("dataaaa:", data)
     if (data.length === 0) throw new Error;
-    else return next();
+    else {
+      console.log('log in credentials found')
+      return next()
+    };
   }
   catch (err) {
     return next(err);

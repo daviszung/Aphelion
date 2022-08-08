@@ -14,10 +14,10 @@ const PORT = 3000;
 
 if (process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'production') {
   // statically serve everything in the build folder on the route '/build'
-  app.use('/build', express.static(path.join(__dirname, '../build')));
+  app.use('/build', express.static(path.join(__dirname, '../../build')));
   // serve index.html on the route '/'
   app.get('/', (req, res) => {
-    return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+    return res.status(200).sendFile(path.join(__dirname, '../../index.html'));
   });
 }
 
@@ -30,6 +30,7 @@ app.use((req, res) => res.status(404).send('This is not the page you\'re looking
 
 // global error handler
 app.use((err, req, res, next) => {
+  console.log(err)
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
