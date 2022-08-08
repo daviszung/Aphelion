@@ -1,9 +1,7 @@
-// const mongoose = require('mongoose');
 import { mongoose } from 'mongoose';
-
 const { Schema } = mongoose;
-// const MONGO_URI = 'mongodb+srv://paulyiengr:codesmithtemppw@cluster1.zmttq.mongodb.net/?retryWrites=true&w=majority';
-// const MONGO_URI = "mongodb+srv://cluster0.aa3cvpk.mongodb.net/game"
+
+
 const MONGO_URI = "mongodb+srv://daviszung:0O0hTr6cz23Ndnny@cluster0.aa3cvpk.mongodb.net/test"
 
 
