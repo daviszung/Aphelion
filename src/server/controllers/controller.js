@@ -7,8 +7,16 @@ const controller = {};
 controller.newUser = async function (req, res, next) {
   try {
     const { username, password } = req.body;
-    const data = await User.create({ username: username, password: password });
-    res.locals.newUsername = data.username;
+    // find if the username already exists in the database
+    const alreadyExists = await User.find({username: username})
+    // create a new user in the database
+    if (alreadyExists[0] && alreadyExists[0].username === username) {
+      res.locals.newUsername = `An account with the name: ${username} already exists`
+    } else {
+      const data = await User.create({ username: username, password: password });
+      res.locals.newUsername = `Created an account with the name ${username}!`
+
+    }
     return next();
   }
   catch (err) {
@@ -33,7 +41,6 @@ controller.verifyUser = async function (req, res, next) {
         res.locals.loginStatus = "Login Failed: No Matching Credentials"
       }
       else {
-        console.log('log in credentials found')
         res.locals.loginStatus = true;
         return next()
       };

@@ -28,8 +28,60 @@ async function login(navigate) {
 async function signup() {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
-  console.log(username, password)
-  console.log('signup')
+  const confirmPassword = document.getElementById('confirmPassword').value;
+  const loginHelper = document.getElementById('loginHelper')
+  // determine if a password is valid/strong
+  const validPassword = (password) => {
+    let res;
+    const nums = {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true
+    }
+    // test for password length
+    if (password.length < 8) res = 'Password must be 8 or more characters'
+    // test for password has upper and lowercase characters
+    else if (password === password.toLowerCase() || password === password.toUpperCase()) {
+      return res = 'Password should contain lower and uppercase letters'
+    }
+    let hasNumber = false;
+    for (let i in password) {
+      if (nums[password[i]]) {
+        hasNumber = true;
+        break;
+      }
+    }
+    if (!hasNumber) res = 'Password should contain a number'
+    return hasNumber ? 'valid' : res; 
+  }
+  if (!username || !password || !confirmPassword) {
+    loginHelper.innerText = 'Please fill out the required fields'
+    return
+  }
+  const passwordValidityResult = validPassword(password);
+  if (passwordValidityResult !== 'valid') {
+    loginHelper.innerText = passwordValidityResult;
+  } else if (passwordValidityResult === 'valid' && password !== confirmPassword) {
+    loginHelper.innerText = 'Passwords do not match'
+  } else {
+    const data = JSON.stringify({"username": username, "password": password})
+    let response = await fetch('http://localhost:3000/api/signup', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: data
+    })
+    response = await response.json()
+    loginHelper.innerText = response.signup;
+  }
 }
 
 function App() {
@@ -41,17 +93,14 @@ function App() {
         <h1 className='headline'>Idle Game Title</h1>
         <div className='container' style={toggleState === 'signup' ? {height: "25rem"} : {height: '20rem'}}>
           <label id='toggleSwitch' onClick={() => {
-            if (toggleState === 'login') {
-              setToggleState('signup')
-              } else {
-                setToggleState('login')
-              }
+            if (toggleState === 'login') {setToggleState('signup')} 
+            else {setToggleState('login')}
             }
           }>
             <span>Login</span>
             <span>Signup</span>
           </label>
-          <Login login={login} navigate={navigate} toggle={toggleState} signup={signup}></Login>
+          <Login navigate={navigate} toggle={toggleState} signup={signup} login={login}></Login>
         </div>
       </main>
     </div>

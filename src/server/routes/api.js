@@ -5,7 +5,7 @@ import { controller } from '../controllers/controller.js'
 const apiRouter = express.Router();
 
 // Creating new user
-apiRouter.post('/signup', controller.newUser, (req, res) => res.status(200).json(res.locals.newUsername));
+apiRouter.post('/signup', controller.newUser, (req, res) => res.status(200).json({"signup":res.locals.newUsername}));
 
 // Login 
 apiRouter.post('/login', controller.verifyUser, (req, res) => res.status(200).json({"login":res.locals.loginStatus}));
