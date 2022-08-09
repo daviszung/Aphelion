@@ -51,6 +51,7 @@ main {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 450px;
@@ -58,17 +59,17 @@ main {
   background: #b8c1ec;
   border-radius: 10px;
   border: 3px solid #eebbc3;
+  padding: 14px 0px;
 }
 
 .loginForm {
   min-width: 20rem;
-  width: 25%;
-  height: 50%;
+  width: 75%;
+  height: 90%;
   padding: 2% 3%;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -80,7 +81,7 @@ main {
   font-weight: 700;
   font-size: large;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 1.5rem;
   background-color: #232946;
   color: #eebbc3;
   white-space: nowrap;
@@ -94,19 +95,21 @@ main {
 }
 
 #username,
-#password {
+#password,
+#confirmPassword {
   font-size: 1.2rem;
   margin: 0.6rem;
   padding: 0.6em 0.5em;
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  border-bottom: 2px solid #eebbc3;
+  border-bottom: 2px solid #232946;
   width: 100%;
 }
 
 #username:focus,
 #password:focus {
   outline: none;
+  border-bottom: 2px solid #eebbc3; 
 }
 
 #username::placeholder,
@@ -119,4 +122,18 @@ main {
   color: #232946;
   font-size: 1.1rem;
   margin-top: 1rem;
+}
+
+
+/* toggle for login/signup */
+#toggleSwitch {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 20rem;
+  min-height: 2rem;
+  background: #fffffe;
+  border-radius: 4px;
+  border: 2px solid #eebbc3;
+  background-color: #eebbc3;
 }

@@ -30,7 +30,7 @@ controller.verifyUser = async function (req, res, next) {
     else {
       const data = await User.find({username: username, password: password});
       if (data.length === 0) {
-        res.locals.loginStatus = "Login Attempt Failed: No Matching Credentials"
+        res.locals.loginStatus = "Login Failed: No Matching Credentials"
       }
       else {
         console.log('log in credentials found')
