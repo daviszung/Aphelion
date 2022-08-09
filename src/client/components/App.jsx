@@ -46,11 +46,13 @@ async function signup() {
       "9": true
     }
     // test for password length
-    if (password.length < 8) res = 'Password must be 8 or more characters'
+    if (password.length < 8) return res = 'Password must be 8 or more characters'
+    else if (password.length > 39) return res = 'Password must be less than 40 characters'
     // test for password has upper and lowercase characters
     else if (password === password.toLowerCase() || password === password.toUpperCase()) {
       return res = 'Password should contain lower and uppercase letters'
     }
+    // test for password has a number in it
     let hasNumber = false;
     for (let i in password) {
       if (nums[password[i]]) {
