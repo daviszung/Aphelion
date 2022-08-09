@@ -107,13 +107,15 @@ main {
 }
 
 #username:focus,
-#password:focus {
+#password:focus,
+#confirmPassword:focus {
   outline: none;
   border-bottom: 2px solid #eebbc3; 
 }
 
 #username::placeholder,
-#password::placeholder {
+#password::placeholder
+#confirmPassword::placeholder {
   color: #232946;
   font-size: 1.2rem;
 }
