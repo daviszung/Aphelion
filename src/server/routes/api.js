@@ -14,12 +14,14 @@ apiRouter.post('/signup', controller.newUser, (req, res) => res.status(200).json
 
 // Login 
 apiRouter.post('/login', controller.verifyUser, (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, "../../../game.html"))
-}
+  console.log('here: ', res.locals.loginStatus)
+  res.status(200).json({"login" : res.locals.loginStatus})
+  }
 );
 
 
 apiRouter.use('/', (req, res) => {
+  console.log(req)
   console.log('Routing Error')
   res.status(404).send('fail')
 })

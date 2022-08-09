@@ -1,12 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/App'
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
+import App from './components/App.jsx'
+import Game from './components/Game.jsx'
 import './stylesheets/index.css'
-
-console.log('gday bruv')
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}></Route>
+        <Route path='/game' element={<Game />}></Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 )

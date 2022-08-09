@@ -57,6 +57,7 @@ main {
   height: 20rem;
   background: #b8c1ec;
   border-radius: 10px;
+  border: 3px solid #eebbc3;
 }
 
 .loginForm {
@@ -80,15 +81,15 @@ main {
   font-size: large;
   width: 100%;
   margin-top: 20px;
-  background-color: transparent;
-  color: #232946;
+  background-color: #232946;
+  color: #eebbc3;
   white-space: nowrap;
 }
 
 .loginButton:hover {
-  color: #eebbc3;
-  background-color: #232946;
-  box-shadow: 0px 0px 10px 2px #eebbc3;
+  color: #232946;
+  background-color: #eebbc3;
+  box-shadow: 0px 0px 10px 2px #232946;
   transition: 0.3s ease-in;
 }
 
@@ -112,4 +113,11 @@ main {
 #password::placeholder {
   color: #232946;
   font-size: 1.2rem;
+}
+
+#loginHelper {
+  color: #232946;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+
 }

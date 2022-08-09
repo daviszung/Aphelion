@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express'
 import { apiRouter } from './routes/api.js'
+import cors from 'cors'
 
 const app = express();
 // const apiRouter = require('./routes/api.js');
@@ -9,6 +10,7 @@ const PORT = 3000;
 /**
  * handle parsing request body
  */
+ app.use(cors())
  app.use(express.json());
  app.use(express.urlencoded({ extended: true }));
 
