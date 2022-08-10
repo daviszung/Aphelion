@@ -86,6 +86,7 @@ async function signup() {
   }
 }
 
+
 function App() {
   let navigate = useNavigate();
   const [toggleState, setToggleState] = useState('login')
@@ -93,14 +94,22 @@ function App() {
     <div className="App">
       <main>
         <h1 className='headline'>Idle Game Title</h1>
-        <div className='container' style={toggleState === 'signup' ? {height: "25rem"} : {height: '20rem'}}>
+        <div className='container'>
           <label id='toggleSwitch' onClick={() => {
-            if (toggleState === 'login') {setToggleState('signup')} 
-            else {setToggleState('login')}
-            }
-          }>
-            <span className={toggleState === 'signup' ? 'loginToggleOff' : 'loginToggleOn'}>Login</span>
-            <span className={toggleState === 'signup' ? 'signupToggleOn' : 'signupToggleOff'}>Signup</span>
+            setTimeout(() => {
+              if (toggleState === 'login') {
+                setToggleState('signup')} 
+              else {
+                setToggleState('login')
+              }
+              
+            }, 0)
+          }}>
+            <input type='checkbox'></input>
+            <span className='slider'>
+              <span id='loginText'>Login</span>
+              <span id='signupText'>Signup</span>
+            </span>
           </label>
           <Login navigate={navigate} toggle={toggleState} signup={signup} login={login}></Login>
         </div>
