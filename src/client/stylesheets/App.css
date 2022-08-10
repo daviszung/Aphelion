@@ -55,8 +55,8 @@ main {
   justify-content: center;
   align-items: center;
   min-width: 450px;
-  min-height: 25rem;
-  height: 25rem;
+  min-height: 27rem;
+  height: 27rem;
   background: #b8c1ec;
   border-radius: 10px;
   border: 3px solid #eebbc3;
@@ -124,7 +124,7 @@ main {
 #loginHelper {
   color: #232946;
   font-size: 1.1rem;
-  margin-top: 1rem;
+  margin: auto;
 }
 
 
