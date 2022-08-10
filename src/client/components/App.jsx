@@ -95,17 +95,11 @@ function App() {
       <main>
         <h1 className='headline'>Idle Game Title</h1>
         <div className='container'>
-          <label id='toggleSwitch' onClick={() => {
-            setTimeout(() => {
-              if (toggleState === 'login') {
-                setToggleState('signup')} 
-              else {
-                setToggleState('login')
-              }
-              
-            }, 0)
-          }}>
-            <input type='checkbox'></input>
+          <label id='toggleSwitch'>
+            <input type='checkbox' onClick={() => {
+              if (toggleState === 'login') {setToggleState('signup')} 
+              else {setToggleState('login')}}}>
+            </input>
             <span className='slider'>
               <span id='loginText'>Login</span>
               <span id='signupText'>Signup</span>
