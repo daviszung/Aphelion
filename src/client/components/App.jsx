@@ -99,8 +99,8 @@ function App() {
             else {setToggleState('login')}
             }
           }>
-            <span>Login</span>
-            <span>Signup</span>
+            <span className={toggleState === 'signup' ? 'loginToggleOff' : 'loginToggleOn'}>Login</span>
+            <span className={toggleState === 'signup' ? 'signupToggleOn' : 'signupToggleOff'}>Signup</span>
           </label>
           <Login navigate={navigate} toggle={toggleState} signup={signup} login={login}></Login>
         </div>
