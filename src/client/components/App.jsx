@@ -3,6 +3,19 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Login } from './Login.jsx'
 
+function deleteAllCookies() {
+  const cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i];
+      const eqPos = cookie.indexOf("=");
+      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  }
+}
+
+deleteAllCookies();
+
+
 async function login(navigate) {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
@@ -24,6 +37,7 @@ async function login(navigate) {
     })
     response = await response.json()
     if (response.login === true) {
+      document.cookie = `username=${username}`
       navigate('/game');
     } else {
       loginHelper.innerText = response.login;
@@ -31,7 +45,6 @@ async function login(navigate) {
   }
 }
 
-// determine if a password is valid/strong
 function validPassword(password) {
   let res;
   const nums = {
@@ -96,7 +109,7 @@ async function signup() {
 
 
 function App() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [toggleState, setToggleState] = useState('login')
 
   return (
