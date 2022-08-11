@@ -25,44 +25,46 @@ async function login(navigate) {
   }
 }
 
+// determine if a password is valid/strong
+function validPassword(password) {
+  let res;
+  const nums = {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true
+  }
+  // test for password length
+  if (password.length < 8) return res = 'Password must be 8 or more characters'
+  else if (password.length > 39) return res = 'Password must be less than 40 characters'
+  // test for password has upper and lowercase characters
+  else if (password === password.toLowerCase() || password === password.toUpperCase()) {
+    return res = 'Password should contain lower and uppercase letters'
+  }
+  // test for password has a number in it
+  let hasNumber = false;
+  for (let i in password) {
+    if (nums[password[i]]) {
+      hasNumber = true;
+      break;
+    }
+  }
+  if (!hasNumber) res = 'Password should contain a number'
+  return 'valid';
+}
+
 async function signup() {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
   const confirmPassword = document.getElementById('confirmPassword').value;
   const loginHelper = document.getElementById('loginHelper')
-  // determine if a password is valid/strong
-  const validPassword = (password) => {
-    let res;
-    const nums = {
-      "0": true,
-      "1": true,
-      "2": true,
-      "3": true,
-      "4": true,
-      "5": true,
-      "6": true,
-      "7": true,
-      "8": true,
-      "9": true
-    }
-    // test for password length
-    if (password.length < 8) return res = 'Password must be 8 or more characters'
-    else if (password.length > 39) return res = 'Password must be less than 40 characters'
-    // test for password has upper and lowercase characters
-    else if (password === password.toLowerCase() || password === password.toUpperCase()) {
-      return res = 'Password should contain lower and uppercase letters'
-    }
-    // test for password has a number in it
-    let hasNumber = false;
-    for (let i in password) {
-      if (nums[password[i]]) {
-        hasNumber = true;
-        break;
-      }
-    }
-    if (!hasNumber) res = 'Password should contain a number'
-    return hasNumber ? 'valid' : res; 
-  }
+
   if (!username || !password || !confirmPassword) {
     loginHelper.innerText = 'Please fill out the required fields'
     return
@@ -90,6 +92,7 @@ async function signup() {
 function App() {
   let navigate = useNavigate();
   const [toggleState, setToggleState] = useState('login')
+
   return (
     <div className="App">
       <main>

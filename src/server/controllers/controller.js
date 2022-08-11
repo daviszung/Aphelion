@@ -1,7 +1,10 @@
 import { User } from '../models/model.js'
+import bcrypt from 'bcrypt'
+
+
+const saltRounds = 10;
 
 const controller = {};
-
 
 // Creates a new user
 controller.newUser = async function (req, res, next) {
@@ -13,9 +16,10 @@ controller.newUser = async function (req, res, next) {
     if (alreadyExists[0] && alreadyExists[0].username === username) {
       res.locals.newUsername = `An account with the name: ${username} already exists`
     } else {
-      const data = await User.create({ username: username, password: password });
+      bcrypt.hash(password, saltRounds, async function(err, hash) {
+        await User.create({ username: username, password: hash });
+      });
       res.locals.newUsername = `Created an account with the name ${username}!`
-
     }
     return next();
   }
@@ -30,28 +34,38 @@ controller.verifyUser = async function (req, res, next) {
     const { username, password } = req.body;
     if (!username && password) {
       res.locals.loginStatus = "Please enter a username"
+      return next()
     } else if (username && !password) {
       res.locals.loginStatus = "Please enter your password"
+      return next()
     } else if (!username && !password) {
       res.locals.loginStatus = "Please enter your information"
+      return next()
     }
     else {
-      const data = await User.find({username: username, password: password});
+      const data = await User.find({username: username});
       if (data.length === 0) {
-        res.locals.loginStatus = "Login Failed: No Matching Credentials"
+        res.locals.loginStatus = "Login Failed: Incorrect ID or Password"
+        return next()
       }
       else {
-        res.locals.loginStatus = true;
-        return next()
+        bcrypt.compare(password, data[0].password).then(function(result) {
+          if (result) {
+            res.locals.loginStatus = true;
+            console.log(res.locals.loginStatus)
+          } else {
+            res.locals.loginStatus = "Login Failed: Incorrect ID or Password";
+          }
+        }).then(()=> {
+          return next()
+        })
       };
     }
-    return next()
   }
   catch (err) {
     console.log(err)
     return next(err);
   }
 }
-
 
 export { controller };
