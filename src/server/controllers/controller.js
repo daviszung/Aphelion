@@ -52,7 +52,6 @@ controller.verifyUser = async function (req, res, next) {
         bcrypt.compare(password, data[0].password).then(function(result) {
           if (result) {
             res.locals.loginStatus = true;
-            console.log(res.locals.loginStatus)
           } else {
             res.locals.loginStatus = "Login Failed: Incorrect ID or Password";
           }
