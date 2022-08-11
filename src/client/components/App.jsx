@@ -7,21 +7,27 @@ async function login(navigate) {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
   const data = JSON.stringify({"username": username, "password": password})
-  let response = await fetch('http://localhost:3000/api/login', {
+  let loginHelper = document.getElementById('loginHelper');
+  if (!username && password) {
+    loginHelper.innerText = "Please enter a username"
+  } else if (username && !password) {
+    loginHelper.innerText = "Please enter your password"
+  } else if (!username && !password) {
+    loginHelper.innerText = "Please enter your information"
+  } else {
+    let response = await fetch('http://localhost:3000/api/login', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
     },
     body: data
-  })
-  response = await response.json()
-  if (response.login === true) {
-    navigate('/game');
-  } else if (!document.getElementById('loginHelper')){
-    let loginHelper = document.getElementById('loginHelper');
-    loginHelper.innerText = response.login;
-  } else {
-    loginHelper.innerText = response.login;
+    })
+    response = await response.json()
+    if (response.login === true) {
+      navigate('/game');
+    } else {
+      loginHelper.innerText = response.login;
+    }
   }
 }
 

@@ -32,37 +32,23 @@ controller.newUser = async function (req, res, next) {
 controller.verifyUser = async function (req, res, next) {
   try {
     const { username, password } = req.body;
-    if (!username && password) {
-      res.locals.loginStatus = "Please enter a username"
-      return next()
-    } else if (username && !password) {
-      res.locals.loginStatus = "Please enter your password"
-      return next()
-    } else if (!username && !password) {
-      res.locals.loginStatus = "Please enter your information"
+    const data = await User.find({username: username});
+    if (data.length === 0) {
+      res.locals.loginStatus = "Login Failed: Incorrect ID or Password"
       return next()
     }
     else {
-      const data = await User.find({username: username});
-      if (data.length === 0) {
-        res.locals.loginStatus = "Login Failed: Incorrect ID or Password"
+      bcrypt.compare(password, data[0].password).then(function(result) {
+        if (result) {
+          res.locals.loginStatus = true;
+        } else {
+          res.locals.loginStatus = "Login Failed: Incorrect ID or Password";
+        }
         return next()
-      }
-      else {
-        bcrypt.compare(password, data[0].password).then(function(result) {
-          if (result) {
-            res.locals.loginStatus = true;
-          } else {
-            res.locals.loginStatus = "Login Failed: Incorrect ID or Password";
-          }
-        }).then(()=> {
-          return next()
-        })
-      };
-    }
+      })
+    };
   }
   catch (err) {
-    console.log(err)
     return next(err);
   }
 }
