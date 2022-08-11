@@ -3,10 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-
-
 function checkIfLoggedIn(navigate) {
-  console.log('hiii')
   if (!document.cookie) {
     navigate('/')
   }
