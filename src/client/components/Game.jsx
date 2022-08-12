@@ -23,18 +23,22 @@ function checkIfLoggedIn(navigate) {
 
 function Game() {
   const navigate = useNavigate();
-  const username = checkIfLoggedIn(navigate);
-  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null); 
+
+  useEffect(() => {
+    setUser(checkIfLoggedIn(navigate))
+  })
 
   return (
     <div className="Game">
+      <header>
+        <nav className='navbar'>
+          <div className='headline'>{user}</div>
+          <button>Logout</button>
+        </nav>
+      </header>
       <main>
         <h1 className='headline'>Idle Game Title</h1>
-        <h2 className='headline'>Player name: {username}</h2>
-        <div>{count}</div>
-        <button onClick={() => {
-          setCount(count + 1)
-        }}></button>
       </main>
     </div>
   )
