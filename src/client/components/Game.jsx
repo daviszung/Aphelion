@@ -23,22 +23,36 @@ function checkIfLoggedIn(navigate) {
 
 function Game() {
   const navigate = useNavigate();
+  const date = new Date();
   const [user, setUser] = useState(null); 
+  const [time, setTime] = useState(null);
 
+  // check if user is logged in on first render
   useEffect(() => {
     setUser(checkIfLoggedIn(navigate))
-  })
+  }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(date.toLocaleTimeString())
+    }, 1001);
+    return () => clearInterval(interval);
+  },[time])
 
   return (
     <div className="Game">
       <header>
+        <h1 className='gameTitle'>Idle Game Title</h1>
         <nav className='navbar'>
-          <div className='headline'>{user}</div>
-          <button>Logout</button>
+          <ul className='navlist'>
+            <li>{user}</li>
+            <button className='logoutBtn'>Logout</button>
+          </ul>
         </nav>
       </header>
       <main>
-        <h1 className='headline'>Idle Game Title</h1>
+        <div>Date: {date.toDateString()}</div>
+        <div>Time: {time}</div>
       </main>
     </div>
   )

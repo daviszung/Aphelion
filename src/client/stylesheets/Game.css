@@ -1,0 +1,59 @@
+.Game {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  height: 5%;
+  width: 100%;
+  background-color: #eebbc3;
+}
+
+nav {
+  display: flex;
+  width: 44%;
+  height: 100%;
+  justify-content: flex-end;
+}
+.navlist {
+  display: flex;
+  height: 100%;
+  width: 30%;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
+
+nav ul li {
+  color: #fffffe;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 2px 2px #232946;
+}
+
+.logoutBtn {
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #232946;
+  border-radius: 10px;
+  border: 2px solid #fffffe;
+  color: #fffffe;
+  font-weight: 600;
+}
+
+.gameTitle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 56%;
+  color: #fffffe;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px #232946;
+}
+
+main {
+  height: 95%;
+  width: auto;
+}
