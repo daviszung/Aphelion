@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Login } from './Login.jsx'
 
-function deleteAllCookies() {
+export function deleteAllCookies() {
   const cookies = document.cookie.split(";");
   for (var i = 0; i < cookies.length; i++) {
       const cookie = cookies[i];

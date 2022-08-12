@@ -1,6 +1,7 @@
 import '../stylesheets/Game.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { deleteAllCookies } from './App.jsx'
 
 
 function checkIfLoggedIn(navigate) {
@@ -30,7 +31,7 @@ function Game() {
   // check if user is logged in on first render
   useEffect(() => {
     setUser(checkIfLoggedIn(navigate))
-  }, [])
+  }, [document.cookie])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,7 +47,9 @@ function Game() {
         <nav className='navbar'>
           <ul className='navlist'>
             <li>{user}</li>
-            <button className='logoutBtn'>Logout</button>
+            <button className='logoutBtn' onClick={() => {
+              deleteAllCookies()
+            }}>Logout</button>
           </ul>
         </nav>
       </header>
