@@ -53,4 +53,17 @@ controller.verifyUser = async function (req, res, next) {
   }
 }
 
+// get user object
+controller.getUser = async function (req, res, next) {
+  try {
+    const { username } = req.body;
+    const data = await User.find({username: username})
+    res.locals.userObject = data[0];
+    return next()
+  }
+  catch (err) {
+    return next(err);
+  }
+}
+
 export { controller };

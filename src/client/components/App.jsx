@@ -15,7 +15,6 @@ export function deleteAllCookies() {
 
 deleteAllCookies();
 
-
 async function login(navigate) {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
@@ -106,7 +105,6 @@ async function signup() {
     loginHelper.innerText = response.signup;
   }
 }
-
 
 function App() {
   const navigate = useNavigate();

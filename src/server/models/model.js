@@ -23,6 +23,7 @@ const userSchema = new Schema({
     unique: true
   },
   password: String,
+  bank: {}
 });
 
 const User = mongoose.model('user',userSchema);

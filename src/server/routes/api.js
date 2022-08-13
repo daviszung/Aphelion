@@ -10,6 +10,9 @@ apiRouter.post('/signup', controller.newUser, (req, res) => res.status(200).json
 // Login 
 apiRouter.post('/login', controller.verifyUser, (req, res) => res.status(200).json({"login":res.locals.loginStatus}));
 
+// Get user object
+apiRouter.post('/getUser', controller.getUser, (req, res) => res.status(200).json({"userObject":res.locals.userObject}));
+
 
 apiRouter.use('/', (req, res) => {
   console.log('Routing Error')
