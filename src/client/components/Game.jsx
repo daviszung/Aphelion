@@ -39,17 +39,27 @@ async function getUserObject(data) {
 function Game() {
   const navigate = useNavigate();
   const date = new Date();
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null)
   const [userObj, setUserObj] = useState(null);
   const [time, setTime] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('woodcutting')
 
-  // check if user is logged in on first render
+  // check if user is logged in
   useEffect(() => {
-    setUser(checkIfLoggedIn(navigate))
-    const data = JSON.stringify({"username": user});
-    setUserObj(getUserObject(data));
+    setUser(checkIfLoggedIn(navigate));
   }, [document.cookie])
+
+  useEffect(() => {
+    if (!user) {
+      return
+    }
+    const data = JSON.stringify({"username": user});
+    const requestedUserObj = getUserObject(data);
+    requestedUserObj.then((result) => {
+      setUserObj(result)
+    })
+  }, [user])
+
 
   // run a clock that updates every second
   useEffect(() => {
@@ -75,10 +85,10 @@ function Game() {
               <li>Fishing</li>
               <li>Woodcutting</li>
               <li>Mining</li>
-              <li>{userObj ? userObj.username : null}</li>
+              <li>{userObj ? userObj.username : "dogs"}</li>
             </ul>
           </div>
-          <div>{userObj ? userObj.password : null}</div>
+          <div>{userObj ? userObj.password : "frog"}</div>
         </div>
       </main>
     </div>
