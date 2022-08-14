@@ -2,6 +2,7 @@ import '../stylesheets/Game.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
+import { Header } from './Header.jsx'
 
 
 function checkIfLoggedIn() {
@@ -69,27 +70,17 @@ function Game() {
 
   return (
     <div className="Game">
-      <header>
-        <h1 className='gameTitle'>Idle Game Title</h1>
-        <nav className='navbar'>
-          <ul className='navlist'>
-            <li>{user}</li>
-            <button className='logoutBtn' onClick={deleteAllCookies}>Logout</button>
-          </ul>
-        </nav>
-      </header>
+      <Header user={user}></Header>
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
+            <div>{userObj.gold}</div>
             <ul className='skillList'>
-              <li>{user}</li>
               <li>Fishing</li>
               <li>Woodcutting</li>
               <li>Mining</li>
-              <li>hello ?{userObj.username}</li>
             </ul>
           </div>
-          <div>{userObj ? userObj.password : "frog"}</div>
         </div>
       </main>
     </div>

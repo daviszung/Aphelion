@@ -2,6 +2,16 @@ import { User } from '../models/model.js'
 import bcrypt from 'bcrypt'
 
 
+// create a newUser object
+function createNewUserObject(username, password){
+  return {
+    username: username,
+    password: password,
+    gold: 0,
+    bank: {}
+  }
+}
+
 const saltRounds = 10;
 
 const controller = {};
@@ -17,7 +27,8 @@ controller.newUser = async function (req, res, next) {
       res.locals.newUsername = `An account with the name: ${username} already exists`
     } else {
       bcrypt.hash(password, saltRounds, async function(err, hash) {
-        await User.create({ username: username, password: hash });
+        await User.create(createNewUserObject(username, hash));
+        
       });
       res.locals.newUsername = `Created an account with the name ${username}!`
     }
