@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 
 
-function checkIfLoggedIn(navigate) {
+function checkIfLoggedIn() {
   if (!document.cookie) {
-    navigate('/')
+    return false;
   }
   const decodedCookie = decodeURIComponent(document.cookie);
   const ca = decodedCookie.split(';');
@@ -19,47 +19,48 @@ function checkIfLoggedIn(navigate) {
       return c.substring('username='.length, c.length);
     }
   }
-  return navigate('/');
+  return false;
 }
 
-async function getUserObject(data) {
-  console.log(data)
-
-  let response = await fetch('http://localhost:3000/api/getUser', {
-  method: 'POST',
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: data
-})
-  response = await response.json()
-  return response;
-}
 
 function Game() {
   const navigate = useNavigate();
   const date = new Date();
-  const [user, setUser] = useState(null)
-  const [userObj, setUserObj] = useState(null);
+  const [user, setUser] = useState(() => {
+    const username = checkIfLoggedIn();
+    return username;
+  });
+  const [userObj, setUserObj] = useState( async () => {
+    const myObj = await getUserObject()
+    return myObj;
+  });
   const [time, setTime] = useState(null);
-  const [selectedSkill, setSelectedSkill] = useState('woodcutting')
+  const [selectedSkill, setSelectedSkill] = useState('woodcutting');
+
+
+  async function getUserObject() {
+    const data = JSON.stringify({"username": user});
+    
+    let response = await fetch('http://localhost:3000/api/getUser', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: data
+  })
+    response = await response.json()
+    setUserObj(response["userObject"])
+    return response;
+  }
+  
 
   // check if user is logged in
   useEffect(() => {
-    setUser(checkIfLoggedIn(navigate));
-  }, [document.cookie])
-
-  useEffect(() => {
-    if (!user) {
-      return
+    setUser(checkIfLoggedIn())
+    if(!user){
+      navigate('/')
     }
-    const data = JSON.stringify({"username": user});
-    const requestedUserObj = getUserObject(data);
-    requestedUserObj.then((result) => {
-      setUserObj(result)
-    })
-  }, [user])
-
+  }, [document.cookie, user])
 
   // run a clock that updates every second
   useEffect(() => {
@@ -85,7 +86,7 @@ function Game() {
               <li>Fishing</li>
               <li>Woodcutting</li>
               <li>Mining</li>
-              <li>{userObj ? userObj.username : "dogs"}</li>
+              <li>hello ?{userObj.username}</li>
             </ul>
           </div>
           <div>{userObj ? userObj.password : "frog"}</div>
