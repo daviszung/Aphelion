@@ -60,6 +60,9 @@ function Game() {
 
   // check if user is logged in
   useEffect(() => {
+    if (!document.cookie) {
+      navigate('/')
+    }
     setUser(checkIfLoggedIn())
     if(!user){
       navigate('/')
