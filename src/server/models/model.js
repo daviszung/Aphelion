@@ -23,8 +23,31 @@ const userSchema = new Schema({
     unique: true
   },
   password: String,
-  gold: 0,
-  bank: {}
+  gold: Number,
+  bankSpace: Number,
+  maxBankSpace: Number,
+  bank: {},
+  levels: {
+    combat: Number,
+    attack: {exp: Number, current: Number, level: Number},
+    strength: {exp: Number, current: Number, level: Number},
+    defence: {exp: Number, current: Number, level: Number},
+    hitpoints: {exp: Number, current: Number, level: Number},
+    ranged: {exp: Number, current: Number, level: Number},
+    magic: {exp: Number, current: Number, level: Number},
+    prayer: {exp: Number, current: Number, level: Number},
+    woodcutting: {exp: Number, current: Number, level: Number},
+    fishing: {exp: Number, current: Number, level: Number},
+    firemaking: {exp: Number, current: Number, level: Number},
+    cooking: {exp: Number, current: Number, level: Number},
+    mining: {exp: Number, current: Number, level: Number},
+    smithing: {exp: Number, current: Number, level: Number},
+    thieving: {exp: Number, current: Number, level: Number},
+    fletching: {exp: Number, current: Number, level: Number},
+    crafting: {exp: Number, current: Number, level: Number},
+    runecrafting: {exp: Number, current: Number, level: Number},
+    herblore: {exp: Number, current: Number, level: Number}
+  }
 }, {minimize: false});
 
 const User = mongoose.model('user',userSchema);

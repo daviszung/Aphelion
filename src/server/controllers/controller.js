@@ -8,7 +8,30 @@ function createNewUserObject(username, password){
     username: username,
     password: password,
     gold: 0,
-    bank: {}
+    bankSpace: 0,
+    maxBankSpace: 10,
+    bank: {},
+    levels: {
+      combat: 1,
+      attack: {exp: 0, current: 1, level: 1},
+      strength: {exp: 0, current: 1, level: 1},
+      defence: {exp: 0, current: 1, level: 1},
+      hitpoints: {exp: 0, current: 1, level: 1},
+      ranged: {exp: 0, current: 1, level: 1},
+      magic: {exp: 0, current: 1, level: 1},
+      prayer: {exp: 0, current: 1, level: 1},
+      woodcutting: {exp: 0, current: 1, level: 1},
+      fishing: {exp: 0, current: 1, level: 1},
+      firemaking: {exp: 0, current: 1, level: 1},
+      cooking: {exp: 0, current: 1, level: 1},
+      mining: {exp: 0, current: 1, level: 1},
+      smithing: {exp: 0, current: 1, level: 1},
+      thieving: {exp: 0, current: 1, level: 1},
+      fletching: {exp: 0, current: 1, level: 1},
+      crafting: {exp: 0, current: 1, level: 1},
+      runecrafting: {exp: 0, current: 1, level: 1},
+      herblore: {exp: 0, current: 1, level: 1}
+    }
   }
 }
 

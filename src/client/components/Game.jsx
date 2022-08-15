@@ -74,11 +74,13 @@ function Game() {
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
-            <div>{userObj.gold}</div>
+            <div className='sidebarItem'><button id='shopBtn'><p>Shop</p>{userObj.gold + 'g'}</button></div>
+            <div className='sidebarItem'><button id='bankBtn'><p>Bank</p>{userObj.bankSpace + '/' + userObj.maxBankSpace}</button></div>
+
             <ul className='skillList'>
-              <li>Fishing</li>
-              <li>Woodcutting</li>
-              <li>Mining</li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><p>Woodcutting</p>{userObj && userObj.levels ?  userObj.levels.woodcutting.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{userObj && userObj.levels ?  userObj.levels.fishing.current + '/99': null}</button></li>
+
             </ul>
           </div>
         </div>
