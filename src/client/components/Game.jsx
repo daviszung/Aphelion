@@ -74,15 +74,17 @@ function Game() {
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
-            <div className='sidebarItem'><button id='shopBtn'><p>Shop</p>{userObj.gold + 'g'}</button></div>
-            <div className='sidebarItem'><button id='bankBtn'><p>Bank</p>{userObj.bankSpace + '/' + userObj.maxBankSpace}</button></div>
-
+            <div className='sidebarItem'><button className='skillBtn'><p>Shop</p>{userObj.gold + 'g'}</button></div>
+            <div className='sidebarItem'><button className='skillBtn'><p>Bank</p>{userObj.bankSpace + '/' + userObj.maxBankSpace}</button></div>
             <ul className='skillList'>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><p>Woodcutting</p>{userObj && userObj.levels ?  userObj.levels.woodcutting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{userObj && userObj.levels ?  userObj.levels.fishing.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{userObj && userObj.levels ?  userObj.levels.firemaking.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{userObj && userObj.levels ?  userObj.levels.cooking.current + '/99': null}</button></li>
 
             </ul>
           </div>
+          <div style={{color: 'white', borderLeft: '1px solid #b8c1ec'}}>{selectedSkill}</div>
         </div>
       </main>
     </div>
