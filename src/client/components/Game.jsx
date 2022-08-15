@@ -2,8 +2,11 @@ import '../stylesheets/Game.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
-import { Header } from './Header.jsx'
 
+// Components
+import { Header } from './Header.jsx'
+import { Woodcutting } from './Woodcutting.jsx'
+import { Fishing } from './Fishing'
 
 function checkIfLoggedIn() {
   if (!document.cookie) {
@@ -84,7 +87,7 @@ function Game() {
 
             </ul>
           </div>
-          <div style={{color: 'white', borderLeft: '1px solid #b8c1ec'}}>{selectedSkill}</div>
+          {selectedSkill === 'woodcutting' ? <Woodcutting/> : selectedSkill === 'fishing' ? <Fishing/> : <div>No skill selected</div>}
         </div>
       </main>
     </div>
