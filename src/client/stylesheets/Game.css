@@ -118,3 +118,9 @@ main {
   background: #eebbc3;
   text-shadow: 1px 1px #232946;
 }
+
+
+.actionBtn {
+  cursor: pointer;
+  background: #b8c1ec;
+}

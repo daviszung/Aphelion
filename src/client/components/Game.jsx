@@ -27,9 +27,10 @@ function checkIfLoggedIn() {
 }
 
 
+
+
 function Game() {
   const navigate = useNavigate();
-  const date = new Date();
   const [user, setUser] = useState(() => {
     const username = checkIfLoggedIn();
     return username;
@@ -38,9 +39,16 @@ function Game() {
     const myObj = await getUserObject()
     return myObj;
   });
-  const [time, setTime] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState('woodcutting');
 
+  // functions
+  function displaySkillMenu(selected) {
+    if (selected === 'woodcutting') {
+      return (<Woodcutting userObj={userObj} setUserObj={(input) => {setUserObj(input)}}/>)
+    } else if (selected === 'fishing') {
+      return (<Fishing/>)
+    }
+  }
 
   async function getUserObject() {
     const data = JSON.stringify({"username": user});
@@ -69,14 +77,16 @@ function Game() {
     }
   }, [document.cookie, user])
 
-  // run a clock that updates every second
-  useEffect(() => {
-    setTimeout(() => {setTime(date.toLocaleTimeString())}, 1001);
-  },[time])
+  // test for later
+  // useEffect(() => {
+  //   console.log('in the game component: ', userObj)
+  // })
+
+
 
   return (
     <div className="Game">
-      <Header user={user}></Header>
+      <Header user={user} deleteAllCookies={deleteAllCookies} navigate={navigate}></Header>
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
@@ -87,10 +97,9 @@ function Game() {
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{userObj && userObj.levels ?  userObj.levels.fishing.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{userObj && userObj.levels ?  userObj.levels.firemaking.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{userObj && userObj.levels ?  userObj.levels.cooking.current + '/99': null}</button></li>
-
             </ul>
           </div>
-          {selectedSkill === 'woodcutting' ? <Woodcutting/> : selectedSkill === 'fishing' ? <Fishing/> : <div>No skill selected</div>}
+          {displaySkillMenu(selectedSkill)}
         </div>
       </main>
     </div>
