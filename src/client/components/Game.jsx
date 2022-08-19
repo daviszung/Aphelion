@@ -44,7 +44,7 @@ function Game() {
   // functions
   function displaySkillMenu(selected) {
     if (selected === 'woodcutting') {
-      return (<Woodcutting userObj={userObj} setUserObj={(input) => {setUserObj(input)}}/>)
+      return (<Woodcutting userObj={userObj} setUserObj={setUserObj} />)
     } else if (selected === 'fishing') {
       return (<Fishing/>)
     }
@@ -78,9 +78,10 @@ function Game() {
   }, [document.cookie, user])
 
   // test for later
-  // useEffect(() => {
-  //   console.log('in the game component: ', userObj)
-  // })
+  useEffect(() => {
+    console.log('any rerender of game')
+    // console.log('in the game component: ', userObj)
+  })
 
 
 

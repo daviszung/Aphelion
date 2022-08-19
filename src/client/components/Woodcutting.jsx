@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function Woodcutting(props) {
   const [selectedActive, setSelectedActive] = useState(null);
 
-  function cutWood(woodtype) {
+  async function cutWood(woodtype) {
     const copyObj = props.userObj;
     console.log(props.userObj.levels.woodcutting.exp)
 
@@ -13,8 +13,14 @@ export function Woodcutting(props) {
       copyObj.bank[woodtype] = 1;
     }
     copyObj.levels.woodcutting.exp += 10;
-    props.setUserObj(...current => copyObj)
+    console.log("copy: ", copyObj)
+    await props.setUserObj(copyObj)
+    console.log(props.userObj)
   }
+
+  useEffect(() => {
+    console.log('any rerender of woodcutting')
+  })
 
   return (
     <div>
@@ -24,7 +30,7 @@ export function Woodcutting(props) {
         <div>Normal Tree</div>
         <div>10xp / 1 seconds</div>
       </button>
-      <div>{props.userObj && props.userObj.bank ? props.userObj.levels.woodcutting.exp : null}</div>
+      <div style={{color: 'white'}}>{props.userObj && props.userObj.bank ? props.userObj.levels.woodcutting.exp : null}</div>
     </div>
   )
 }
