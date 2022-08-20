@@ -34,7 +34,6 @@ export function Woodcutting(props) {
         <div>10xp / 1 seconds</div>
       </button>
       <div style={{color: 'white'}}>{props.state.userObj ? props.state.userObj.levels.woodcutting.exp : null}</div>
-      <div style={{color: 'white'}}>{props.state.userobj ? props.state.userObj.level.woodcutting.level : null}</div>
     </div>
   )
 }
