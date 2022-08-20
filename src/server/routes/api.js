@@ -13,6 +13,9 @@ apiRouter.post('/login', controller.verifyUser, (req, res) => res.status(200).js
 // Get user object
 apiRouter.post('/getUser', controller.getUser, (req, res) => res.status(200).json({"userObject":res.locals.userObject}));
 
+// Update user object
+apiRouter.patch('/updateUser', controller.updateUser, (req, res) => res.status(200).send({"result" : "Success"}));
+
 
 apiRouter.use('/', (req, res) => {
   console.log('Routing Error')
