@@ -1,5 +1,5 @@
 import '../stylesheets/Game.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 
@@ -26,6 +26,17 @@ function checkIfLoggedIn() {
   return false;
 }
 
+const reducer = (state, action) => {
+  switch(action.type) {
+    case 'Initial':
+      return {...state, userObj: action.obj}
+    case 'Normal Log':
+      console.log(state)
+      return {...state, userObj: action.updatedObj}
+    default:
+      throw new Error()
+  } 
+}
 
 
 
@@ -35,16 +46,17 @@ function Game() {
     const username = checkIfLoggedIn();
     return username;
   });
-  const [userObj, setUserObj] = useState( async () => {
-    const myObj = await getUserObject()
-    return myObj;
-  });
+  // const [userObj, setUserObj] = useState( async () => {
+  //   return await getUserObject()
+  // });
+
+  const [state, dispatch] = useReducer(reducer, {selectedSkill: 'woodcutting'})
   const [selectedSkill, setSelectedSkill] = useState('woodcutting');
 
   // functions
   function displaySkillMenu(selected) {
     if (selected === 'woodcutting') {
-      return (<Woodcutting userObj={userObj} setUserObj={setUserObj} />)
+      return (<Woodcutting state={state} dispatch={dispatch} />)
     } else if (selected === 'fishing') {
       return (<Fishing/>)
     }
@@ -61,10 +73,15 @@ function Game() {
     body: data
   })
     response = await response.json()
-    setUserObj(response["userObject"])
-    return response;
+    // setUserObj(response["userObject"])
+    dispatch({type: 'Initial', obj: response.userObject}) 
+    return response.userObject;
   }
   
+  useEffect(() => {
+    getUserObject()
+  }, [])
+
 
   // check if user is logged in
   useEffect(() => {
@@ -80,6 +97,7 @@ function Game() {
   // test for later
   useEffect(() => {
     console.log('any rerender of game')
+    console.log(state)
     // console.log('in the game component: ', userObj)
   })
 
@@ -91,13 +109,13 @@ function Game() {
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
-            <div className='sidebarItem'><button className='skillBtn'><p>Shop</p>{userObj.gold + 'g'}</button></div>
-            <div className='sidebarItem'><button className='skillBtn'><p>Bank</p>{userObj.bankSpace + '/' + userObj.maxBankSpace}</button></div>
+            <div className='sidebarItem'><button className='skillBtn'><p>Shop</p>{state && state.userObj ? state.userObj.gold + 'g' : null}</button></div>
+            <div className='sidebarItem'><button className='skillBtn'><p>Bank</p>{state && state.userObj ? state.userObj.bankSpace + '/' + state.userObj.maxBankSpace : null}</button></div>
             <ul className='skillList'>
-              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><p>Woodcutting</p>{userObj && userObj.levels ?  userObj.levels.woodcutting.current + '/99': null}</button></li>
-              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{userObj && userObj.levels ?  userObj.levels.fishing.current + '/99': null}</button></li>
-              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{userObj && userObj.levels ?  userObj.levels.firemaking.current + '/99': null}</button></li>
-              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{userObj && userObj.levels ?  userObj.levels.cooking.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><p>Woodcutting</p>{state.userObj && state.userObj.levels ? state.userObj.levels.woodcutting.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
+              {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{userObj && userObj.levels ?  userObj.levels.firemaking.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{userObj && userObj.levels ?  userObj.levels.cooking.current + '/99': null}</button></li> */}
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}
