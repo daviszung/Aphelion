@@ -30,8 +30,7 @@ const reducer = (state, action) => {
   switch(action.type) {
     case 'Initial':
       return {...state, userObj: action.obj}
-    case 'Normal Log':
-      console.log(state)
+    case 'update':
       return {...state, userObj: action.updatedObj}
     default:
       throw new Error()
@@ -46,11 +45,8 @@ function Game() {
     const username = checkIfLoggedIn();
     return username;
   });
-  // const [userObj, setUserObj] = useState( async () => {
-  //   return await getUserObject()
-  // });
 
-  const [state, dispatch] = useReducer(reducer, {selectedSkill: 'woodcutting'})
+  const [state, dispatch] = useReducer(reducer, {})
   const [selectedSkill, setSelectedSkill] = useState('woodcutting');
 
   // functions
@@ -73,15 +69,14 @@ function Game() {
     body: data
   })
     response = await response.json()
-    // setUserObj(response["userObject"])
     dispatch({type: 'Initial', obj: response.userObject}) 
-    return response.userObject;
+    return;
   }
   
+  // Effects
   useEffect(() => {
     getUserObject()
   }, [])
-
 
   // check if user is logged in
   useEffect(() => {
@@ -94,23 +89,14 @@ function Game() {
     }
   }, [document.cookie, user])
 
-  // test for later
-  useEffect(() => {
-    console.log('any rerender of game')
-    console.log(state)
-    // console.log('in the game component: ', userObj)
-  })
-
-
-
   return (
     <div className="Game">
       <Header user={user} deleteAllCookies={deleteAllCookies} navigate={navigate}></Header>
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
-            <div className='sidebarItem'><button className='skillBtn'><p>Shop</p>{state && state.userObj ? state.userObj.gold + 'g' : null}</button></div>
-            <div className='sidebarItem'><button className='skillBtn'><p>Bank</p>{state && state.userObj ? state.userObj.bankSpace + '/' + state.userObj.maxBankSpace : null}</button></div>
+            <div className='sidebarItem'><button className='skillBtn'><p>Shop</p>{state.userObj ? state.userObj.gold + 'g' : null}</button></div>
+            <div className='sidebarItem'><button className='skillBtn'><p>Bank</p>{state.userObj ? state.userObj.bankSpace + '/' + state.userObj.maxBankSpace : null}</button></div>
             <ul className='skillList'>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><p>Woodcutting</p>{state.userObj && state.userObj.levels ? state.userObj.levels.woodcutting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
