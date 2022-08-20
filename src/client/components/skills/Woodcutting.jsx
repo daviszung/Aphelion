@@ -1,28 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { expTable } from '../../expTable.jsx'
 
 
 export function Woodcutting(props) {
   const [selectedActive, setSelectedActive] = useState(null);
 
-  async function cutWood(woodtype) {
+  function cutWood(woodtype) {
     const copyObj = props.state.userObj;
 
+    // add logs to the bank
     if (copyObj.bank[woodtype] && copyObj.bankSpace <= copyObj.maxBankSpace) {
       copyObj.bank[woodtype] += 1;
     } else if (!copyObj.bank[woodtype] && copyObj.bankSpace < copyObj.maxBankSpace){
       copyObj.bank[woodtype] = 1;
     }
+
+    // add experience and potentially level up
     copyObj.levels.woodcutting.exp += 10;
     if (copyObj.levels.woodcutting.exp >= expTable[copyObj.levels.woodcutting.level + 1]) {
-      console.log('level up')
       copyObj.levels.woodcutting.level += 1; 
       copyObj.levels.woodcutting.current += 1;
-      console.log(copyObj.bank)
     }
+
+    // dispatch and update state
     props.dispatch({type: 'update', updatedObj: copyObj})
     return;
   }
+
+  useEffect(() => {
+    if (!selectedActive) return;
+    setTimeout()
+  }, [selectedActive])
 
   return (
     <div className='woodcuttingSkillContainer'>
@@ -33,9 +41,7 @@ export function Woodcutting(props) {
         <div>Normal Tree</div>
         <div>10xp / 1 seconds</div>
       </button>
-      <div style={{color: 'white'}}>{props.state.userObj ? props.state.userObj.levels.woodcutting.exp : null}</div>
-      <div style={{color: 'white'}}>{props.state.userObj ? props.state.userObj.levels.woodcutting.level : null}</div>
-      
+      <div style={{color: 'white'}}>{props.state.userObj ? props.state.userObj.levels.woodcutting.exp : null}</div>      
     </div>
   )
 }

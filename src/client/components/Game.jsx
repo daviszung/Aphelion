@@ -110,6 +110,7 @@ function Game() {
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
               {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.firemaking.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.cooking.current + '/99': null}</button></li> */}
+              <li>Game Clock: </li>
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}
