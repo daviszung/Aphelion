@@ -121,6 +121,37 @@ main {
 
 
 .actionBtn {
+  height: 18rem;
+  width: 20rem;
   cursor: pointer;
   background: #b8c1ec;
+  border: 1rem 0 solid #232946;
+  color: #232946;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+
+.woodcuttingSkillContainer {
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30px 1fr 1fr 1fr;
+  grid-row-gap: 50px;
+  grid-column-gap: 50px;
+}
+
+.expBar {
+  grid-row: 1 / 1;
+  grid-column: 1 / 5;
+  border: 2px solid #eebbc3;
+}
+
+.woodcuttingExp {
+  
+}
+
+#normalLogBtn {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
 }

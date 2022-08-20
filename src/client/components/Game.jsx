@@ -5,8 +5,8 @@ import { deleteAllCookies } from './App.jsx'
 
 // Components
 import { Header } from './Header.jsx'
-import { Woodcutting } from './Woodcutting.jsx'
-import { Fishing } from './Fishing'
+import { Woodcutting } from './skills/Woodcutting.jsx'
+import { Fishing } from './skills/Fishing'
 
 function checkIfLoggedIn() {
   if (!document.cookie) {
@@ -51,10 +51,18 @@ function Game() {
 
   // functions
   function displaySkillMenu(selected) {
-    if (selected === 'woodcutting') {
-      return (<Woodcutting state={state} dispatch={dispatch} />)
-    } else if (selected === 'fishing') {
-      return (<Fishing/>)
+    switch(selected){
+      case 'woodcutting':
+        return <Woodcutting state={state} dispatch={dispatch} />;
+      case 'fishing':
+        return <Fishing/>;
+      case 'firemaking':
+        return <Firemaking/>;
+      case 'cooking':
+        return <Cooking/>;
+      
+      default:
+        throw new Error()
     }
   }
 
@@ -100,8 +108,8 @@ function Game() {
             <ul className='skillList'>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><p>Woodcutting</p>{state.userObj && state.userObj.levels ? state.userObj.levels.woodcutting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
-              {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{userObj && userObj.levels ?  userObj.levels.firemaking.current + '/99': null}</button></li>
-              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{userObj && userObj.levels ?  userObj.levels.cooking.current + '/99': null}</button></li> */}
+              {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.firemaking.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.cooking.current + '/99': null}</button></li> */}
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}
