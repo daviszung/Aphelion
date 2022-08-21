@@ -129,16 +129,12 @@ function Game() {
         <div className='mainGrid'>
           <div className='sidebar'>
             <div className='sidebarItem'><button className='skillBtn'><p>Shop</p>{state.userObj ? state.userObj.gold + 'g' : null}</button></div>
-            <div className='sidebarItem'><button className='skillBtn'><p>Bank</p>{state.userObj ? state.userObj.bankSpace + '/' + state.userObj.maxBankSpace : null}</button></div>
+            <div className='sidebarItem'><button className='skillBtn'><p>Bank</p>{state.userObj ? Object.keys(state.userObj.bankSpace).length + '/' + state.userObj.maxBankSpace : null}</button></div>
             <ul className='skillList'>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><p>Woodcutting</p>{state.userObj && state.userObj.levels ? state.userObj.levels.woodcutting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
               {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.firemaking.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.cooking.current + '/99': null}</button></li> */}
-              <li onClick={() => {
-                const body = JSON.stringify(state.userObj)
-                updateUserInDB(body)
-                }}>Save Game</li>
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}
