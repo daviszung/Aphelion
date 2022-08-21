@@ -60,6 +60,7 @@ function Game() {
   });
   const [state, dispatch] = useReducer(reducer, {})
   const [selectedSkill, setSelectedSkill] = useState(null);
+  const [timerStart, setTimerStart] = useState(null);
 
   // functions
   function displaySkillMenu(selected) {
@@ -110,13 +111,13 @@ function Game() {
     }
   }, [document.cookie, user]);
 
-  // autosave timer (starts/resets whenever a skill is selected)
+  // autosave timer saves every x seconds, resets timer when changing skill menu
   useEffect(() => {
     if (state && state["userObj"]) {
       const timer = setInterval(() => {
         const body = JSON.stringify(state.userObj)
         updateUserInDB(body)
-      }, 30000)
+      }, 20000)
       return () => clearInterval(timer);
     }
   }, [selectedSkill]);

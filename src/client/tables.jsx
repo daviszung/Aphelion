@@ -29,4 +29,16 @@ export const expTable = {
   '28': 10824,
   '29': 12031,
   '30': 13363,
+};
+
+export const woodExpValues = {
+  'Normal Log': 10
+};
+
+export const woodGoldValues = {
+  'Normal Log': 1,
+};
+
+export const woodTimeValues = {
+  'Normal Log': 3000,
 }
