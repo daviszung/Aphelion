@@ -96,6 +96,12 @@ main {
   color: #fffffe;
 }
 
+.sidebarIcon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
 #noSelectedSkill {
   color: #fffffe;
   width: 100%;
@@ -115,8 +121,8 @@ main {
 
 .skillBtn {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;
   width: 100%;
@@ -124,25 +130,38 @@ main {
   border: 0px;
   background: #232946;
   color: #fffffe;
-  font-size: 1rem; 
+  text-rendering: optimizeLegibility;
   transition: .4s ease-in-out;
 }
 
 .skillBtn:hover {
   color: #232946;
   background: #eebbc3;
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+
+.flexGrouper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .actionBtn {
-  height: 18rem;
-  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 17rem;
+  width: 100%;
   cursor: pointer;
-  background: #b8c1ec;
-  border: 1rem 0 solid #232946;
-  color: #232946;
+  background: #232946;
+  border: 0px solid #158d6d;
+  border-top: 4px solid #158d6d;
+  color: #158d6d;
   font-size: 1.2rem;
   border-radius: 5px;
+  box-shadow: 5px 5px 8px black;
 }
 
 .woodcuttingSkillContainer {
@@ -162,6 +181,11 @@ main {
 }
 
 #normalLogBtn {
-  grid-row: 3 / 4;
-  grid-column: 2 / 3;
+  grid-row: 3 / 3;
+  grid-column: 1 / 1;
+}
+
+.treeImages {
+  height: 100px;
+  width: 100px;
 }

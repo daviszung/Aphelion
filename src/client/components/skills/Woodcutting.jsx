@@ -52,6 +52,7 @@ export function Woodcutting(props) {
         setSelectedActive('Normal Log')}}>
         <div>Normal Tree</div>
         <div>10xp / 3 seconds</div>
+        <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/normal_tree.svg'></img>
       </button>
       <div style={{color: 'white'}}>{props.state.userObj ? props.state.userObj.levels.woodcutting.exp : null}</div>      
     </div>
