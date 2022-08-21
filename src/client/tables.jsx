@@ -31,17 +31,17 @@ export const expTable = {
   '30': 13363,
 };
 
-export const woodExpValues = {
+export const actionExpValues = {
   'Normal Log': 10,
   'Oak Log': 15,
 };
 
-export const woodGoldValues = {
+export const itemGoldValues = {
   'Normal Log': 1,
   'Oak Log': 5,
 };
 
-export const woodTimeValues = {
+export const actionTimeValues = {
   'Normal Log': 3000,
   'Oak Log': 4000
 }

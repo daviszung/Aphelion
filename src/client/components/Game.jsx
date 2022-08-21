@@ -1,7 +1,10 @@
 import '../stylesheets/Game.css'
-import { useState, useEffect, useReducer, useRef } from 'react'
+import { useState, useEffect, useReducer, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
+import { actionTimeValues } from '../tables.jsx'
+import { cutWood } from '../actions.jsx'
+
 
 // Components
 import { Header } from './Header.jsx'
@@ -60,20 +63,25 @@ function Game() {
   });
   const [state, dispatch] = useReducer(reducer, {})
   const [selectedSkill, setSelectedSkill] = useState(null);
+  const [selectedAction, setSelectedAction] = useState(null);
 
   // functions
   function displaySkillMenu(selected) {
     switch(selected){
       case null:
-        return <div id='noSelectedSkill'>Welcome</div>
+        return <div id='noSelectedSkill'>Welcome</div>;
+      case 'shop':
+        return <Shop />;
+      case 'bank':
+        return <Bank />;
       case 'woodcutting':
-        return <Woodcutting state={state} dispatch={dispatch} />;
+        return <Woodcutting state={state} dispatch={dispatch} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
       case 'fishing':
-        return <Fishing/>;
+        return <Fishing />;
       case 'firemaking':
-        return <Firemaking/>;
+        return <Firemaking />;
       case 'cooking':
-        return <Cooking/>;
+        return <Cooking />;
       default:
         throw new Error()
     }
@@ -120,6 +128,20 @@ function Game() {
       return () => clearInterval(timer);
     }
   }, [selectedSkill]);
+
+  // set global interval for action
+  useEffect(() => {
+    let action;
+    if (selectedAction === null) clearInterval(action);
+    else {
+      action = setInterval(() => {
+        if (selectedAction.includes('Log')) {
+          cutWood(selectedAction, state, dispatch)
+        }
+      }, actionTimeValues[selectedAction])
+    } 
+    return () => clearInterval(action);
+  }, [selectedAction])
 
   return (
     <div className="Game">
