@@ -60,13 +60,12 @@ function Game() {
   });
   const [state, dispatch] = useReducer(reducer, {})
   const [selectedSkill, setSelectedSkill] = useState(null);
-  const [timerStart, setTimerStart] = useState(null);
 
   // functions
   function displaySkillMenu(selected) {
     switch(selected){
       case null:
-        return <div id='noSelectedSkill'>No selected Skill</div>
+        return <div id='noSelectedSkill'>Welcome</div>
       case 'woodcutting':
         return <Woodcutting state={state} dispatch={dispatch} />;
       case 'fishing':
