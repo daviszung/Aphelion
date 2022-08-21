@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react'
 import { expTable, woodExpValues, woodTimeValues } from '../../tables.jsx'
 
 
-
-// need a function that sets an interval to call cutWood every x ms
-
-
 export function Woodcutting(props) {
   const [selectedActive, setSelectedActive] = useState(null);
 
@@ -17,6 +13,7 @@ export function Woodcutting(props) {
       copyObj.bank[woodtype] += 1;
       
     } else if (!copyObj.bank[woodtype] && copyObj.bankSpace < copyObj.maxBankSpace){
+      copyObj.bankSpace += 1;
       copyObj.bank[woodtype] = 1;
     }
 
@@ -32,7 +29,7 @@ export function Woodcutting(props) {
     return;
   }
 
-  // performs an action
+  // performs an action, should be moved to global
   useEffect(() => {
     let interval;
     if (selectedActive !== null) {
@@ -59,6 +56,12 @@ export function Woodcutting(props) {
         <div>Normal Tree</div>
         <div>10xp / 3 seconds</div>
         <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/normal_tree.svg'></img>
+      </button>
+      <button id='oakLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 10 ? 'flex' : 'none'}} onClick={() => {
+        setSelectedActive('Oak Log')}}>
+        <div>Oak Tree</div>
+        <div>15xp / 4 seconds</div>
+        <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/oak_tree.svg'></img>
       </button>
     </div>
   )
