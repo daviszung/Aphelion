@@ -27,7 +27,6 @@ function checkIfLoggedIn() {
 }
 
 async function updateUserInDB (body) {
-  console.log('update in db', body)
   const data = await fetch('http://localhost:3000/api/updateUser', {
     method: "PATCH",
     body: body,
@@ -60,11 +59,13 @@ function Game() {
     return username;
   });
   const [state, dispatch] = useReducer(reducer, {})
-  const [selectedSkill, setSelectedSkill] = useState('woodcutting');
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
   // functions
   function displaySkillMenu(selected) {
     switch(selected){
+      case null:
+        return <div id='noSelectedSkill'>No selected Skill</div>
       case 'woodcutting':
         return <Woodcutting state={state} dispatch={dispatch} />;
       case 'fishing':
@@ -109,22 +110,16 @@ function Game() {
     }
   }, [document.cookie, user]);
 
-  // autosave
+  // autosave timer (starts/resets whenever a skill is selected)
   useEffect(() => {
     if (state && state["userObj"]) {
       const timer = setInterval(() => {
-        console.log(state)
-        console.log('autosaving with: ', state.userObj)
         const body = JSON.stringify(state.userObj)
         updateUserInDB(body)
-      }, 10000)
+      }, 30000)
       return () => clearInterval(timer);
     }
-  }, [state]);
-
-  useEffect(() => {
-    console.log('state has changed: ', state)
-  }, [state])
+  }, [selectedSkill]);
 
   return (
     <div className="Game">
