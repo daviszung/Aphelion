@@ -103,10 +103,7 @@ controller.getUser = async function (req, res, next) {
 // update user object
 controller.updateUser = async function (req, res, next) {
   try {
-    console.log(req.body)
-    const userObject  = req.body;
-    const pastUserObject = await User.findOneAndReplace({username: userObject.username}, userObject)
-    
+    await User.findOneAndReplace({username: req.body.username}, req.body)
     return next()
   }
   catch (err) {

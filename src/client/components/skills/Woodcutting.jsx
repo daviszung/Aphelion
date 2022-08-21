@@ -2,19 +2,8 @@ import { useEffect, useState } from 'react'
 import { expTable } from '../../expTable.jsx'
 
 
-async function updateUserInDB (body) {
-  const data = await fetch('http://localhost:3000/api/updateUser', {
-    method: "PATCH",
-    body: body,
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  if (data['status'] !== 200) {
-    throw new Error()
-  }
-  return;
-}
+// need a function that sets an interval to call cutWood every x ms
+
 
 export function Woodcutting(props) {
   const [selectedActive, setSelectedActive] = useState(null);
@@ -50,10 +39,6 @@ export function Woodcutting(props) {
         <div>Normal Tree</div>
         <div>10xp / 1 seconds</div>
       </button>
-      <button onClick={() => {
-        const body = JSON.stringify(props.state.userObj)
-        updateUserInDB(body)
-        }}>click me</button>
       <div style={{color: 'white'}}>{props.state.userObj ? props.state.userObj.levels.woodcutting.exp : null}</div>      
     </div>
   )

@@ -1,5 +1,5 @@
 import '../stylesheets/Game.css'
-import { useState, useEffect, useReducer } from 'react'
+import { useState, useEffect, useReducer, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 
@@ -26,6 +26,21 @@ function checkIfLoggedIn() {
   return false;
 }
 
+async function updateUserInDB (body) {
+  console.log('update in db', body)
+  const data = await fetch('http://localhost:3000/api/updateUser', {
+    method: "PATCH",
+    body: body,
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  if (data['status'] !== 200) {
+    throw new Error()
+  }
+  return;
+}
+
 const reducer = (state, action) => {
   switch(action.type) {
     case 'Initial':
@@ -38,14 +53,12 @@ const reducer = (state, action) => {
 }
 
 
-
 function Game() {
   const navigate = useNavigate();
   const [user, setUser] = useState(() => {
     const username = checkIfLoggedIn();
     return username;
   });
-
   const [state, dispatch] = useReducer(reducer, {})
   const [selectedSkill, setSelectedSkill] = useState('woodcutting');
 
@@ -60,7 +73,6 @@ function Game() {
         return <Firemaking/>;
       case 'cooking':
         return <Cooking/>;
-      
       default:
         throw new Error()
     }
@@ -84,7 +96,7 @@ function Game() {
   // Effects
   useEffect(() => {
     getUserObject()
-  }, [])
+  }, []);
 
   // check if user is logged in
   useEffect(() => {
@@ -95,7 +107,24 @@ function Game() {
     if(!user){
       navigate('/')
     }
-  }, [document.cookie, user])
+  }, [document.cookie, user]);
+
+  // autosave
+  useEffect(() => {
+    if (state && state["userObj"]) {
+      const timer = setInterval(() => {
+        console.log(state)
+        console.log('autosaving with: ', state.userObj)
+        const body = JSON.stringify(state.userObj)
+        updateUserInDB(body)
+      }, 10000)
+      return () => clearInterval(timer);
+    }
+  }, [state]);
+
+  useEffect(() => {
+    console.log('state has changed: ', state)
+  }, [state])
 
   return (
     <div className="Game">
@@ -110,7 +139,10 @@ function Game() {
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><p>Fishing</p>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
               {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.firemaking.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.cooking.current + '/99': null}</button></li> */}
-              <li>Game Clock: </li>
+              <li onClick={() => {
+                const body = JSON.stringify(state.userObj)
+                updateUserInDB(body)
+                }}>Save Game</li>
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}
