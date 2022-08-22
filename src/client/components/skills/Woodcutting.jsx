@@ -18,6 +18,7 @@ export function Woodcutting(props) {
         <div>Normal Tree</div>
         <div>10xp / 3 seconds</div>
         <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/normal_tree.svg'></img>
+        <div style={{background: `${props.selectedAction === 'Normal Log' ? '#158d6d' : '#434654'}`, borderRadius: '5px', height: '35px', "maxWidth": '100%', width: '90%'}}></div>
       </button>
       <button id='oakLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 10 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Oak Log') {

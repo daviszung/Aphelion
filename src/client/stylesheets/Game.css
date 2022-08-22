@@ -73,7 +73,7 @@ main {
   height: 100%;
   width: 100%;
   grid-template: 100% / 10% 90%;
-  background-image: url(../../../public/idlegamebg.png);
+  background-image: url(../../../assets/idlegamebg.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -208,6 +208,7 @@ main {
   padding: 2px 5px;
   margin-left: 10px;
   background-color: #5cace5;
+  color: #434654;
 }
 
 .expBar {
