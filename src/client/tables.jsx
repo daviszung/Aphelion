@@ -34,14 +34,35 @@ export const expTable = {
 export const actionExpValues = {
   'Normal Log': 10,
   'Oak Log': 15,
+  'Willow Log': 22,
+  'Teak Log': 30,
+  'Maple Log': 40,
+  'Mahogany Log': 60,
+  'Yew Log': 80,
+  'Magic Log': 100,
+  'Redwood Log': 180,
 };
 
 export const itemGoldValues = {
   'Normal Log': 1,
   'Oak Log': 5,
+  'Willow Log': 10,
+  'Teak Log': 20,
+  'Maple Log': 35,
+  'Mahogany Log': 50,
+  'Yew Log': 75,
+  'Magic Log': 400,
+  'Redwood Log': 25
 };
 
 export const actionTimeValues = {
   'Normal Log': 3000,
-  'Oak Log': 4000
+  'Oak Log': 4000,
+  'Willow Log': 5000,
+  'Teak Log': 6000,
+  'Maple Log': 8000,
+  'Mahogany Log': 10000,
+  'Yew Log': 12000,
+  'Magic Log': 20000,
+  'Redwood Log': 15000,
 }

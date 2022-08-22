@@ -9,7 +9,7 @@ function createNewUserObject(username, password){
     password: password,
     gold: 0,
     bankSpace: 0,
-    maxBankSpace: 10,
+    maxBankSpace: 12,
     bank: {},
     levels: {
       combat: 1,
@@ -31,7 +31,8 @@ function createNewUserObject(username, password){
       crafting: {exp: 0, current: 1, level: 1},
       runecrafting: {exp: 0, current: 1, level: 1},
       herblore: {exp: 0, current: 1, level: 1}
-    }
+    },
+    boons: {}
   }
 }
 
