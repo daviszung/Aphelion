@@ -27,6 +27,7 @@ export function Woodcutting(props) {
         <div>Oak Tree</div>
         <div>15xp / 4 seconds</div>
         <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/oak_tree.svg'></img>
+        <div style={{background: `${props.selectedAction === 'Oak Log' ? '#158d6d' : '#434654'}`, borderRadius: '5px', height: '35px', "maxWidth": '100%', width: '90%'}}></div>
       </button>
     </div>
   )

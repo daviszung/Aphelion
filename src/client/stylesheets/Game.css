@@ -208,11 +208,10 @@ main {
   padding: 2px 5px;
   margin-left: 10px;
   background-color: #5cace5;
-  color: #434654;
 }
 
 .expBar {
-  width: 95%;
+  width: 99%;
   height: 10px;
   border-radius: 25px;
   background-color: #b8c1ec;
