@@ -88,6 +88,16 @@ main {
   opacity: 85%;
 }
 
+.sidebarLabel {
+  display: flex;
+  align-items: center;
+  color: #fffffe;
+  text-rendering: optimizeLegibility;
+  width: 100%;
+  height: 30px;
+  padding-left: 20px;
+}
+
 .sidebarItem {
   width: 100%;
   height: 50px;

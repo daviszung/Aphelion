@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.jsx'
 import { cutWood } from '../actions.jsx'
+import { Combat } from './Combat.jsx'
 
 
 // Components
@@ -74,6 +75,8 @@ function Game() {
         return <Shop />;
       case 'bank':
         return <Bank />;
+      case 'combat':
+        return <Combat />;
       case 'woodcutting':
         return <Woodcutting state={state} dispatch={dispatch} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
       case 'fishing':
@@ -152,6 +155,15 @@ function Game() {
             <div className='sidebarItem'><button className='skillBtn'><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/gp.svg'></img><p>Shop</p></div><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/coins.svg'></img><p>{state.userObj ? state.userObj.gold + 'g' : null}</p></div></button></div>
             <div className='sidebarItem'><button className='skillBtn'><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/bank_header.svg'></img><p>Bank</p></div>{state.userObj ? state.userObj.bankSpace + '/' + state.userObj.maxBankSpace : null}</button></div>
             <ul className='skillList'>
+              <li className='sidebarLabel'>Combat</li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/combat/hitpoints.svg'></img><p>Constitution</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.constitution.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/combat/attack.svg'></img><p>Attack</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.attack.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/combat/strength.svg'></img><p>Strength</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.strength.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/combat/defence.svg'></img><p>Defence</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.defence.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/ranged/ranged.svg'></img><p>Archery</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.archery.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/magic/magic.svg'></img><p>Arcana</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.arcana.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/prayer/prayer.svg'></img><p>Divinity</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.divinity.current + '/99': null}</button></li>
+              <li className='sidebarLabel'>Skills</li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/woodcutting.svg'></img><p>Woodcutting</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.woodcutting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/fishing/fishing.svg'></img><p>Fishing</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
               {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.firemaking.current + '/99': null}</button></li>

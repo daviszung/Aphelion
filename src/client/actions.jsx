@@ -14,7 +14,7 @@ export function cutWood(woodtype, state, dispatch) {
 
   // add experience and potentially level up
   copyObj.levels.woodcutting.exp += actionExpValues[woodtype];
-  if (copyObj.levels.woodcutting.exp >= expTable[copyObj.levels.woodcutting.level + 1]) {
+  if (copyObj.levels.woodcutting.level < 99 && copyObj.levels.woodcutting.exp >= expTable[copyObj.levels.woodcutting.level + 1]) {
     copyObj.levels.woodcutting.level += 1; 
     copyObj.levels.woodcutting.current += 1;
   }
