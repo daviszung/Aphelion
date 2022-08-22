@@ -162,7 +162,6 @@ main {
   font-size: 1.2rem;
   border-radius: 5px;
   box-shadow: 5px 5px 8px black;
-  margin: 0;
   transition: margin .25s;
 }
 
@@ -170,11 +169,15 @@ main {
   margin: .3rem 0 0 .1rem;
 }
 
+.actionBtn:active {
+  margin: .1rem 0 0 .1rem;
+}
+
 .woodcuttingSkillContainer {
-  padding: 8rem;
+  padding: 3rem 8rem 3rem 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 80px 1fr 1fr 1fr;
+  grid-template-rows: 80px 80px 1fr 1fr 1fr;
   grid-row-gap: 50px;
   grid-column-gap: 50px;
 }
@@ -217,13 +220,39 @@ main {
   background-color: #b8c1ec;
 }
 
+.progressBarContainer {
+  width: 90%;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #434654;
+  border-radius: 5px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #158d6d;
+}
+
+@keyframes load{
+  0%{
+      width: 0%;
+  }
+  100%{
+      width: 100%;
+  }
+}
+
 #normalLogBtn {
-  grid-row: 2 / 2;
+  grid-row: 3 / 3;
   grid-column: 1 / 1;
 }
 
 #oakLogBtn {
-  grid-row: 2 /2;
+  grid-row: 3 / 3;
   grid-column: 2 / 2;
 }
 

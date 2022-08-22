@@ -1,4 +1,4 @@
-import { expTable } from '../../tables.jsx'
+import { expTable, actionTimeValues } from '../../tables.jsx'
 
 
 export function Woodcutting(props) {
@@ -11,6 +11,7 @@ export function Woodcutting(props) {
         </div>
         <div className='expBar'><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${props.state.userObj ? ((props.state.userObj.levels.woodcutting.exp - expTable[props.state.userObj.levels.woodcutting.level]) / (expTable[props.state.userObj.levels.woodcutting.level + 1] - expTable[props.state.userObj.levels.woodcutting.level])) * 100 : 0}%`}}></div></div>
       </div>
+      
       <button id='normalLogBtn' className='actionBtn' onClick={() => {
         if (props.selectedAction === 'Normal Log') {
           props.setSelectedAction(null)
@@ -18,7 +19,9 @@ export function Woodcutting(props) {
         <div>Normal Tree</div>
         <div>10xp / 3 seconds</div>
         <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/normal_tree.svg'></img>
-        <div style={{background: `${props.selectedAction === 'Normal Log' ? '#158d6d' : '#434654'}`, borderRadius: '5px', height: '35px', "maxWidth": '100%', width: '90%'}}></div>
+        <div className='progressBarContainer'>
+          <div className='progressBar' style={props.selectedAction === 'Normal Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
+        </div>
       </button>
       <button id='oakLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 10 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Oak Log') {
@@ -27,7 +30,9 @@ export function Woodcutting(props) {
         <div>Oak Tree</div>
         <div>15xp / 4 seconds</div>
         <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/oak_tree.svg'></img>
-        <div style={{background: `${props.selectedAction === 'Oak Log' ? '#158d6d' : '#434654'}`, borderRadius: '5px', height: '35px', "maxWidth": '100%', width: '90%'}}></div>
+        <div className='progressBarContainer'>
+          <div className='progressBar' style={props.selectedAction === 'Oak Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
+        </div>
       </button>
     </div>
   )
