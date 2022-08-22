@@ -1,16 +1,25 @@
 import '../stylesheets/Game.css'
-import { useState, useEffect, useReducer, useCallback } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.jsx'
+
+// Actions
 import { cutWood } from '../actions.jsx'
-import { Combat } from './Combat.jsx'
 
-
-// Components
+// Skill Components
 import { Header } from './Header.jsx'
+import { Combat } from './Combat.jsx'
 import { Woodcutting } from './skills/Woodcutting.jsx'
-import { Fishing } from './skills/Fishing'
+import { Fishing } from './skills/Fishing.jsx'
+import { Firemaking } from './skills/Firemaking.jsx'
+import { Cooking } from './skills/Cooking.jsx'
+import { Mining } from './skills/Mining.jsx'
+import { Smithing } from './skills/Smithing.jsx'
+import { Thieving } from './skills/Thieving.jsx'
+import { Fletching } from './skills/Fletching.jsx'
+import { Crafting } from './skills/Crafting.jsx'
+import { Runecrafting } from './skills/Runecrafting.jsx'
 
 function checkIfLoggedIn() {
   if (!document.cookie) {
@@ -85,6 +94,18 @@ function Game() {
         return <Firemaking />;
       case 'cooking':
         return <Cooking />;
+      case 'mining':
+        return <Mining />;
+      case 'smithing':
+        return <Smithing />;
+      case 'thieving':
+        return <Thieving />;
+      case 'fletching':
+        return <Fletching />;
+      case 'crafting':
+        return <Crafting />;
+      case 'runecrafting':
+        return <Runecrafting />;
       default:
         throw new Error()
     }
@@ -166,8 +187,14 @@ function Game() {
               <li className='sidebarLabel'>Skills</li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('woodcutting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/woodcutting.svg'></img><p>Woodcutting</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.woodcutting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fishing')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/fishing/fishing.svg'></img><p>Fishing</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.fishing.current + '/99': null}</button></li>
-              {/* <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><p>Firemaking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.firemaking.current + '/99': null}</button></li>
-              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><p>Cooking</p>{state.userObj && state.userObj.levels ?  state.userObj.levels.cooking.current + '/99': null}</button></li> */}
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('firemaking')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/firemaking/firemaking.svg'></img><p>Firemaking</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.firemaking.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('cooking')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/cooking/cooking.svg'></img><p>Cooking</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.cooking.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('mining')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/mining.svg'></img><p>Mining</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.mining.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('smithing')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/smithing/smithing.svg'></img><p>Smithing</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.smithing.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('thieving')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/thieving/thieving.svg'></img><p>Thieving</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.thieving.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fletching')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/fletching/fletching.svg'></img><p>Fletching</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.fletching.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('crafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/crafting/crafting.svg'></img><p>Crafting</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.crafting.current + '/99': null}</button></li>
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('runecrafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/runecrafting/runecrafting.svg'></img><p>Runecrafting</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.runecrafting.current + '/99': null}</button></li>         
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}

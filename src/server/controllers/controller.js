@@ -30,7 +30,6 @@ function createNewUserObject(username, password){
       fletching: {exp: 0, current: 1, level: 1},
       crafting: {exp: 0, current: 1, level: 1},
       runecrafting: {exp: 0, current: 1, level: 1},
-      herblore: {exp: 0, current: 1, level: 1}
     },
     boons: {}
   }

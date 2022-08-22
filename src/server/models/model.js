@@ -46,7 +46,6 @@ const userSchema = new Schema({
     fletching: {exp: Number, current: Number, level: Number},
     crafting: {exp: Number, current: Number, level: Number},
     runecrafting: {exp: Number, current: Number, level: Number},
-    herblore: {exp: Number, current: Number, level: Number}
   },
   boons: {}
 }, {minimize: false});
