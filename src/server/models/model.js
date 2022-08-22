@@ -28,7 +28,6 @@ const userSchema = new Schema({
   maxBankSpace: Number,
   bank: {},
   levels: {
-    combat: Number,
     attack: {exp: Number, current: Number, level: Number},
     strength: {exp: Number, current: Number, level: Number},
     defence: {exp: Number, current: Number, level: Number},
@@ -47,7 +46,8 @@ const userSchema = new Schema({
     crafting: {exp: Number, current: Number, level: Number},
     runecrafting: {exp: Number, current: Number, level: Number},
   },
-  boons: {}
+  boons: {},
+  keyItems: {}
 }, {minimize: false});
 
 const User = mongoose.model('user',userSchema);

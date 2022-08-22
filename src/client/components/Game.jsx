@@ -171,7 +171,7 @@ function Game() {
 
   return (
     <div className="Game">
-      <Header user={user} deleteAllCookies={deleteAllCookies} navigate={navigate}></Header>
+      <Header selectedSkill={selectedSkill} user={user} deleteAllCookies={deleteAllCookies} navigate={navigate}></Header>
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>

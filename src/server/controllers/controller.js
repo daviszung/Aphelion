@@ -12,7 +12,6 @@ function createNewUserObject(username, password){
     maxBankSpace: 12,
     bank: {},
     levels: {
-      combat: 1,
       attack: {exp: 0, current: 1, level: 1},
       strength: {exp: 0, current: 1, level: 1},
       defence: {exp: 0, current: 1, level: 1},
@@ -31,7 +30,8 @@ function createNewUserObject(username, password){
       crafting: {exp: 0, current: 1, level: 1},
       runecrafting: {exp: 0, current: 1, level: 1},
     },
-    boons: {}
+    boons: {},
+    keyItems: {}
   }
 }
 

@@ -5,21 +5,31 @@
 
 header {
   display: flex;
+  justify-content: space-between;
   height: 5%;
   width: 100%;
-  background-color: #eebbc3;
+}
+
+#skillMenuTitle {
+  color: #fffffe;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  text-shadow: 2px 2px #232946;
+  cursor: default;
 }
 
 nav {
   display: flex;
-  width: 45%;
   height: 100%;
-  justify-content: flex-end;
+  width: 10%;
+  justify-content: center;
 }
 .navlist {
   display: flex;
   height: 100%;
-  width: 30%;
+  width: 100%;
+  padding: 0;
   justify-content: space-evenly;
   align-items: center;
   list-style: none;
@@ -37,30 +47,33 @@ nav ul li {
   cursor: pointer;
   font-size: 1.1rem;
   padding: 0.5rem 1.2rem;
-  background-color: #eebbc3;
   border-radius: 10px;
-  border: 2px solid #fffffe;
+  border: 0px;
   color: #fffffe;
+  background: #232946;
   font-weight: 600;
-  text-shadow: 2px 2px #232946;
+  transition: color .4s;
 }
 
 .logoutBtn:hover {
-  background-color: #232946;
-  text-shadow: none;
-  border: 2px solid #232946;
+  color: #eebbc3
 }
 
 .gameTitle {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 55%;
   color: #fffffe;
   font-size: 2rem;
   font-weight: 700;
   text-shadow: 2px 2px #232946;
   cursor: default;
+}
+
+#headerImg {
+  margin-left: 30px;
+  height: 50px;
+  width: 50px;
 }
 
 main {
@@ -96,6 +109,7 @@ main {
   width: 100%;
   height: 30px;
   padding-left: 20px;
+  cursor: default;
 }
 
 .sidebarItem {
@@ -305,3 +319,4 @@ main {
   height: 100px;
   width: 100px;
 }
+
