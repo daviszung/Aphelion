@@ -1,3 +1,7 @@
+import { BankItem } from './BankItem'
+import { BankTabsContainer } from './BankTabsContainer';
+import { BankInfo } from './BankInfo';
+
 export function Bank(props) {
   const myArr = [];
 
@@ -6,16 +10,18 @@ export function Bank(props) {
     
     
     for (let i in bank) {
-      myArr.push(<div key={i}>{i} : {bank[i]}</div>)
+      myArr.push(<BankItem key={i} quantity={bank[i]} itemName={i}/>)
     }
     return myArr;
   }
 
+  
+
   return (
     <div id="bankContainer">
       <div id="bankMain" className="bankArea">
-        <div id="bankTabContainer"></div>
-        <div id="bankInfo"></div>
+        <BankInfo state={props.state}/>
+        <BankTabsContainer state={props.state}/>
         <div id="storage">{loadItems()}</div>
       </div>
       <div id="bankSecondary" className="bankArea">

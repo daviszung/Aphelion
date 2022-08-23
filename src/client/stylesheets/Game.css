@@ -154,8 +154,38 @@ main {
 }
 
 #bankMain {
+  display: flex;
+  flex-direction: column;
   grid-row: 1 / 1;
   grid-column: 1 / 1;
+}
+
+#bankTabsContainer {
+  height: 55px;
+  width: 100%;
+  background: #313d50;
+}
+
+#bankInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 35px;
+  width: 100%;
+  background: #2a3035;
+  color: #fffffe;
+  font-size: .9rem;
+}
+
+#storage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 3rem 2rem;
 }
 
 #bankSecondary {
@@ -166,7 +196,48 @@ main {
 #keyItemsContainer {
   grid-row: 2 / 2;
   grid-column: 1 / 1;
-  
+}
+
+.bankItem {
+  position: relative;
+  height: 64px;
+  width: 64px;
+  border: 2px solid silver;
+}
+
+.bankItemBtn {
+  cursor: pointer;
+  border: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(#434654, #2a3035);
+}
+
+.bankItemBtn:hover {
+  background: radial-gradient(#f7f721,#1d2022);
+}
+
+.bankItemImg {
+  height: 36px;
+  width: 36px;
+}
+
+.bankQuantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 20px;
+  max-width: 100%;
+  padding: 0rem 1rem;
+  bottom: -10px;
+  background-color: #60688a;
+  color: #fffffe;
+  border-radius: 10px;
 }
 
 .skillList {

@@ -67,6 +67,7 @@ const reducer = (state, action) => {
 }
 
 
+// Game Component
 function Game() {
   const navigate = useNavigate();
   const [user, setUser] = useState(() => {
