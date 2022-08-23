@@ -136,6 +136,18 @@ main {
   font-size: 2rem;
 }
 
+#bankContainer {
+  display: grid;
+  
+  height: 100%;
+  width: 100%;
+  padding: 3rem 8rem 3rem 8rem;
+}
+
+#bankMain {
+
+}
+
 .skillList {
   height: 60%;
   width: 100%;

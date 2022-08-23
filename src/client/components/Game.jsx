@@ -85,11 +85,11 @@ function Game() {
       case 'shop':
         return <Shop />;
       case 'bank':
-        return <Bank />;
+        return <Bank state={state} dispatch={dispatch}/>;
       case 'combat':
         return <Combat />;
       case 'woodcutting':
-        return <Woodcutting state={state} dispatch={dispatch} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
+        return <Woodcutting state={state} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
       case 'fishing':
         return <Fishing />;
       case 'firemaking':
