@@ -1,4 +1,5 @@
 import { itemImages } from "../../images"
+import { BankSellContainer } from "./BankSellContainer"
 
 export function BankSelected (props) {
 
@@ -15,7 +16,7 @@ export function BankSelected (props) {
       <div id="bankSelected">
         <div className="bankSecondaryImgContainer"><img className="bankSecondaryImg" src={itemImages[props.selectedItem]}></img><div className="selectedItemQuantity">{props.quantity.toLocaleString()}</div></div>
         <div className="itemDescriptionContainer">{props.selectedItem}</div>
-        <div className="sellItemContainer"></div>
+        <BankSellContainer selectedItem={props.selectedItem} quantity={props.quantity}/>
       </div>
     )
   }
