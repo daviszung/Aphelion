@@ -177,15 +177,21 @@ main {
   font-size: .9rem;
 }
 
+.bankInfoFlex {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
 #storage {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   row-gap: 10px;
-  column-gap: 10px;
+  column-gap: 20px;
   height: 100%;
   width: 100%;
-  padding: 3rem 2rem;
+  padding: 3rem 3rem;
 }
 
 #bankSecondary {
