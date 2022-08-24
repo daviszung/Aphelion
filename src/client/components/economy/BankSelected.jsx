@@ -9,13 +9,13 @@ export function BankSelected (props) {
       </div>
     )
   } else {
+
+    // needs an area to equip items as well
     return (
       <div id="bankSelected">
-        <div>
-          <div><img className="bankSecondaryImg" src={itemImages[props.selectedItem]}></img></div>
-          <div>{props.selectedItem}</div>
-        </div>
-        <div></div>
+        <div className="bankSecondaryImgContainer"><img className="bankSecondaryImg" src={itemImages[props.selectedItem]}></img><div className="selectedItemQuantity">{props.quantity.toLocaleString()}</div></div>
+        <div className="itemDescriptionContainer">{props.selectedItem}</div>
+        <div className="sellItemContainer"></div>
       </div>
     )
   }

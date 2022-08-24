@@ -27,7 +27,7 @@ export function Bank(props) {
       </div>
       <div id="bankSecondary" className="bankArea">
         <div id='bankSecondaryControls'></div>
-        <BankSelected selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
+        <BankSelected selectedItem={selectedItem} setSelectedItem={setSelectedItem} quantity={props.state.userObj.bank[selectedItem]}/>
       </div>
       <div id="keyItemsContainer" className="bankArea">
 

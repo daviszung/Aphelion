@@ -11,7 +11,7 @@ export function BankItem(props) {
     <div className="bankItem">
       <button className="bankItemBtn" onClick={() => {props.setSelectedItem(props.itemName)}}>
         <img className="bankItemImg" src={itemImages[props.itemName]}></img>
-        <div className="bankQuantity">{props.quantity}</div>
+        <div className="bankQuantity">{props.quantity.toLocaleString()}</div>
       </button>
     </div>
   )
