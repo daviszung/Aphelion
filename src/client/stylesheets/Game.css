@@ -245,6 +245,8 @@ main {
   border-radius: 10px;
   color: #fffffe;
   padding: 1rem;
+  grid-row: 1 / 1;
+  grid-column: 1 / 4;
 }
 
 .selectedItemQuantity {

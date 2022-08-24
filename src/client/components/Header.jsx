@@ -70,9 +70,9 @@ export function Header (props) {
   }, [loggedIn])
 
   return (
-    <header style={{background: `${props.selectedSkill ? themes[props.selectedSkill].bgColor : '#eebbc3'}`}}>
+    <header style={{background: `${props.selectedSkill ? themes[props.selectedSkill].bgColor : '#343c4b'}`}}>
         <div className='flexGrouper' style={{width: '10%'}}><img id='headerImg' src={props.selectedSkill ? themes[props.selectedSkill].img: 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='}></img><div id='skillMenuTitle'>{props.selectedSkill ? capitalize(props.selectedSkill) : ''}</div></div>
-        <h1 className='gameTitle'>Idle Game Title</h1>
+        <h1 className='gameTitle'>Aphelion Idle</h1>
         <nav>
           <ul className='navlist'>
             <li>{props.user}</li>

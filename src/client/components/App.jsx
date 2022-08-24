@@ -113,7 +113,7 @@ function App() {
   return (
     <div className="App">
       <main>
-        <h1 className='headline'>Idle Game Title</h1>
+        <h1 className='headline'>Aphelion Idle</h1>
         <div className='container'>
           <label id='toggleSwitch'>
             <input type='checkbox' onClick={() => {
