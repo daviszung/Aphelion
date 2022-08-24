@@ -7,10 +7,9 @@ import { itemImages } from "../../images"
 
 export function BankItem(props) {
 
-
   return (
     <div className="bankItem">
-      <button className="bankItemBtn">
+      <button className="bankItemBtn" onClick={() => {props.setSelectedItem(props.itemName)}}>
         <img className="bankItemImg" src={itemImages[props.itemName]}></img>
         <div className="bankQuantity">{props.quantity}</div>
       </button>
