@@ -1,5 +1,14 @@
-export function Shop() {
+import { ShopSectionContainer } from "./ShopSectionContainer"
+import { useState } from "react"
+
+export function Shop(props) {
+  const [selectedCategory, setSelectedCategory] = useState()
+
   return (
-    <div style={{color: 'white'}}>in Shop tab</div>
+    <div>
+      <div>You have x resources</div>
+      <div>Category selection</div>
+      <ShopSectionContainer />
+    </div>
   )
 }

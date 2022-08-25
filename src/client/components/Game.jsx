@@ -84,7 +84,7 @@ function Game() {
       case null:
         return <div id='noSelectedSkill'>Welcome</div>;
       case 'shop':
-        return <Shop />;
+        return <Shop state={state} dispatch={dispatch}/>;
       case 'bank':
         return <Bank state={state} dispatch={dispatch}/>;
       case 'combat':
