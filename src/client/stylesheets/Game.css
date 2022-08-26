@@ -142,6 +142,46 @@ main {
   font-size: 2rem;
 }
 
+#shop {
+  height: 100%;
+  width: 100%;
+  padding: 3rem 8rem 3rem 8rem;
+}
+
+.shopCategorySelector {
+  height: 75px;
+  width: 100%;
+  border-top: 4px solid #febb33;
+}
+
+.shopCategorySelectorInner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+}
+
+.shopCategoryBtn {
+  height: 100%;
+  background-color: #232946;
+  color: #fffffe;
+  border: 0px;
+  font-size: .9rem;
+  transition: font-size .4s, color .4s;
+}
+
+.shopCategoryBtn:hover {
+  font-size: 1.1rem;
+  color: #febb33;
+}
+
+.shopCategoryImg {
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+}
+
 #bankContainer {
   display: grid;
   grid-template-columns: 5fr 2fr;
@@ -153,7 +193,7 @@ main {
   padding: 3rem 8rem 3rem 8rem;
 }
 
-.bankArea {
+.shadowedContainer {
   background: #232946;
   box-shadow: 5px 5px 8px black;
   border-radius: 5px;

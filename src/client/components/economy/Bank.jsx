@@ -18,18 +18,18 @@ export function Bank(props) {
 
   return (
     <div id="bankContainer">
-      <div id="bankMain" className="bankArea">
+      <div id="bankMain" className="shadowedContainer">
         <div id="bankMainControls">
           <BankInfo state={props.state}/>
           <BankTabsContainer state={props.state}/>
         </div>
         <div id="storage">{loadItems()}</div>
       </div>
-      <div id="bankSecondary" className="bankArea">
+      <div id="bankSecondary" className="shadowedContainer">
         <div id='bankSecondaryControls'></div>
         <BankSelected selectedItem={selectedItem} setSelectedItem={setSelectedItem} quantity={props.state.userObj.bank[selectedItem]} state={props.state} dispatch={props.dispatch}/>
       </div>
-      <div id="keyItemsContainer" className="bankArea">
+      <div id="keyItemsContainer" className="shadowedContainer">
 
       </div>
     </div> 
