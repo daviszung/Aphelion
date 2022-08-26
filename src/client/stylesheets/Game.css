@@ -169,6 +169,7 @@ main {
   border: 0px;
   font-size: .9rem;
   transition: font-size .4s, color .4s;
+  cursor: pointer;
 }
 
 .shopCategoryBtn:hover {
@@ -180,6 +181,21 @@ main {
   height: 24px;
   width: 24px;
   margin-right: 10px;
+}
+
+.shopSectionContainer {
+  border-top: 4px solid #febb33;
+  margin-top: 20px;
+  height: 1000px;
+  width: 100%;
+}
+
+.shopGrid {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 #bankContainer {
