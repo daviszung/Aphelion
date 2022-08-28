@@ -3,11 +3,24 @@
   width: 100%;
 }
 
+/* common classes */
 .flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.hw100 {
+  height: 100%;
+  width: 100%;
+}
+
+.shadowedContainer {
+  background: #232946;
+  box-shadow: 5px 5px 8px black;
+  border-radius: 5px;
+}
+/* end of common classes */
 
 header {
   display: flex;
@@ -190,13 +203,29 @@ main {
   width: 100%;
 }
 
+.shopSectionTitle {
+  display: flex;
+  align-items: center;
+  color: #fffffe;
+  height: 5%;
+  width: 100%;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 2rem;
+}
+
 .shopGrid {
   display: grid;
-  height: 100%;
+  padding: 3rem 6rem;
+  row-gap: 50px;
+  column-gap: 50px;
+  height: 95%;
   width: 100%;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+
 
 #bankContainer {
   display: grid;
@@ -206,13 +235,7 @@ main {
   column-gap: 10px;
   height: 100%;
   width: 100%;
-  padding: 3rem 8rem 3rem 8rem;
-}
-
-.shadowedContainer {
-  background: #232946;
-  box-shadow: 5px 5px 8px black;
-  border-radius: 5px;
+  padding: 3rem 8rem;
 }
 
 #bankMain {
