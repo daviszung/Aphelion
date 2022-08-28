@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+.flexAlign {
+  display: flex;
+  align-items: center;
+}
+
 .hw100 {
   height: 100%;
   width: 100%;
@@ -225,7 +230,40 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.purchaseContainer {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: 95%;
+  color: #fffffe;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: 0px;
+  background-color: #232946;
+  font-size: 1rem;
+  box-shadow: #fffffe 0px 2px 4px 0px, #fffffe 0px 2px 16px 0px;
+  transition: margin .25s;
+}
 
+.purchaseContainer:hover {
+  margin: .3rem 0 0 .1rem;
+  box-shadow: #febb33 0px 2px 4px 0px, #febb33 0px 2px 16px 0px;
+}
+
+.purchaseContainer:active {
+  margin: .1rem 0 0 .1rem;
+}
+
+.purchaseImg {
+  height: 64px;
+  width: 64px;
+  margin-right: 1rem;
+}
+
+.purchaseDescription {
+  font-size: 1rem;
+  padding: 1rem;
+}
 
 #bankContainer {
   display: grid;

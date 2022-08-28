@@ -61,6 +61,32 @@ export const expTable = {
   '60': 273742
 };
 
+// https://wiki.melvoridle.com/w/Bank
+
+export const bankSlotCosts = {
+  0: 34,
+  1: 59,
+  2: 89,
+  3: 126,
+  4: 172,
+  5: 226,
+  6: 291,
+  7: 368,
+  8: 459,
+  9: 566,
+  10: 691,
+  11: 836,
+  12: 1003,
+  13: 1196,
+  14: 1418,
+  15: 1672,
+  16: 1961,
+  17: 2289,
+  18: 2661,
+  19: 3082,
+  20: 3557,
+}
+
 export const actionExpValues = {
   'Normal Log': 10,
   'Oak Log': 15,
