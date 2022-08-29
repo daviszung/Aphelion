@@ -12,7 +12,6 @@ function buyExtraBankSlot(state, dispatch) {
 }
 
 export function ShopGeneralUpgrades(props) {
-  const modal = document.querySelector(".modal");
 
   return (
     <div className="hw100">
@@ -28,9 +27,9 @@ export function ShopGeneralUpgrades(props) {
           <div className="flexAlign modalBtnContainer">
             <button className="buyBtn" onClick={() => {
               buyExtraBankSlot(props.state, props.dispatch)
-              modal.classList.toggle("show-modal")}
+              document.querySelector(".modal").classList.toggle("show-modal")}
               }>Buy</button>
-            <button className="cancelBtn" onClick={() => {modal.classList.toggle("show-modal")}}>Cancel</button>
+            <button className="cancelBtn" onClick={() => {document.querySelector(".modal").classList.toggle("show-modal")}}>Cancel</button>
           </div>
         </div>
       </div>
@@ -39,7 +38,7 @@ export function ShopGeneralUpgrades(props) {
         <div>GENERAL UPGRADES</div>
       </div>
       <div className="shopGrid">
-        <button className="purchaseContainer" onClick={() => {modal.classList.toggle("show-modal")}}>
+        <button className="purchaseContainer" onClick={() => {document.querySelector(".modal").classList.toggle("show-modal")}}>
           <div style={{width: '100%', justifyContent: 'space-between'}} className="flexAlign">
             <strong>Extra Bank Slot</strong>
             <div className="flexAlign">

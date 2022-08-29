@@ -6,10 +6,6 @@ function calculateBankGold(bank) {
   for (let i in bank) {
     total += itemGoldValues[i] * bank[i]
   }
-  if (total > 99999) {
-    total = total.toLocaleString()
-    return total.slice(0, total.length - 3) + 'K'
-  }
   return total.toLocaleString();
 }
 
