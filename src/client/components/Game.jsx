@@ -2,10 +2,14 @@ import '../stylesheets/Game.css'
 import { useState, useEffect, useReducer } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
-import { actionTimeValues } from '../tables.jsx'
+import { actionTimeValues } from '../tables.js'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectUserObj, initial, cutWood, update } from '../redux/userSlice'
+import store  from '../redux/store'
+
 
 // Actions
-import { cutWood } from '../actions.jsx'
+// import { cutWood } from '../actions.jsx'
 
 // Components
 import { Header } from './Header.jsx'
@@ -55,16 +59,16 @@ async function updateUserInDB (body) {
   return;
 }
 
-const reducer = (state, action) => {
-  switch(action.type) {
-    case 'Initial':
-      return {...state, userObj: action.obj}
-    case 'update':
-      return {...state, userObj: action.updatedObj}
-    default:
-      throw new Error()
-  } 
-}
+// const reducer = (state, action) => {
+//   switch(action.type) {
+//     case 'Initial':
+//       return {...state, userObj: action.obj}
+//     case 'update':
+//       return {...state, userObj: action.updatedObj}
+//     default:
+//       throw new Error()
+//   } 
+// }
 
 
 // Game Component
@@ -74,7 +78,10 @@ function Game() {
     const username = checkIfLoggedIn();
     return username;
   });
-  const [state, dispatch] = useReducer(reducer, {})
+  // const [state, dispatch] = useReducer(reducer, {})
+  const state = 'x'
+  const userObj = useSelector(selectUserObj)
+  const dispatch = useDispatch();
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedAction, setSelectedAction] = useState(null);
 
@@ -125,13 +132,15 @@ function Game() {
     body: data
   })
     response = await response.json()
-    dispatch({type: 'Initial', obj: response.userObject})
+    dispatch(initial(response))
     return;
   }
   
   // Effects
   useEffect(() => {
     getUserObject()
+    console.log('getUserObject', store)
+    console.log('gg', store.getState())
   }, []);
 
   // check if user is logged in
@@ -197,7 +206,7 @@ function Game() {
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('thieving')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/thieving/thieving.svg'></img><p>Thieving</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.thieving.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fletching')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/fletching/fletching.svg'></img><p>Fletching</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.fletching.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('crafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/crafting/crafting.svg'></img><p>Crafting</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.crafting.current + '/99': null}</button></li>
-              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('runecrafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/runecrafting/runecrafting.svg'></img><p>Runecrafting</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.runecrafting.current + '/99': null}</button></li>         
+              <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('runecrafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/runecrafting/runecrafting.svg'></img><p>Runecrafting</p></div>{state.userObj && state.userObj.levels ? state.userObj.levels.runecrafting.current + '/99': null}</button></li>
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}

@@ -1,3 +1,5 @@
+// https://runescape.wiki/w/Experience/Table
+
 export const expTable = {
   '1': 0,
   '2': 83,

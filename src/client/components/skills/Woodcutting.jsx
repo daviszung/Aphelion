@@ -1,4 +1,4 @@
-import { expTable, actionTimeValues } from '../../tables.jsx'
+import { expTable, actionTimeValues } from '../../tables.js'
 
 
 export function Woodcutting(props) {

@@ -1,4 +1,4 @@
-import { itemGoldValues } from '../../tables.jsx'
+import { itemGoldValues } from '../../tables.js'
 
 function calculateBankGold(bank) {
   let total = 0;

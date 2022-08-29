@@ -1,4 +1,4 @@
-import { expTable, actionExpValues } from "./tables.jsx";
+import { expTable, actionExpValues } from "./tables.js";
 
 export function cutWood(woodtype, state, dispatch) {
   const copyObj = state.userObj;
