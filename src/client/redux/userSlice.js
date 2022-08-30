@@ -1,15 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import { expTable, actionExpValues } from "../tables.js";
 
 export const userSlice = createSlice({
   name: 'userObject',
   initialState: {
-    userObj: null
+    userObject: null
   },
   reducers: {
     initial: (state, action) => {
-      state = action.payload;
-      console.log('state is here', state)
+      state.userObject = action.payload;
     },
     cutWood: (state, action) => {
       const woodtype = action.payload;
@@ -39,6 +38,6 @@ export const userSlice = createSlice({
 
 export const { initial, cutWood, update } = userSlice.actions;
 
-export const selectUserObj = (state) => state.userObj;
+export const selectUserObj = state => state.user.userObject;
 
 export default userSlice.reducer;

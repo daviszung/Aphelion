@@ -139,8 +139,9 @@ function Game() {
   // Effects
   useEffect(() => {
     getUserObject()
-    console.log('getUserObject', store)
+    console.log("userObj:", userObj)
     console.log('gg', store.getState())
+    
   }, []);
 
   // check if user is logged in
