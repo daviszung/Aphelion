@@ -6,10 +6,10 @@ export function Woodcutting(props) {
     <div className='woodcuttingSkillContainer'>
       <div className='skillInfoContainer'>
         <div className='innerInfoContainer'>
-          <span>SKILL XP <span className='expColor'>{props.state.userObj ? props.state.userObj.levels.woodcutting.exp.toLocaleString() : null} / {props.state.userObj ? expTable[props.state.userObj.levels.woodcutting.level + 1].toLocaleString() : null}</span></span>
+          <span>SKILL XP <span className='expColor'>{props.state ? props.state.levels.woodcutting.exp.toLocaleString() : null} / {props.state ? expTable[props.state.levels.woodcutting.level + 1].toLocaleString() : null}</span></span>
           <div>CURRENT AXE</div>
         </div>
-        <div className='expBar'><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${props.state.userObj ? ((props.state.userObj.levels.woodcutting.exp - expTable[props.state.userObj.levels.woodcutting.level]) / (expTable[props.state.userObj.levels.woodcutting.level + 1] - expTable[props.state.userObj.levels.woodcutting.level])) * 100 : 0}%`}}></div></div>
+        <div className='expBar'><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${props.state ? ((props.state.levels.woodcutting.exp - expTable[props.state.levels.woodcutting.level]) / (expTable[props.state.levels.woodcutting.level + 1] - expTable[props.state.levels.woodcutting.level])) * 100 : 0}%`}}></div></div>
       </div>
       <button id='normalLogBtn' className='actionBtn' onClick={() => {
         if (props.selectedAction === 'Normal Log') {
@@ -22,7 +22,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Normal Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='oakLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 10 ? 'flex' : 'none'}} onClick={() => {
+      <button id='oakLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 10 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Oak Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Oak Log')}}}>
@@ -33,7 +33,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Oak Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='willowLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 25 ? 'flex' : 'none'}} onClick={() => {
+      <button id='willowLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 25 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Willow Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Willow Log')}}}>
@@ -44,7 +44,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Willow Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='teakLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 35 ? 'flex' : 'none'}} onClick={() => {
+      <button id='teakLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 35 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Teak Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Teak Log')}}}>
@@ -55,7 +55,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Teak Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='mapleLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 45 ? 'flex' : 'none'}} onClick={() => {
+      <button id='mapleLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 45 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Maple Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Maple Log')}}}>
@@ -66,7 +66,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Maple Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='mahoganyLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 55 ? 'flex' : 'none'}} onClick={() => {
+      <button id='mahoganyLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 55 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Mahogany Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Mahogany Log')}}}>
@@ -77,7 +77,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Mahogany Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='yewLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 60 ? 'flex' : 'none'}} onClick={() => {
+      <button id='yewLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 60 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Yew Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Yew Log')}}}>
@@ -88,7 +88,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Yew Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='magicLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 75 ? 'flex' : 'none'}} onClick={() => {
+      <button id='magicLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 75 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Magic Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Magic Log')}}}>
@@ -99,7 +99,7 @@ export function Woodcutting(props) {
           <div className='progressBar' style={props.selectedAction === 'Magic Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id='redwoodLogBtn' className='actionBtn' style={{display: props.state.userObj.levels.woodcutting.level >= 90 ? 'flex' : 'none'}} onClick={() => {
+      <button id='redwoodLogBtn' className='actionBtn' style={{display: props.state.levels.woodcutting.level >= 90 ? 'flex' : 'none'}} onClick={() => {
         if (props.selectedAction === 'Redwood Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Redwood Log')}}}>
