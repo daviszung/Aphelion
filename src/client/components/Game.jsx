@@ -1,14 +1,10 @@
 import '../stylesheets/Game.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUserObject, initial, cutWood, update } from '../redux/userSlice'
-
-
-// Actions
-// import { cutWood } from '../actions.jsx'
 
 // Components
 import { Header } from './Header.jsx'
@@ -67,6 +63,7 @@ function Game() {
   });
   const state = useSelector(selectUserObject)
   const dispatch = useDispatch();
+  const stateRef = useRef(state)
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedAction, setSelectedAction] = useState(null);
 
@@ -122,6 +119,13 @@ function Game() {
   }
   
   // Effects
+
+  // update the ref
+  useEffect(() => {
+    stateRef.current = state;
+  })
+
+  // get the initial user object
   useEffect(() => {
     getuserObject() 
   }, []);
@@ -139,9 +143,9 @@ function Game() {
 
   // autosave timer saves every x seconds, resets timer when changing skill menu
   useEffect(() => {
-    if (state && state["userObject"]) {
+    if (state !== false) {
       const timer = setInterval(() => {
-        const body = JSON.stringify(state.userObject)
+        const body = JSON.stringify(stateRef.current)
         updateUserInDB(body)
       }, 20000)
       return () => clearInterval(timer);
@@ -168,8 +172,8 @@ function Game() {
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
-            <div className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('shop')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/gp.svg'></img><p>Shop</p></div><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/coins.svg'></img><p>{state.userObject ? state.userObject.gold.toLocaleString() + 'g' : null}</p></div></button></div>
-            <div className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('bank')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/bank_header.svg'></img><p>Bank</p></div>{state.userObject ? state.userObject.bankSpace + '/' + state.userObject.maxBankSpace : null}</button></div>
+            <div className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('shop')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/gp.svg'></img><p>Shop</p></div><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/coins.svg'></img><p>{state ? state.gold.toLocaleString() + 'g' : null}</p></div></button></div>
+            <div className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('bank')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/main/bank_header.svg'></img><p>Bank</p></div>{state ? state.bankSpace + '/' + state.maxBankSpace : null}</button></div>
             <ul className='skillList'>
               <li className='sidebarLabel'>Combat</li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('combat')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/combat/hitpoints.svg'></img><p>Constitution</p></div>{state && state.levels ? state.levels.constitution.current + '/99': null}</button></li>
@@ -190,7 +194,7 @@ function Game() {
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fletching')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/fletching/fletching.svg'></img><p>Fletching</p></div>{state && state.levels ? state.levels.fletching.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('crafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/crafting/crafting.svg'></img><p>Crafting</p></div>{state && state.levels ? state.levels.crafting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('runecrafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/runecrafting/runecrafting.svg'></img><p>Runecrafting</p></div>{state && state.levels ? state.levels.runecrafting.current + '/99': null}</button></li>
-              <li>{state ? state.username: null}</li>
+              <li>{state ? state.levels.woodcutting.exp: null}</li>
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}
