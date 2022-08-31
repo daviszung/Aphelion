@@ -29,13 +29,9 @@ export const userSlice = createSlice({
         state.userObject.levels.woodcutting.current += 1;
       }
     },
-    buyExtraBankSlot: (state, action) => {
-      console.log(action)
-      console.log(current(state))
+    buyExtraBankSlot: (state) => {
       state.userObject.gold -= bankSlotCosts[state.userObject.maxBankSpace - 12];
       state.userObject.maxBankSpace += 1;
-      console.log(current(state))
-
     },
 
     update: (state, action) => {

@@ -2,18 +2,7 @@ import { bankSlotCosts } from "../../tables"
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUserObject, buyExtraBankSlot } from '../../redux/userSlice'
 
-// function buyExtraBankSlot(state, dispatch) {
-//   const copyObj = state;
-
-//   // subtract gold and add a bank slot
-//   copyObj.gold -= bankSlotCosts[copyObj.maxBankSpace - 12];
-//   copyObj.maxBankSpace += 1;
-
-//   // dispatch
-//   dispatch({type: 'update', updatedObj: copyObj})
-// }
-
-export function ShopGeneralUpgrades(props) {
+export function ShopGeneralUpgrades() {
   const state = useSelector(selectUserObject)
   const dispatch = useDispatch()
 
