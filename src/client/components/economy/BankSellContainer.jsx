@@ -1,23 +1,26 @@
 import { itemGoldValues } from "../../tables"
 import { useState, useRef } from 'react'
+import { useDispatch } from "react-redux";
+import { sellItem } from "../../redux/userSlice";
 
 export function BankSellContainer(props) {
   const [sellAmount, setSellAmount] = useState(1)
+  const dispatch = useDispatch()
 
-  function sellItem(){
-    const copyObj = props.state.userObj;
-    copyObj.gold += (sellAmount * itemGoldValues[props.selectedItem]);
-    // if the amount being sold is >= the amount in bank, remove the item from bank
-    if (sellAmount >= copyObj.bank[props.selectedItem]) {
-      delete copyObj.bank[props.selectedItem];
-      props.setSelectedItem(null)
-      copyObj.bankSpace -= 1;
-    } else {
-      copyObj.bank[props.selectedItem] -= sellAmount;
-    }
-    props.dispatch({type: 'update', updatedObj: copyObj})
-    return;
-  }
+  // function sellItem(){
+  //   const copyObj = props.state;
+  //   copyObj.gold += (sellAmount * itemGoldValues[props.selectedItem]);
+  //   // if the amount being sold is >= the amount in bank, remove the item from bank
+  //   if (sellAmount >= copyObj.bank[props.selectedItem]) {
+  //     delete copyObj.bank[props.selectedItem];
+  //     props.setSelectedItem(null)
+  //     copyObj.bankSpace -= 1;
+  //   } else {
+  //     copyObj.bank[props.selectedItem] -= sellAmount;
+  //   }
+  //   props.dispatch({type: 'update', updatedObj: copyObj})
+  //   return;
+  // }
 
   return (
     <div className="sellItemContainer">
@@ -37,7 +40,12 @@ export function BankSellContainer(props) {
             <button className="blueBtn" onClick={() => {setSellAmount(props.quantity - 1)}}>All but 1</button>
             <button className="blueBtn" onClick={() => {setSellAmount(props.quantity)}}>All</button>
           </div>
-          <button id="sellBtn" onClick={sellItem}>Sell Item</button>
+          <button id="sellBtn" onClick={() => {
+            dispatch(sellItem({sellAmount: sellAmount, selectedItem: props.selectedItem}))
+            if (sellAmount >= props.state.bank[props.selectedItem]) {
+              props.setSelectedItem(null)
+            }
+          }}>Sell Item</button>
         </div>
         <div className="sellValueContainer"><div>Sell Amount: {sellAmount}</div><div className="flexCenter"><img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img><div>{(sellAmount * itemGoldValues[props.selectedItem]).toLocaleString()}</div></div></div>
       </div>

@@ -1,5 +1,5 @@
 import { createSlice, current } from '@reduxjs/toolkit';
-import { expTable, actionExpValues, bankSlotCosts } from "../tables.js";
+import { expTable, actionExpValues, bankSlotCosts, itemGoldValues } from "../tables.js";
 
 export const userSlice = createSlice({
   name: 'userObject',
@@ -9,6 +9,18 @@ export const userSlice = createSlice({
   reducers: {
     initial: (state, action) => {
       state.userObject = action.payload.userObject;
+    },
+    sellItem: (state, action) => {
+      const { sellAmount, selectedItem } = action.payload;
+      state.userObject.gold += (sellAmount * itemGoldValues[selectedItem]);
+
+      // if the amount being sold is >= the amount in bank, remove the item from bank
+      if (sellAmount >= state.userObject.bank[selectedItem]) {
+        delete state.userObject.bank[selectedItem];
+        state.userObject.bankSpace -= 1;
+      } else {
+        state.userObject.bank[selectedItem] -= sellAmount;
+      }
     },
     cutWood: (state, action) => {
       const woodtype = action.payload;
@@ -40,7 +52,7 @@ export const userSlice = createSlice({
   }
 })
 
-export const { initial, cutWood, buyExtraBankSlot, update } = userSlice.actions;
+export const { initial, sellItem, cutWood, buyExtraBankSlot, update } = userSlice.actions;
 
 export const selectUserObject = state => state.user.userObject;
 

@@ -9,7 +9,7 @@ export function Bank(props) {
   const [selectedItem, setSelectedItem] = useState(null)
 
   function loadItems () {
-    const bank = props.state.userObj.bank;
+    const bank = props.state.bank;
     for (let i in bank) {
       myArr.push(<BankItem key={i} quantity={bank[i]} itemName={i} selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>)
     }
@@ -27,7 +27,7 @@ export function Bank(props) {
       </div>
       <div id="bankSecondary" className="shadowedContainer">
         <div id='bankSecondaryControls'></div>
-        <BankSelected selectedItem={selectedItem} setSelectedItem={setSelectedItem} quantity={props.state.userObj.bank[selectedItem]} state={props.state} dispatch={props.dispatch}/>
+        <BankSelected selectedItem={selectedItem} setSelectedItem={setSelectedItem} quantity={props.state.bank[selectedItem]} state={props.state}/>
       </div>
       <div id="keyItemsContainer" className="shadowedContainer">
 

@@ -31,7 +31,11 @@ export function ShopGeneralUpgrades() {
         <div>GENERAL UPGRADES</div>
       </div>
       <div className="shopGrid">
-        <button className="purchaseContainer" onClick={() => {document.querySelector(".modal").classList.toggle("show-modal")}}>
+        <button className="purchaseContainer" onClick={() => {
+          if (state.gold >= bankSlotCosts[state.maxBankSpace - 12]) {
+            document.querySelector(".modal").classList.toggle("show-modal")
+          }
+          }}>
           <div style={{width: '100%', justifyContent: 'space-between'}} className="flexAlign">
             <strong>Extra Bank Slot</strong>
             <div className="flexAlign">

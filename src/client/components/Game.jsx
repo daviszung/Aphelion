@@ -87,7 +87,7 @@ function Game() {
       case 'shop':
         return <Shop />;
       case 'bank':
-        return <Bank state={state} dispatch={dispatch}/>;
+        return <Bank state={state}/>;
       case 'combat':
         return <Combat />;
       case 'woodcutting':
@@ -206,7 +206,6 @@ function Game() {
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('fletching')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/fletching/fletching.svg'></img><p>Fletching</p></div>{state && state.levels ? state.levels.fletching.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('crafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/crafting/crafting.svg'></img><p>Crafting</p></div>{state && state.levels ? state.levels.crafting.current + '/99': null}</button></li>
               <li className='sidebarItem'><button className='skillBtn' onClick={() => {setSelectedSkill('runecrafting')}}><div className='flexGrouper'><img className='sidebarIcon' src='https://cdn.melvor.net/core/v018/assets/media/skills/runecrafting/runecrafting.svg'></img><p>Runecrafting</p></div>{state && state.levels ? state.levels.runecrafting.current + '/99': null}</button></li>
-              <li>{state ? state.levels.woodcutting.exp: null}</li>
             </ul>
           </div>
           {displaySkillMenu(selectedSkill)}

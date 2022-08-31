@@ -14,8 +14,8 @@ export function BankInfo(props) {
 
   return (
     <div id="bankInfo">
-      <div className='bankInfoFlex'>Space: {props.state.userObj.bankSpace}/{props.state.userObj.maxBankSpace}</div>
-      <div className='bankInfoFlex'><img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src='https://cdn.melvor.net/core/v018/assets/media/main/coins.svg'></img><div>{calculateBankGold(props.state.userObj.bank)}</div></div>
+      <div className='bankInfoFlex'>Space: {props.state.bankSpace}/{props.state.maxBankSpace}</div>
+      <div className='bankInfoFlex'><img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src='https://cdn.melvor.net/core/v018/assets/media/main/coins.svg'></img><div>{calculateBankGold(props.state.bank)}</div></div>
     </div>
   )
 }
