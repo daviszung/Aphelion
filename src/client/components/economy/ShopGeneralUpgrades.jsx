@@ -1,17 +1,21 @@
 import { bankSlotCosts } from "../../tables"
+import { useSelector, useDispatch } from 'react-redux'
+import { selectUserObject, buyExtraBankSlot } from '../../redux/userSlice'
 
-function buyExtraBankSlot(state, dispatch) {
-  const copyObj = state.userObj;
+// function buyExtraBankSlot(state, dispatch) {
+//   const copyObj = state;
 
-  // subtract gold and add a bank slot
-  copyObj.gold -= bankSlotCosts[copyObj.maxBankSpace - 12];
-  copyObj.maxBankSpace += 1;
+//   // subtract gold and add a bank slot
+//   copyObj.gold -= bankSlotCosts[copyObj.maxBankSpace - 12];
+//   copyObj.maxBankSpace += 1;
 
-  // dispatch
-  dispatch({type: 'update', updatedObj: copyObj})
-}
+//   // dispatch
+//   dispatch({type: 'update', updatedObj: copyObj})
+// }
 
 export function ShopGeneralUpgrades(props) {
+  const state = useSelector(selectUserObject)
+  const dispatch = useDispatch()
 
   return (
     <div className="hw100">
@@ -22,11 +26,11 @@ export function ShopGeneralUpgrades(props) {
           <div>+1 Maximum Bank Space</div>
           <div className="flexAlign">
               <img style={{height: '32px', width: '32px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
-              <div style={{fontSize: '1.1rem'}}>{bankSlotCosts[props.state.userObj.maxBankSpace - 12]}</div>
+              <div style={{fontSize: '1.1rem'}}>{bankSlotCosts[state.maxBankSpace - 12]}</div>
           </div>
           <div className="flexAlign modalBtnContainer">
             <button className="buyBtn" onClick={() => {
-              buyExtraBankSlot(props.state, props.dispatch)
+              dispatch(buyExtraBankSlot())
               document.querySelector(".modal").classList.toggle("show-modal")}
               }>Buy</button>
             <button className="cancelBtn" onClick={() => {document.querySelector(".modal").classList.toggle("show-modal")}}>Cancel</button>
@@ -43,7 +47,7 @@ export function ShopGeneralUpgrades(props) {
             <strong>Extra Bank Slot</strong>
             <div className="flexAlign">
               <img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
-              <div>{bankSlotCosts[props.state.userObj.maxBankSpace - 12]}</div>
+              <div>{bankSlotCosts[state.maxBankSpace - 12]}</div>
             </div>
           </div>
           <div style={{display: 'flex', marginTop: '10px'}}>

@@ -1,7 +1,7 @@
 import { ShopSectionContainer } from "./ShopSectionContainer"
 import { useState } from "react"
 
-export function Shop(props) {
+export function Shop() {
   const [selectedCategory, setSelectedCategory] = useState("generalUpgrades")
 
   return (
@@ -14,7 +14,7 @@ export function Shop(props) {
           <button onClick={() => {setSelectedCategory("materialsAndItems")}} className="shopCategoryBtn flexCenter"><img className="shopCategoryImg" src="https://cdn.melvor.net/core/v018/assets/media/bank/leather.png"></img><div>Materials & Items</div></button>
         </div>
       </div>
-      <ShopSectionContainer selectedCategory={selectedCategory} state={props.state} dispatch={props.dispatch}/>
+      <ShopSectionContainer selectedCategory={selectedCategory}/>
     </div>
   )
 }

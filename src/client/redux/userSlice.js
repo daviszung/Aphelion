@@ -1,5 +1,5 @@
 import { createSlice, current } from '@reduxjs/toolkit';
-import { expTable, actionExpValues } from "../tables.js";
+import { expTable, actionExpValues, bankSlotCosts } from "../tables.js";
 
 export const userSlice = createSlice({
   name: 'userObject',
@@ -11,8 +11,6 @@ export const userSlice = createSlice({
       state.userObject = action.payload.userObject;
     },
     cutWood: (state, action) => {
-      console.log('here', action)
-      console.log(current(state))
       const woodtype = action.payload;
 
       // add logs to the bank
@@ -31,6 +29,14 @@ export const userSlice = createSlice({
         state.userObject.levels.woodcutting.current += 1;
       }
     },
+    buyExtraBankSlot: (state, action) => {
+      console.log(action)
+      console.log(current(state))
+      state.userObject.gold -= bankSlotCosts[state.userObject.maxBankSpace - 12];
+      state.userObject.maxBankSpace += 1;
+      console.log(current(state))
+
+    },
 
     update: (state, action) => {
       state.userObject = action.payload;
@@ -38,7 +44,7 @@ export const userSlice = createSlice({
   }
 })
 
-export const { initial, cutWood, update } = userSlice.actions;
+export const { initial, cutWood, buyExtraBankSlot, update } = userSlice.actions;
 
 export const selectUserObject = state => state.user.userObject;
 

@@ -22,6 +22,18 @@ import { Fletching } from './skills/Fletching.jsx'
 import { Crafting } from './skills/Crafting.jsx'
 import { Runecrafting } from './skills/Runecrafting.jsx'
 
+const actionDict = {
+  "Normal Log": cutWood("Normal Log"),
+  "Oak Log": cutWood("Oak Log"),
+  "Willow Log": cutWood("Willow Log"),
+  "Teak Log": cutWood("Teak Log"),
+  "Maple Log": cutWood("Maple Log"),
+  "Mahogany Log": cutWood("Mahogany Log"),
+  "Yew Log": cutWood("Yew Log"),
+  "Magic Log": cutWood("Magic Log"),
+  "Redwood Log": cutWood("Redwood Log"),
+}
+
 function checkIfLoggedIn() {
   if (!document.cookie) {
     return false;
@@ -73,7 +85,7 @@ function Game() {
       case null:
         return <div id='noSelectedSkill'>Welcome</div>;
       case 'shop':
-        return <Shop state={state} dispatch={dispatch}/>;
+        return <Shop />;
       case 'bank':
         return <Bank state={state} dispatch={dispatch}/>;
       case 'combat':
@@ -158,8 +170,8 @@ function Game() {
     if (selectedAction === null) clearInterval(action);
     else {
       action = setInterval(() => {
-        if (selectedAction.includes('Log')) {
-          dispatch(cutWood(selectedAction))
+        if (actionDict[selectedAction] !== undefined) {
+          dispatch(actionDict[selectedAction])
         }
       }, actionTimeValues[selectedAction])
     } 

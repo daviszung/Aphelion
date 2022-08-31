@@ -7,13 +7,13 @@ export function ShopSectionContainer(props) {
   function renderCategory(selected){
     switch(selected){
       case "generalUpgrades":
-        return <ShopGeneralUpgrades state={props.state} dispatch={props.dispatch}/>;
+        return <ShopGeneralUpgrades />;
       case "skillUpgrades":
-        return <ShopSkillUpgrades state={props.state} dispatch={props.dispatch}/>;
+        return <ShopSkillUpgrades />;
       case "skillcapes":
-        return <ShopSkillcapes state={props.state} dispatch={props.dispatch}/>;
+        return <ShopSkillcapes />;
       case "materialsAndItems":
-        return <ShopMaterialsAndItems state={props.state} dispatch={props.dispatch}/>;
+        return <ShopMaterialsAndItems />;
       default:
         throw new Error()
     }
