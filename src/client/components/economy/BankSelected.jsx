@@ -16,7 +16,7 @@ export function BankSelected (props) {
       <div id="bankSelected">
         <div className="bankSecondaryImgContainer"><img className="bankSecondaryImg" src={itemImages[props.selectedItem]}></img><div className="selectedItemQuantity">{props.quantity.toLocaleString()}</div></div>
         <div className="itemDescriptionContainer">{props.selectedItem}</div>
-        <BankSellContainer selectedItem={props.selectedItem} setSelectedItem={props.setSelectedItem} quantity={props.quantity} state={props.state} dispatch={props.dispatch}/>
+        <BankSellContainer selectedItem={props.selectedItem} setSelectedItem={props.setSelectedItem} quantity={props.quantity} state={props.state} />
       </div>
     )
   }

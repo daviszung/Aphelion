@@ -1,26 +1,11 @@
 import { itemGoldValues } from "../../tables"
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { sellItem } from "../../redux/userSlice";
 
 export function BankSellContainer(props) {
   const [sellAmount, setSellAmount] = useState(1)
   const dispatch = useDispatch()
-
-  // function sellItem(){
-  //   const copyObj = props.state;
-  //   copyObj.gold += (sellAmount * itemGoldValues[props.selectedItem]);
-  //   // if the amount being sold is >= the amount in bank, remove the item from bank
-  //   if (sellAmount >= copyObj.bank[props.selectedItem]) {
-  //     delete copyObj.bank[props.selectedItem];
-  //     props.setSelectedItem(null)
-  //     copyObj.bankSpace -= 1;
-  //   } else {
-  //     copyObj.bank[props.selectedItem] -= sellAmount;
-  //   }
-  //   props.dispatch({type: 'update', updatedObj: copyObj})
-  //   return;
-  // }
 
   return (
     <div className="sellItemContainer">
