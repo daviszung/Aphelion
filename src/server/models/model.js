@@ -46,6 +46,11 @@ const userSchema = new Schema({
     crafting: {exp: Number, current: Number, level: Number},
     runecrafting: {exp: Number, current: Number, level: Number},
   },
+  modifiers: {
+    axe: Number,
+    pickaxe: Number,
+    fishingRod: Number,
+  },
   boons: {},
   keyItems: {}
 }, {minimize: false});

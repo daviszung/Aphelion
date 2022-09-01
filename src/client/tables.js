@@ -187,6 +187,17 @@ export const bankSlotCosts = {
   118:  5000000,
 }
 
+// A list of tools. Axes value is the percent to decrease the increment timer by.
+export const tools = {
+  'Bronze Axe': 0,
+  'Iron Axe': 5,
+  'Steel Axe': 10,
+  'Mithril Axe': 20,
+  'Adamant Axe': 30,
+  'Rune Axe': 40,
+  'Dragon Axe': 50,
+}
+
 
 export const actionExpValues = {
   'Normal Log': 10,
