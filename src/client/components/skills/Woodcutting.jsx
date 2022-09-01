@@ -16,7 +16,7 @@ export function Woodcutting(props) {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Normal Log')}}}>
         <div>Normal Tree</div>
-        <div>10xp / 3 seconds</div>
+        <div>10xp / x seconds</div>
         <img className='treeImages' src='https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/normal_tree.svg'></img>
         <div className='progressBarContainer'>
           <div className='progressBar' style={props.selectedAction === 'Normal Log' ? {'animation': `load ${actionTimeValues[props.selectedAction]}ms linear infinite`} : {width: '0%'}}></div>
