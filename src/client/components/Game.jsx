@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.js'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUserObject, initial, cutWood, update } from '../redux/userSlice'
+import { selectUserObject, initial, cutWood } from '../redux/userSlice'
 
 // Components
 import { Header } from './Header.jsx'
@@ -36,27 +36,27 @@ const actionDict = {
     modifierType: "axe"
   },
   "Teak Log": {
-    action: cutWood("Normal Log"),
+    action: cutWood("Teak Log"),
     modifierType: "axe"
   },
   "Maple Log": {
-    action: cutWood("Normal Log"),
+    action: cutWood("Maple Log"),
     modifierType: "axe"
   },
   "Mahogany Log": {
-    action: cutWood("Normal Log"),
+    action: cutWood("Mahogany Log"),
     modifierType: "axe"
   },
   "Yew Log": {
-    action: cutWood("Normal Log"),
+    action: cutWood("Yew Log"),
     modifierType: "axe"
   },
   "Magic Log": {
-    action: cutWood("Normal Log"),
+    action: cutWood("Magic Log"),
     modifierType: "axe"
   },
   "Redwood Log": {
-    action: cutWood("Normal Log"),
+    action: cutWood("Redwood Log"),
     modifierType: "axe"
   },
 };
