@@ -30,6 +30,11 @@ function createNewUserObject(username, password){
       crafting: {exp: 0, current: 1, level: 1},
       runecrafting: {exp: 0, current: 1, level: 1},
     },
+    modifiers: {
+      axe: 0,
+      pickaxe: 0,
+      fishingRod: 0,
+    },
     boons: {},
     keyItems: {}
   }

@@ -717,6 +717,13 @@ main {
   align-items: center;
 }
 
+.axeType {
+  background-color: #e5ae67;
+  color: #232946;
+  border-radius: 5px;
+  padding: .3rem .5rem;
+}
+
 .expColor {
   border-radius: 5px;
   padding: 2px 5px;

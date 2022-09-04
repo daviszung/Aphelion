@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.js'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUserObject, initial, cutWood, update } from '../redux/userSlice'
+import { selectUserObject, initial, cutWood } from '../redux/userSlice'
 
 // Components
 import { Header } from './Header.jsx'
@@ -23,16 +23,43 @@ import { Crafting } from './skills/Crafting.jsx'
 import { Runecrafting } from './skills/Runecrafting.jsx'
 
 const actionDict = {
-  "Normal Log": cutWood("Normal Log"),
-  "Oak Log": cutWood("Oak Log"),
-  "Willow Log": cutWood("Willow Log"),
-  "Teak Log": cutWood("Teak Log"),
-  "Maple Log": cutWood("Maple Log"),
-  "Mahogany Log": cutWood("Mahogany Log"),
-  "Yew Log": cutWood("Yew Log"),
-  "Magic Log": cutWood("Magic Log"),
-  "Redwood Log": cutWood("Redwood Log"),
-}
+  "Normal Log": {
+    action: cutWood("Normal Log"),
+    modifierType: "axe"
+  },
+  "Oak Log": {
+    action: cutWood("Oak Log"),
+    modifierType: "axe"
+  },
+  "Willow Log": {
+    action: cutWood("Willow Log"),
+    modifierType: "axe"
+  },
+  "Teak Log": {
+    action: cutWood("Teak Log"),
+    modifierType: "axe"
+  },
+  "Maple Log": {
+    action: cutWood("Maple Log"),
+    modifierType: "axe"
+  },
+  "Mahogany Log": {
+    action: cutWood("Mahogany Log"),
+    modifierType: "axe"
+  },
+  "Yew Log": {
+    action: cutWood("Yew Log"),
+    modifierType: "axe"
+  },
+  "Magic Log": {
+    action: cutWood("Magic Log"),
+    modifierType: "axe"
+  },
+  "Redwood Log": {
+    action: cutWood("Redwood Log"),
+    modifierType: "axe"
+  },
+};
 
 function checkIfLoggedIn() {
   if (!document.cookie) {
@@ -171,10 +198,10 @@ function Game() {
     else {
       action = setInterval(() => {
         if (actionDict[selectedAction] !== undefined) {
-          dispatch(actionDict[selectedAction])
+          dispatch(actionDict[selectedAction].action)
         }
-      }, actionTimeValues[selectedAction])
-    } 
+      }, actionTimeValues[selectedAction] * ((100 - state.modifiers[actionDict[selectedAction].modifierType]) / 100))
+    }
     return () => clearInterval(action);
   }, [selectedAction])
 
