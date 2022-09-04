@@ -54,7 +54,7 @@ export function Modal (props) {
           <div>{modals[props.selectedModal].description}</div>
           <div className="flexAlign">
               <img style={{height: '32px', width: '32px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
-              <div style={{fontSize: '1.1rem'}}>{props.cost}</div>
+              <div style={{fontSize: '1.1rem'}}>{props.cost.toLocaleString()}</div>
           </div>
           <div className="flexAlign modalBtnContainer">
             <button className="buyBtn" onClick={() => {

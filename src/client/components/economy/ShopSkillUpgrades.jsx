@@ -62,7 +62,7 @@ export function ShopSkillUpgrades(props) {
             <strong>Axe Upgrade</strong>
             <div className="flexAlign">
               <img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
-              <div>{axes[state.modifiers.axe] ? axes[state.modifiers.axe].cost : 'none'}</div>
+              <div>{axes[state.modifiers.axe] ? axes[state.modifiers.axe].cost.toLocaleString() : 'none'}</div>
             </div>
           </div>
           <div style={{display: 'flex', marginTop: '10px'}}>
