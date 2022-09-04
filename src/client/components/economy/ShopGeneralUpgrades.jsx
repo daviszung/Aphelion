@@ -1,10 +1,13 @@
 import { bankSlotCosts } from "../../tables"
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUserObject, buyExtraBankSlot } from '../../redux/userSlice'
+import { useState } from "react"
 
 export function ShopGeneralUpgrades() {
   const state = useSelector(selectUserObject)
   const dispatch = useDispatch()
+  const [selectedModal, setSelectedModal] = useState(null)
+
 
   return (
     <div className="hw100">
