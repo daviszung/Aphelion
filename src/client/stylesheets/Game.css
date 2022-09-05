@@ -813,3 +813,7 @@ main {
   height: 100px;
   width: 100px;
 }
+
+.miningColor {
+  border-top: 5px solid #94857a;
+}

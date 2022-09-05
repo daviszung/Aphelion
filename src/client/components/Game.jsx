@@ -126,7 +126,7 @@ function Game() {
       case 'cooking':
         return <Cooking />;
       case 'mining':
-        return <Mining />;
+        return <Mining state={state} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
       case 'smithing':
         return <Smithing />;
       case 'thieving':

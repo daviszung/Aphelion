@@ -39,32 +39,32 @@ const axes = {
 const pickaxes = {
   0: {
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_iron.svg',
-    cost: 50,
+    cost: 250,
     name: 'Iron Pickaxe'
   },
   5: {
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_steel.svg',
-    cost: 750,
+    cost: 2000,
     name: 'Steel Pickaxe'
   },
   10: {
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_mithril.svg',
-    cost: 10000,
+    cost: 50000,
     name: 'Mithril Pickaxe'
   },
   20: {
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_adamant.svg',
-    cost: 50000,
+    cost: 200000,
     name: 'Adamant Pickaxe'
   },
   30: {
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_rune.svg',
-    cost: 200000,
+    cost: 1000000,
     name: 'Rune Pickaxe'
   },
   40: {
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_dragon.svg',
-    cost: 2000000,
+    cost: 5000000,
     name: 'Dragon Pickaxe'
   },
 }
