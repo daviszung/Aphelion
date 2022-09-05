@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.js'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUserObject, initial, cutWood } from '../redux/userSlice'
+import { selectUserObject, initial, cutWood, mine } from '../redux/userSlice'
 
 // Components
 import { Header } from './Header.jsx'
@@ -59,6 +59,10 @@ const actionDict = {
     action: cutWood("Redwood Log"),
     modifierType: "axe"
   },
+  "Rune Essence": {
+    action: mine("Rune Essence"),
+    modifierType: "pickaxe"
+  }
 };
 
 function checkIfLoggedIn() {

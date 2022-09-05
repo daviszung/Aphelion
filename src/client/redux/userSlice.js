@@ -41,6 +41,26 @@ export const userSlice = createSlice({
         state.userObject.levels.woodcutting.current += 1;
       }
     },
+
+    mine: (state, action) => {
+      const minedItem = action.payload;
+
+      // add items to the bank
+      if (state.userObject.bank[minedItem] && state.userObject.bankSpace <= state.userObject.maxBankSpace) {
+        state.userObject.bank[minedItem] += 1;
+        
+      } else if (!state.userObject.bank[minedItem] && state.userObject.bankSpace < state.userObject.maxBankSpace){
+        state.userObject.bankSpace += 1;
+        state.userObject.bank[minedItem] = 1;
+      }
+      // add experience and potentially level up
+      state.userObject.levels.mining.exp += actionExpValues[minedItem];
+      if (state.userObject.levels.mining.level < 99 && state.userObject.levels.mining.exp >= expTable[state.userObject.levels.mining.level + 1]) {
+        state.userObject.levels.mining.level += 1; 
+        state.userObject.levels.mining.current += 1;
+      }
+    },
+
     buyExtraBankSlot: (state) => {
       state.userObject.gold -= bankSlotCosts[state.userObject.maxBankSpace - 12];
       state.userObject.maxBankSpace += 1;
@@ -69,7 +89,7 @@ export const userSlice = createSlice({
   }
 })
 
-export const { initial, sellItem, cutWood, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, update } = userSlice.actions;
+export const { initial, sellItem, cutWood, mine, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, update } = userSlice.actions;
 
 export const selectUserObject = state => state.user.userObject;
 

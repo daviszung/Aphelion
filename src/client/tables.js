@@ -209,6 +209,7 @@ export const actionExpValues = {
   'Yew Log': 80,
   'Magic Log': 100,
   'Redwood Log': 180,
+  'Rune Essence': 5,
 };
 
 export const itemGoldValues = {
@@ -220,7 +221,8 @@ export const itemGoldValues = {
   'Mahogany Log': 50,
   'Yew Log': 75,
   'Magic Log': 400,
-  'Redwood Log': 25
+  'Redwood Log': 25,
+  'Rune Essence': 0
 };
 
 export const actionTimeValues = {
@@ -233,4 +235,5 @@ export const actionTimeValues = {
   'Yew Log': 12000,
   'Magic Log': 20000,
   'Redwood Log': 15000,
+  'Rune Essence': 3000
 }
