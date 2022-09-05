@@ -54,6 +54,14 @@ export const userSlice = createSlice({
       }
       state.userObject.gold -= action.payload;
     },
+    buyPickaxeUpgrade: (state, action) => {
+      if (state.userObject.modifiers.pickaxe < 10) {
+        state.userObject.modifiers.pickaxe += 5;
+      } else {
+        state.userObject.modifiers.pickaxe += 10;
+      }
+      state.userObject.gold -= action.payload;
+    },
 
     update: (state, action) => {
       state.userObject = action.payload;
@@ -61,7 +69,7 @@ export const userSlice = createSlice({
   }
 })
 
-export const { initial, sellItem, cutWood, buyExtraBankSlot, buyAxeUpgrade, update } = userSlice.actions;
+export const { initial, sellItem, cutWood, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, update } = userSlice.actions;
 
 export const selectUserObject = state => state.user.userObject;
 
