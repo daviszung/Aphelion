@@ -210,6 +210,16 @@ export const actionExpValues = {
   'Magic Log': 100,
   'Redwood Log': 180,
   'Rune Essence': 5,
+  'Copper Ore': 7,
+  'Tin Ore': 7,
+  'Iron Ore': 14,
+  'Coal Ore': 18,
+  'Silver Ore': 25,
+  'Gold Ore': 28,
+  'Mithril Ore': 65,
+  'Adamantite Ore': 71,
+  'Runite Ore': 86,
+  'Dragonite Ore': 101,
 };
 
 export const itemGoldValues = {
@@ -222,7 +232,17 @@ export const itemGoldValues = {
   'Yew Log': 75,
   'Magic Log': 400,
   'Redwood Log': 25,
-  'Rune Essence': 0
+  'Rune Essence': 0,
+  'Copper Ore': 2,
+  'Tin Ore': 2,
+  'Iron Ore': 5,
+  'Coal Ore': 13,
+  'Silver Ore': 25,
+  'Gold Ore': 30,
+  'Mithril Ore': 65,
+  'Adamantite Ore': 88,
+  'Runite Ore': 100,
+  'Dragonite Ore': 135,
 };
 
 export const actionTimeValues = {
@@ -235,5 +255,15 @@ export const actionTimeValues = {
   'Yew Log': 12000,
   'Magic Log': 20000,
   'Redwood Log': 15000,
-  'Rune Essence': 3000
+  'Rune Essence': 3000,
+  'Copper Ore': 3000,
+  'Tin Ore': 3000,
+  'Iron Ore': 5000,
+  'Coal Ore': 6000,
+  'Silver Ore': 7000,
+  'Gold Ore': 7000,
+  'Mithril Ore': 10000,
+  'Adamantite Ore': 12000,
+  'Runite Ore': 15000,
+  'Dragonite Ore': 20000,
 }

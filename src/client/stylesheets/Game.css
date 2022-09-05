@@ -814,6 +814,10 @@ main {
   width: 100px;
 }
 
-.miningColor {
+.miningColorTop {
   border-top: 5px solid #94857a;
+}
+
+.miningColorBG {
+  background-color: #94857a;
 }

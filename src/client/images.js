@@ -9,7 +9,16 @@ export const itemImages = {
   'Magic Log': 'https://cdn.melvor.net/core/v018/assets/media/bank/logs_magic.png?2',
   'Redwood Log': 'https://cdn.melvor.net/core/v018/assets/media/bank/logs_redwood.png?2',
   'Rune Essence': 'https://cdn.melvor.net/core/v018/assets/media/bank/rune_essence.png',
-
+  'Copper Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_copper.png',
+  'Tin Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_tin.png',
+  'Iron Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_iron.png',
+  'Coal Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_coal.png',
+  'Silver Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_silver.png',
+  'Gold Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_gold.png',
+  'Mithril Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_mithril.png',
+  'Adamantite Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_adamantite.png',
+  'Runite Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_runite.png',
+  'Dragonite Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_dragonite.png',
 }
 
 export const miningImages = {

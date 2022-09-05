@@ -5,6 +5,7 @@ import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUserObject, initial, cutWood, mine } from '../redux/userSlice'
+import { actionDict } from '../actionDict'
 
 // Components
 import { Header } from './Header.jsx'
@@ -22,48 +23,7 @@ import { Fletching } from './skills/Fletching.jsx'
 import { Crafting } from './skills/Crafting.jsx'
 import { Runecrafting } from './skills/Runecrafting.jsx'
 
-const actionDict = {
-  "Normal Log": {
-    action: cutWood("Normal Log"),
-    modifierType: "axe"
-  },
-  "Oak Log": {
-    action: cutWood("Oak Log"),
-    modifierType: "axe"
-  },
-  "Willow Log": {
-    action: cutWood("Willow Log"),
-    modifierType: "axe"
-  },
-  "Teak Log": {
-    action: cutWood("Teak Log"),
-    modifierType: "axe"
-  },
-  "Maple Log": {
-    action: cutWood("Maple Log"),
-    modifierType: "axe"
-  },
-  "Mahogany Log": {
-    action: cutWood("Mahogany Log"),
-    modifierType: "axe"
-  },
-  "Yew Log": {
-    action: cutWood("Yew Log"),
-    modifierType: "axe"
-  },
-  "Magic Log": {
-    action: cutWood("Magic Log"),
-    modifierType: "axe"
-  },
-  "Redwood Log": {
-    action: cutWood("Redwood Log"),
-    modifierType: "axe"
-  },
-  "Rune Essence": {
-    action: mine("Rune Essence"),
-    modifierType: "pickaxe"
-  }
-};
+
 
 function checkIfLoggedIn() {
   if (!document.cookie) {
@@ -190,7 +150,7 @@ function Game() {
       const timer = setInterval(() => {
         const body = JSON.stringify(stateRef.current)
         updateUserInDB(body)
-      }, 20000)
+      }, 60000)
       return () => clearInterval(timer);
     }
   }, [selectedSkill]);
