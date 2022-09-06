@@ -1,4 +1,4 @@
-import { buyExtraBankSlot, buyAxeUpgrade } from '../../redux/userSlice'
+import { buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade } from '../../redux/userSlice'
 
 const modals = {
   extraBankSlot: {
@@ -42,6 +42,42 @@ const modals = {
     description: 'Reduce Time to Cut Trees by 10%',
     purchase: buyAxeUpgrade,
     img: 'https://melvoridle.com/assets/media/shop/axe_dragon.svg'
+  },
+  "Iron Pickaxe": {
+    question: 'Buy An Iron Pickaxe?',
+    description: 'Reduce Time to Mine Ore by 5%',
+    purchase: buyPickaxeUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/pickaxe_iron.svg'
+  },
+  "Steel Pickaxe": {
+    question: 'Buy A Steel Pickaxe?',
+    description: 'Reduce Time to Mine Ore by 10%',
+    purchase: buyPickaxeUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/pickaxe_steel.svg'
+  },
+  "Mithril Pickaxe": {
+    question: 'Buy A Mithril Pickaxe?',
+    description: 'Reduce Time to Mine Ore by 10%',
+    purchase: buyPickaxeUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/pickaxe_mithril.svg'
+  },
+  "Adamant Pickaxe": {
+    question: 'Buy An Adamant Pickaxe?',
+    description: 'Reduce Time to Mine Ore by 10%',
+    purchase: buyPickaxeUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/pickaxe_adamant.svg'
+  },
+  "Rune Pickaxe": {
+    question: 'Buy A Rune Pickaxe?',
+    description: 'Reduce Time to Mine Ore by 10%',
+    purchase: buyPickaxeUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/pickaxe_rune.svg'
+  },
+  "Dragon Pickaxe": {
+    question: 'Buy A Dragon Pickaxe?',
+    description: 'Reduce Time to Mine Ore by 10%',
+    purchase: buyPickaxeUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/pickaxe_dragon.svg'
   },
 }
 

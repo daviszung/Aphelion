@@ -813,3 +813,21 @@ main {
   height: 100px;
   width: 100px;
 }
+
+.miningColorTop {
+  border-top: 5px solid #94857a;
+}
+
+.miningColorBG {
+  background-color: #94857a;
+}
+
+#runiteOreBtn {
+  grid-row: 4 / 4;
+  grid-column: 2 / 2;
+}
+
+#dragoniteOreBtn {
+  grid-row: 4 / 4;
+  grid-column: 3 / 3;
+}
