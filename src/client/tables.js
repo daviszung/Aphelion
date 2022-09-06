@@ -217,9 +217,9 @@ export const actionExpValues = {
   'Silver Ore': 25,
   'Gold Ore': 28,
   'Mithril Ore': 65,
-  'Adamantite Ore': 71,
-  'Runite Ore': 86,
-  'Dragonite Ore': 101,
+  'Adamantite Ore': 85,
+  'Runite Ore': 115,
+  'Dragonite Ore': 175,
 };
 
 export const itemGoldValues = {
