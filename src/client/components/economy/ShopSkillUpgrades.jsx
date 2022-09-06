@@ -69,7 +69,7 @@ const pickaxes = {
   },
 }
 
-export function ShopSkillUpgrades(props) {
+export function ShopSkillUpgrades() {
   const state = useSelector(selectUserObject)
   const dispatch = useDispatch()
   const [selectedModal, setSelectedModal] = useState('extraBankSlot')
