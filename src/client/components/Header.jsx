@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import { updateUserInDB } from './Game';
 
 const themes = {
   shop: {
@@ -78,6 +78,9 @@ export function Header (props) {
             <li>{props.user}</li>
             <button className='logoutBtn'
             onClick={() => {
+              const body = JSON.stringify(props.stateRef.current)
+              updateUserInDB(body)
+              console.log('save')
               props.deleteAllCookies()
               setLoggedIn(false)
             }}>Logout</button>

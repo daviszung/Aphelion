@@ -43,7 +43,7 @@ function checkIfLoggedIn() {
   return false;
 }
 
-async function updateUserInDB (body) {
+export async function updateUserInDB (body) {
   const data = await fetch('http://localhost:3000/api/updateUser', {
     method: "PATCH",
     body: body,
@@ -171,7 +171,7 @@ function Game() {
 
   return (
     <div className="Game">
-      <Header selectedSkill={selectedSkill} user={user} deleteAllCookies={deleteAllCookies} navigate={navigate}></Header>
+      <Header selectedSkill={selectedSkill} user={user} deleteAllCookies={deleteAllCookies} navigate={navigate} stateRef={stateRef}></Header>
       <main>
         <div className='mainGrid'>
           <div className='sidebar'>
