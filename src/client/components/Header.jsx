@@ -78,9 +78,9 @@ export function Header (props) {
             <li>{props.user}</li>
             <button className='logoutBtn'
             onClick={() => {
+              // save the game and delete cookies
               const body = JSON.stringify(props.stateRef.current)
               updateUserInDB(body)
-              console.log('save')
               props.deleteAllCookies()
               setLoggedIn(false)
             }}>Logout</button>
