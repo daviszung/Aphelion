@@ -1,4 +1,4 @@
-import '../stylesheets/App.css'
+import style from '../stylesheets/App.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Login } from './Login.jsx'
@@ -111,18 +111,18 @@ function App() {
   const [toggleState, setToggleState] = useState('login')
 
   return (
-    <div className="App">
+    <div className={style.App}>
       <main>
-        <h1 className='headline'>Aphelion Idle</h1>
-        <div className='container'>
-          <label id='toggleSwitch'>
+        <h1 className={style.headline}>Aphelion Idle</h1>
+        <div className={style.container}>
+          <label id={style.toggleSwitch}>
             <input type='checkbox' onClick={() => {
               if (toggleState === 'login') {setToggleState('signup')} 
               else {setToggleState('login')}}}>
             </input>
-            <span className='slider'>
-              <span id='loginText'>Login</span>
-              <span id='signupText'>Signup</span>
+            <span className={style.slider}>
+              <span id={style.loginText}>Login</span>
+              <span id={style.signupText}>Signup</span>
             </span>
           </label>
           <Login navigate={navigate} toggle={toggleState} signup={signup} login={login}></Login>

@@ -1,0 +1,11 @@
+main {
+  height: 95%;
+  width: auto;
+}
+
+.headline {
+  color: #fffffe;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 4rem 0rem;
+}
