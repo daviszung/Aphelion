@@ -29,7 +29,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>5xp / {(3 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/bank/rune_essence.png'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Rune Essence' ? {'animation': `load ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Rune Essence' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['copperRockBtn']} className={style.actionBtn} onClick={() => {
@@ -40,7 +40,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>7xp / {(3 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_copper.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Copper Ore' ? {'animation': `load ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Copper Ore' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['tinRockBtn']} className={style.actionBtn} onClick={() => {
@@ -51,7 +51,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>7xp / {(3 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_tin.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Tin Ore' ? {'animation': `load ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Tin Ore' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['ironRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 15 ? 'flex' : 'none'}} onClick={() => {
@@ -62,7 +62,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>14xp / {(5 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_iron.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Iron Ore' ? {'animation': `load ${5 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Iron Ore' ? {'animation': `${style.load} ${5 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['coalRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 25 ? 'flex' : 'none'}}onClick={() => {
@@ -73,7 +73,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>18xp / {(6 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_coal.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Coal Ore' ? {'animation': `load ${6 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Coal Ore' ? {'animation': `${style.load} ${6 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['silverRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 30 ? 'flex' : 'none'}}onClick={() => {
@@ -84,7 +84,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>25xp / {(7 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_silver.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Silver Ore' ? {'animation': `load ${7 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Silver Ore' ? {'animation': `${style.load} ${7 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['goldRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 40 ? 'flex' : 'none'}}onClick={() => {
@@ -95,7 +95,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>28xp / {(7 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_gold.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Gold Ore' ? {'animation': `load ${7 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Gold Ore' ? {'animation': `${style.load} ${7 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['mithrilRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 50 ? 'flex' : 'none'}}onClick={() => {
@@ -106,7 +106,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>65xp / {(10 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_mithril.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Mithril Ore' ? {'animation': `load ${10 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Mithril Ore' ? {'animation': `${style.load} ${10 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['adamantiteRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 70 ? 'flex' : 'none'}}onClick={() => {
@@ -117,7 +117,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>85xp / {(12 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_adamantite.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Adamantite Ore' ? {'animation': `load ${12 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Adamantite Ore' ? {'animation': `${style.load} ${12 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['runiteRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 80 ? 'flex' : 'none'}}onClick={() => {
@@ -128,7 +128,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>115xp / {(15 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_runite.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Runite Ore' ? {'animation': `load ${15 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Runite Ore' ? {'animation': `${style.load} ${15 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
       <button id={style['dragoniteRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 95 ? 'flex' : 'none'}}onClick={() => {
@@ -139,7 +139,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div>175xp / {(20 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
         <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_dragonite.svg'></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Dragonite Ore' ? {'animation': `load ${20 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Dragonite Ore' ? {'animation': `${style.load} ${20 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
     </div>

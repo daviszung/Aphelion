@@ -1,4 +1,4 @@
-import style from '../../stylesheets/skills/Mining.module.css'
+import style from '../../stylesheets/skills/Woodcutting.module.css'
 import { expTable } from '../../tables.js'
 
 const axeType = {
