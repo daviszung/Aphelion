@@ -1,3 +1,5 @@
+import style from '../../stylesheets/economy/Shop.module.css'
+
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUserObject } from '../../redux/userSlice'
 import { Modal } from './Modal'
@@ -77,53 +79,53 @@ export function ShopSkillUpgrades() {
 
 
   return (
-    <div className="hw100">
+    <div className={style.hw100}>
       <Modal selectedModal={selectedModal} dispatch={dispatch} cost={modalCost}/>
-      <div className="shopSectionTitle">
-        <img className="shopCategoryImg" src="https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/woodcutting.svg"></img>
+      <div className={style.shopSectionTitle}>
+        <img className={style.shopCategoryImg} src="https://cdn.melvor.net/core/v018/assets/media/skills/woodcutting/woodcutting.svg"></img>
         <div>SKILL UPGRADES</div>
       </div>
-      <div className="shopGrid">
-        <button className="purchaseContainer" style={{display: `${pickaxes[state.modifiers.axe] !== undefined && state.modifiers.axe < 50 ? 'flex' : 'none'}`}} onClick={() => {
+      <div className={style.shopGrid}>
+        <button className={style.purchaseContainer} style={{display: `${pickaxes[state.modifiers.axe] !== undefined && state.modifiers.axe < 50 ? 'flex' : 'none'}`}} onClick={() => {
           if (state.gold >= axes[state.modifiers.axe].cost) {
             setSelectedModal(axes[state.modifiers.axe].name)
             setModalCost(axes[state.modifiers.axe].cost)
-            document.querySelector(".modal").classList.toggle("show-modal")
+            document.querySelector("#modal").classList.toggle(style.showModal)
           }
           }}>
-          <div style={{width: '100%', justifyContent: 'space-between'}} className="flexAlign">
+          <div style={{width: '100%', justifyContent: 'space-between'}} className={style.flexAlign}>
             <strong>Axe Upgrade</strong>
-            <div className="flexAlign">
+            <div className={style.flexAlign}>
               <img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
               <div>{axes[state.modifiers.axe] ? axes[state.modifiers.axe].cost.toLocaleString() : 'none'}</div>
             </div>
           </div>
           <div style={{display: 'flex', marginTop: '10px'}}>
-            <div className="flexCenter">
-              <img className="purchaseImg" src={axes[state.modifiers.axe] ? axes[state.modifiers.axe].img : ''}></img>
+            <div className={style.flexCenter}>
+              <img className={style.purchaseImg} src={axes[state.modifiers.axe] ? axes[state.modifiers.axe].img : ''}></img>
             </div>
-            <div className="purchaseDescription">Cut Trees Faster</div>
+            <div className={style.purchaseDescription}>Cut Trees Faster</div>
           </div>          
         </button>
-        <button className="purchaseContainer" style={{display: `${pickaxes[state.modifiers.pickaxe] !== undefined && state.modifiers.pickaxe < 50 ? 'flex' : 'none'}`}} onClick={() => {
+        <button className={style.purchaseContainer} style={{display: `${pickaxes[state.modifiers.pickaxe] !== undefined && state.modifiers.pickaxe < 50 ? 'flex' : 'none'}`}} onClick={() => {
           if (state.gold >= pickaxes[state.modifiers.pickaxe].cost) {
             setSelectedModal(pickaxes[state.modifiers.pickaxe].name)
             setModalCost(pickaxes[state.modifiers.pickaxe].cost)
-            document.querySelector(".modal").classList.toggle("show-modal")
+            document.querySelector("#modal").classList.toggle(style.showModal)
           }
           }}>
-          <div style={{width: '100%', justifyContent: 'space-between'}} className="flexAlign">
+          <div style={{width: '100%', justifyContent: 'space-between'}} className={style.flexAlign}>
             <strong>Pickaxe Upgrade</strong>
-            <div className="flexAlign">
+            <div className={style.flexAlign}>
               <img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
               <div>{pickaxes[state.modifiers.pickaxe] ? pickaxes[state.modifiers.pickaxe].cost.toLocaleString() : 'none'}</div>
             </div>
           </div>
           <div style={{display: 'flex', marginTop: '10px'}}>
-            <div className="flexCenter">
-              <img className="purchaseImg" src={pickaxes[state.modifiers.pickaxe] ? pickaxes[state.modifiers.pickaxe].img : ''}></img>
+            <div className={style.flexCenter}>
+              <img className={style.purchaseImg} src={pickaxes[state.modifiers.pickaxe] ? pickaxes[state.modifiers.pickaxe].img : ''}></img>
             </div>
-            <div className="purchaseDescription">Mine Ore Faster</div>
+            <div className={style.purchaseDescription}>Mine Ore Faster</div>
           </div>          
         </button>
       </div>
