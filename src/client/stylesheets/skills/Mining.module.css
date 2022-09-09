@@ -46,7 +46,7 @@
   margin: .1rem 0 0 .1rem;
 }
 
-.woodcuttingSkillContainer {
+.miningSkillContainer {
   padding: 3rem 8rem 3rem 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -126,62 +126,62 @@
   }
 }
 
-#normalLogBtn {
+#runeEssenceBtn {
   grid-row: 2 / 2;
   grid-column: 1 / 1;
 }
 
-#oakLogBtn {
+#copperRockBtn {
   grid-row: 2 / 2;
   grid-column: 2 / 2;
 }
 
-#willowLogBtn {
+#tinRockBtn {
   grid-row: 2 / 2;
   grid-column: 3 / 3;
 }
 
-#teakLogBtn {
+#ironRockBtn {
   grid-row: 2 / 2;
   grid-column: 4 / 4;
 }
 
-#mapleLogBtn {
+#coalRockBtn {
   grid-row: 3 / 3;
   grid-column: 1 / 1;
 }
 
-#mahoganyLogBtn {
+#silverRockBtn {
   grid-row: 3 / 3;
   grid-column: 2 / 2;
 }
 
-#yewLogBtn {
+#goldRockBtn {
   grid-row: 3 / 3;
   grid-column: 3 / 3;
 }
 
-#magicLogbtn {
+#mithrilRockBtn {
   grid-row: 3 / 3;
   grid-column: 4 / 4;
 }
 
-#redwoodLogBtn {
+#adamantiteRockBtn {
   grid-row: 4 / 4;
   grid-column: 1 / 1;
 }
 
-.treeImages {
+.rockImages {
   height: 100px;
   width: 100px;
 }
 
-#runiteOreBtn {
+#runiteRockBtn {
   grid-row: 4 / 4;
   grid-column: 2 / 2;
 }
 
-#dragoniteOreBtn {
+#dragoniteRockBtn {
   grid-row: 4 / 4;
   grid-column: 3 / 3;
 }
