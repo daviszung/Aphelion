@@ -1,5 +1,5 @@
 import style from '../../stylesheets/economy/Shop.module.css'
-import { buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade } from '../../redux/userSlice'
+import { buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade } from '../../redux/userSlice'
 
 const modals = {
   extraBankSlot: {
@@ -79,6 +79,42 @@ const modals = {
     description: 'Reduce Time to Mine Ore by 10%',
     purchase: buyPickaxeUpgrade,
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_dragon.svg'
+  },
+  "Iron Fishing Rod": {
+    question: 'Buy An Iron Fishing Rod?',
+    description: 'Reduce Time to Fish by 5%',
+    purchase: buyFishingRodUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/fishing_iron.svg'
+  },
+  "Steel Fishing Rod": {
+    question: 'Buy A Steel Fishing Rod?',
+    description: 'Reduce Time to Fish by 10%',
+    purchase: buyFishingRodUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/fishing_steel.svg'
+  },
+  "Mithril Fishing Rod": {
+    question: 'Buy A Mithril Fishing Rod?',
+    description: 'Reduce Time to Fish by 10%',
+    purchase: buyFishingRodUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/fishing_mithril.svg'
+  },
+  "Adamant Fishing Rod": {
+    question: 'Buy An Adamant Fishing Rod?',
+    description: 'Reduce Time to Fish by 10%',
+    purchase: buyFishingRodUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/fishing_adamant.svg'
+  },
+  "Rune Fishing Rod": {
+    question: 'Buy A Rune Fishing Rod?',
+    description: 'Reduce Time to Fish by 10%',
+    purchase: buyFishingRodUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/fishing_rune.svg'
+  },
+  "Dragon Fishing Rod": {
+    question: 'Buy A Dragon Fishing Rod?',
+    description: 'Reduce Time to Fish by 10%',
+    purchase: buyFishingRodUpgrade,
+    img: 'https://melvoridle.com/assets/media/shop/fishing_dragon.svg'
   },
 }
 

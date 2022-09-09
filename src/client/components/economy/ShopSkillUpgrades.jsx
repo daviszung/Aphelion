@@ -68,7 +68,40 @@ const pickaxes = {
     img: 'https://melvoridle.com/assets/media/shop/pickaxe_dragon.svg',
     cost: 5000000,
     name: 'Dragon Pickaxe'
+  }
+}
+
+const fishingRods = {
+  0: {
+    img: 'https://melvoridle.com/assets/media/shop/fishing_iron.svg',
+    cost: 100,
+    name: 'Iron Fishing Rod'
   },
+  5: {
+    img: 'https://melvoridle.com/assets/media/shop/fishing_steel.svg',
+    cost: 1000,
+    name: 'Steel Fishing Rod'
+  },
+  10: {
+    img: 'https://melvoridle.com/assets/media/shop/fishing_mithril.svg',
+    cost: 20000,
+    name: 'Mithril Fishing Rod'
+  },
+  20: {
+    img: 'https://melvoridle.com/assets/media/shop/fishing_adamant.svg',
+    cost: 75000,
+    name: 'Adamant Fishing Rod'
+  },
+  30: {
+    img: 'https://melvoridle.com/assets/media/shop/fishing_rune.svg',
+    cost: 300000,
+    name: 'Rune Fishing Rod'
+  },
+  40: {
+    img: 'https://melvoridle.com/assets/media/shop/fishing_dragon.svg',
+    cost: 2000000,
+    name: 'Dragon Fishing Rod'
+  }
 }
 
 export function ShopSkillUpgrades() {
@@ -126,7 +159,28 @@ export function ShopSkillUpgrades() {
               <img className={style.purchaseImg} src={pickaxes[state.modifiers.pickaxe] ? pickaxes[state.modifiers.pickaxe].img : ''}></img>
             </div>
             <div className={style.purchaseDescription}>Mine Ore Faster</div>
-          </div>          
+          </div>
+        </button>
+        <button className={style.purchaseContainer} style={{display: `${fishingRods[state.modifiers.fishingRod] !== undefined && state.modifiers.fishingRod < 50 ? 'flex' : 'none'}`}} onClick={() => {
+          if (state.gold >= fishingRods[state.modifiers.fishingRod].cost) {
+            setSelectedModal(fishingRods[state.modifiers.fishingRod].name)
+            setModalCost(fishingRods[state.modifiers.fishingRod].cost)
+            document.querySelector("#modal").classList.toggle(style.showModal)
+          }
+          }}>
+          <div style={{width: '100%', justifyContent: 'space-between'}} className={style.flexAlign}>
+            <strong>Fishing Rod Upgrade</strong>
+            <div className={style.flexAlign}>
+              <img style={{height: '15px', width: '15px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
+              <div>{fishingRods[state.modifiers.fishingRod] ? fishingRods[state.modifiers.fishingRod].cost.toLocaleString() : 'none'}</div>
+            </div>
+          </div>
+          <div style={{display: 'flex', marginTop: '10px'}}>
+            <div className={style.flexCenter}>
+              <img className={style.purchaseImg} src={fishingRods[state.modifiers.fishingRod] ? fishingRods[state.modifiers.fishingRod].img : ''}></img>
+            </div>
+            <div className={style.purchaseDescription}>Fish Faster</div>
+          </div>
         </button>
       </div>
     </div>

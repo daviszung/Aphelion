@@ -84,7 +84,7 @@ function Game() {
       case 'woodcutting':
         return <Woodcutting state={state} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
       case 'fishing':
-        return <Fishing />;
+        return <Fishing state={state} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
       case 'firemaking':
         return <Firemaking />;
       case 'cooking':
