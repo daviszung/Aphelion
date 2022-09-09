@@ -1,3 +1,4 @@
+import style from '../../stylesheets/economy/Bank.module.css'
 import { BankItem } from './BankItem'
 import { BankTabsContainer } from './BankTabsContainer';
 import { BankInfo } from './BankInfo';
@@ -17,19 +18,19 @@ export function Bank(props) {
   }
 
   return (
-    <div id="bankContainer">
-      <div id="bankMain" className="shadowedContainer">
-        <div id="bankMainControls">
+    <div className={style.bankContainer}>
+      <div className={`${style.shadowedContainer} ${style.bankMain}`}>
+        <div className={style.bankMainControls}>
           <BankInfo state={props.state}/>
           <BankTabsContainer state={props.state}/>
         </div>
-        <div id="storage">{loadItems()}</div>
+        <div className={style.storage}>{loadItems()}</div>
       </div>
-      <div id="bankSecondary" className="shadowedContainer">
-        <div id='bankSecondaryControls'></div>
+      <div className={`${style.shadowedContainer} ${style.bankSecondary}`}>
+        <div className={style.bankSecondaryControls}></div>
         <BankSelected selectedItem={selectedItem} setSelectedItem={setSelectedItem} quantity={props.state.bank[selectedItem]} state={props.state}/>
       </div>
-      <div id="keyItemsContainer" className="shadowedContainer">
+      <div className={`${style.shadowedContainer} ${style.keyItemsContainer}`}>
 
       </div>
     </div> 

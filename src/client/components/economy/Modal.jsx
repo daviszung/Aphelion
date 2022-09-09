@@ -1,3 +1,4 @@
+import style from '../../stylesheets/economy/Shop.module.css'
 import { buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade } from '../../redux/userSlice'
 
 const modals = {
@@ -83,21 +84,21 @@ const modals = {
 
 export function Modal (props) {
   return (
-    <div className="modal">
-        <div className="modal-content">
-          <img className="modalImg" src={`${modals[props.selectedModal].img}`}></img>
+    <div id="modal" className={style.modal}>
+        <div className={style.modalContent}>
+          <img className={style.modalImg} src={`${modals[props.selectedModal].img}`}></img>
           <h1>{modals[props.selectedModal].question}</h1>
           <div>{modals[props.selectedModal].description}</div>
-          <div className="flexAlign">
+          <div className={style.flexAlign}>
               <img style={{height: '32px', width: '32px', margin: '0 10px 0 0'}} src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"></img>
               <div style={{fontSize: '1.1rem'}}>{props.cost.toLocaleString()}</div>
           </div>
-          <div className="flexAlign modalBtnContainer">
-            <button className="buyBtn" onClick={() => {
+          <div className={`${style.flexAlign} ${style.modalBtnContainer}`}>
+            <button className={style.buyBtn} onClick={() => {
               props.dispatch(modals[props.selectedModal].purchase(props.cost))
-              document.querySelector(".modal").classList.toggle("show-modal")}
+              document.querySelector("#modal").classList.toggle(style.showModal)}
               }>Buy</button>
-            <button className="cancelBtn" onClick={() => {document.querySelector(".modal").classList.toggle("show-modal")}}>Cancel</button>
+            <button className={style.cancelBtn} onClick={() => {document.querySelector("#modal").classList.toggle(style.showModal)}}>Cancel</button>
           </div>
         </div>
       </div>

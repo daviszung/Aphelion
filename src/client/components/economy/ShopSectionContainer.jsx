@@ -1,3 +1,4 @@
+import style from '../../stylesheets/economy/Shop.module.css'
 import { ShopGeneralUpgrades } from './ShopGeneralUpgrades'
 import { ShopSkillUpgrades } from './ShopSkillUpgrades';
 import { ShopSkillcapes } from './ShopSkillcapes'
@@ -20,7 +21,7 @@ export function ShopSectionContainer(props) {
   }
 
   return (
-    <div className="shadowedContainer shopSectionContainer">
+    <div className={`${style.shadowedContainer} ${style.shopSectionContainer}`}>
       {renderCategory(props.selectedCategory)}
     </div>
   )

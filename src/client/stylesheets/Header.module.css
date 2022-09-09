@@ -1,0 +1,73 @@
+.flexGrouper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gameTitle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #fffffe;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px #232946;
+  cursor: default;
+}
+
+nav {
+  display: flex;
+  height: 100%;
+  width: 10%;
+  justify-content: center;
+}
+
+.navlist {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
+
+nav ul li {
+  color: #fffffe;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 2px 2px #232946;
+  cursor: default;
+}
+
+.logoutBtn {
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  border: 0px;
+  color: #fffffe;
+  background: #232946;
+  font-weight: 600;
+  transition: color .4s;
+}
+
+.logoutBtn:hover {
+  color: #eebbc3
+}
+
+.headerImg {
+  margin-left: 30px;
+  height: 50px;
+  width: 50px;
+}
+
+.skillMenuTitle {
+  color: #fffffe;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  text-shadow: 2px 2px #232946;
+  cursor: default;
+}

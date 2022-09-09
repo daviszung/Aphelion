@@ -95,9 +95,9 @@ main {
   transition: 0.3s ease-in;
 }
 
-#username,
-#password,
-#confirmPassword {
+.username,
+.password,
+.confirmPassword {
   font-size: 1.2rem;
   margin: 0.6rem;
   padding: 0.6em 0.5em;
@@ -107,21 +107,21 @@ main {
   width: 100%;
 }
 
-#username:focus,
-#password:focus,
-#confirmPassword:focus {
+.username:focus,
+.password:focus,
+.confirmPassword:focus {
   outline: none;
   border-bottom: 2px solid #eebbc3; 
 }
 
-#username::placeholder,
-#password::placeholder
-#confirmPassword::placeholder {
+.username::placeholder,
+.password::placeholder
+.confirmPassword::placeholder {
   color: #232946;
   font-size: 1.2rem;
 }
 
-#loginHelper {
+.loginHelper {
   color: #232946;
   font-size: 1.1rem;
   margin: auto;
