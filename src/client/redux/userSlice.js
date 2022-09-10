@@ -26,7 +26,7 @@ export const userSlice = createSlice({
       const woodtype = action.payload;
 
       // add logs to the bank
-      if (state.userObject.bank[woodtype] && state.userObject.bankSpace <= state.userObject.maxBankSpace) {
+      if (state.userObject.bank[woodtype]) {
         state.userObject.bank[woodtype] += 1;
         
       } else if (!state.userObject.bank[woodtype] && state.userObject.bankSpace < state.userObject.maxBankSpace){
@@ -44,15 +44,35 @@ export const userSlice = createSlice({
 
     mine: (state, action) => {
       const minedItem = action.payload;
+      let gemFound = false;
+      if (Math.random() < 0.01) {
+        gemFound = Math.random()
+        if (gemFound <= 0.5) {gemFound = 'Topaz'}
+        else if (gemFound <= 0.675) {gemFound = 'Sapphire'}
+        else if (gemFound <= 0.85) {gemFound = 'Ruby'}
+        else if (gemFound <= 0.95) {gemFound = 'Emerald'}
+        else {gemFound = 'Diamond'}
+      }
 
-      // add items to the bank
-      if (state.userObject.bank[minedItem] && state.userObject.bankSpace <= state.userObject.maxBankSpace) {
+      // add ore to the bank
+      if (state.userObject.bank[minedItem]) {
         state.userObject.bank[minedItem] += 1;
         
       } else if (!state.userObject.bank[minedItem] && state.userObject.bankSpace < state.userObject.maxBankSpace){
         state.userObject.bankSpace += 1;
         state.userObject.bank[minedItem] = 1;
       }
+
+      // add gem to the bank
+      if (gemFound !== false) {
+        if (state.userObject.bank[gemFound]) {
+          state.userObject.bank[gemFound] += 1;
+        } else if (!state.userObject.bank[gemFound] && state.userObject.bankSpace < state.userObject.maxBankSpace) {
+          state.userObject.bankSpace += 1;
+          state.userObject.bank[gemFound] = 1;
+        }
+      }
+
       // add experience and potentially level up
       state.userObject.levels.mining.exp += actionExpValues[minedItem];
       if (state.userObject.levels.mining.level < 99 && state.userObject.levels.mining.exp >= expTable[state.userObject.levels.mining.level + 1]) {
@@ -90,6 +110,12 @@ export const userSlice = createSlice({
       }
       state.userObject.gold -= action.payload;
     },
+    addKeyItem: (state, action) => {
+      if (state.userObject.keyItems[action.payload.item] === undefined) {
+        state.userObject.keyItems[action.payload.item] = true;
+      }
+      state.userObject.gold -= action.payload.cost;
+    },
 
     update: (state, action) => {
       state.userObject = action.payload;
@@ -97,7 +123,7 @@ export const userSlice = createSlice({
   }
 })
 
-export const { initial, sellItem, cutWood, mine, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, update } = userSlice.actions;
+export const { initial, sellItem, cutWood, mine, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, update } = userSlice.actions;
 
 export const selectUserObject = state => state.user.userObject;
 

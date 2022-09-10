@@ -45,6 +45,10 @@ export const actionDict = {
     action: mine("Copper Ore"),
     modifierType: "pickaxe"
   },
+  "Tin Ore": {
+    action: mine("Tin Ore"),
+    modifierType: "pickaxe"
+  },
   "Iron Ore": {
     action: mine("Iron Ore"),
     modifierType: "pickaxe"

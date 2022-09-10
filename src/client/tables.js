@@ -282,6 +282,11 @@ export const itemGoldValues = {
   'Adamantite Ore': 88,
   'Runite Ore': 100,
   'Dragonite Ore': 135,
+  'Topaz': 225,
+  'Sapphire': 335,
+  'Ruby': 555,
+  'Emerald': 555,
+  'Diamond': 1150,
 };
 
 export const actionTimeValues = {

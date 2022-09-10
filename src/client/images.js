@@ -19,6 +19,11 @@ export const itemImages = {
   'Adamantite Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_adamantite.png',
   'Runite Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_runite.png',
   'Dragonite Ore': 'https://cdn.melvor.net/core/v018/assets/media/bank/ore_dragonite.png',
+  'Topaz': 'https://cdn.melvor.net/core/v018/assets/media/bank/topaz.png',
+  'Sapphire': 'https://cdn.melvor.net/core/v018/assets/media/bank/sapphire.png',
+  'Ruby': 'https://cdn.melvor.net/core/v018/assets/media/bank/ruby.png',
+  'Emerald': 'https://cdn.melvor.net/core/v018/assets/media/bank/emerald.png',
+  'Diamond': 'https://cdn.melvor.net/core/v018/assets/media/bank/diamond.png'
 }
 
 export const miningImages = {
