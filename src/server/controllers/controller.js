@@ -4,9 +4,11 @@ import bcrypt from 'bcrypt'
 
 // create a newUser object
 function createNewUserObject(username, password){
+  const dateCreated = new Date().toLocaleDateString();
   return {
     username: username,
     password: password,
+    dateCreated: dateCreated,
     gold: 0,
     bankSpace: 0,
     maxBankSpace: 12,

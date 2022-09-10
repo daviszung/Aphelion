@@ -20,23 +20,16 @@
   border-radius: 5px;
 }
 
-
-.actionBtn {
+.fishingAreaContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 17rem;
-  width: 100%;
-  cursor: pointer;
-  background: #232946;
-  border: 0px solid #94857a;
-  border-top: 4px solid #94857a;
   color: #fffffe;
+  border: 0px;
   font-size: 1.2rem;
-  border-radius: 5px;
-  box-shadow: 5px 5px 8px black;
-  transition: margin .25s;
+  border-top: 4px solid #92d0f1;
+  width: 100%;
 }
 
 .actionBtn:hover {
@@ -50,10 +43,12 @@
 .fishingSkillContainer {
   padding: 3rem 8rem 3rem 8rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 80px 1fr 1fr 1fr;
   grid-row-gap: 50px;
   grid-column-gap: 50px;
+  height: 1900px;
+  max-height: 1900px;
 }
 
 .skillInfoContainer {
@@ -116,4 +111,9 @@
   height: 100%;
   border-radius: 5px;
   background: #92d0f1;
+}
+
+.fishImages {
+  height: 100px;
+  width: 100px;
 }

@@ -21,17 +21,22 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
         </div>
         <div className={style.expBar}><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${state ? ((state.levels.fishing.exp - expTable[state.levels.fishing.level]) / (expTable[state.levels.fishing.level + 1] - expTable[state.levels.fishing.level])) * 100 : 0}%`}}></div></div>
       </div>
-      {/* <button id={style['runeEssenceBtn']} className={style.actionBtn} onClick={() => {
+      <button id={style['runeEssenceBtn']} className={`${style.shadowedContainer} ${style.fishingAreaContainer}`} onClick={() => {
         if (selectedAction === 'Rune Essence') {
           setSelectedAction(null)
         } else {setSelectedAction('Rune Essence')}}}>
         <div>Rune Essence</div>
         <div>5xp / {(3 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
-        <img className={style.rockImages} src='https://cdn.melvor.net/core/v018/assets/media/bank/rune_essence.png'></img>
+        <img className={style.fishImages} src='https://cdn.melvor.net/core/v018/assets/media/bank/rune_essence.png'></img>
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Rune Essence' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button> */}
+      </button>
+      <div className={`${style.shadowedContainer} ${style.fishingAreaContainer}`}>
+        <div>Area</div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   )
 }

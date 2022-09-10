@@ -23,6 +23,7 @@ const userSchema = new Schema({
     unique: true
   },
   password: String,
+  dateCreated: String,
   gold: Number,
   bankSpace: Number,
   maxBankSpace: Number,
