@@ -13,7 +13,7 @@ import { Shop } from './economy/Shop.jsx'
 import { Bank } from './economy/Bank.jsx'
 import { Combat } from './Combat.jsx'
 import { Woodcutting } from './skills/Woodcutting.jsx'
-import { Fishing } from './skills/Fishing.jsx'
+import { Fishing } from './skills/Fishing/Fishing.jsx'
 import { Firemaking } from './skills/Firemaking.jsx'
 import { Cooking } from './skills/Cooking.jsx'
 import { Mining } from './skills/Mining.jsx'
@@ -22,8 +22,6 @@ import { Thieving } from './skills/Thieving.jsx'
 import { Fletching } from './skills/Fletching.jsx'
 import { Crafting } from './skills/Crafting.jsx'
 import { Runecrafting } from './skills/Runecrafting.jsx'
-
-
 
 function checkIfLoggedIn() {
   if (!document.cookie) {

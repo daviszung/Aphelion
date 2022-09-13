@@ -122,8 +122,8 @@ export const userSlice = createSlice({
     }
   }
 })
-
 export const { initial, sellItem, cutWood, mine, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, update } = userSlice.actions;
+
 
 export const selectUserObject = state => state.user.userObject;
 

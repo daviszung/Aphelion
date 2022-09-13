@@ -1,5 +1,6 @@
-import style from '../../stylesheets/skills/Fishing.module.css'
-import { expTable } from '../../tables.js'
+import style from '../../../stylesheets/skills/Fishing.module.css'
+import { expTable } from '../../../tables.js'
+import { FishingArea } from './FishingArea'
 
 const fishingRodType = {
   0: 'BRONZE FISHING ROD',
@@ -12,6 +13,8 @@ const fishingRodType = {
 }
 
 export function Fishing({state, selectedAction, setSelectedAction}) {
+
+
   return (
     <div className={style.fishingSkillContainer}>
       <div className={style.skillInfoContainer}>
@@ -21,7 +24,7 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
         </div>
         <div className={style.expBar}><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${state ? ((state.levels.fishing.exp - expTable[state.levels.fishing.level]) / (expTable[state.levels.fishing.level + 1] - expTable[state.levels.fishing.level])) * 100 : 0}%`}}></div></div>
       </div>
-      <button id={style['runeEssenceBtn']} className={`${style.shadowedContainer} ${style.fishingAreaContainer}`} onClick={() => {
+      <button id={style['saltyShore']} className={`${style.shadowedContainer} ${style.fishingAreaContainer}`} onClick={() => {
         if (selectedAction === 'Rune Essence') {
           setSelectedAction(null)
         } else {setSelectedAction('Rune Essence')}}}>
@@ -32,11 +35,11 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
           <div className={style.progressBar} style={selectedAction === 'Rune Essence' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <div className={`${style.shadowedContainer} ${style.fishingAreaContainer}`}>
-        <div>Area</div>
-        <div></div>
-        <div></div>
-      </div>
+      <FishingArea id={style['rustyRiver']}></FishingArea>
+      <FishingArea id={style['rustyRiver']}></FishingArea>
+      <FishingArea id={style['rustyRiver']} locked={state.levels}></FishingArea>
+      <FishingArea id={style['rustyRiver']} locked={state.keyItems.fishingKeyItem}></FishingArea>
+
     </div>
   )
 }
