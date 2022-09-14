@@ -32,6 +32,18 @@
   padding: 1.5rem 3rem;
 }
 
+.lockedAreaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fffffe;
+  border: 0px;
+  font-size: 1.2rem;
+  border-top: 4px solid #da371a;
+  width: 100%;
+  padding: 1.5rem 3rem;
+}
+
 .fishingAreaHeader {
   display: flex;
   justify-content: space-between;
@@ -158,6 +170,35 @@
 .fishImages {
   height: 100px;
   width: 100px;
+}
+
+.lockedFishingArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.lock {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(.15turn, #6d1406, #da371a);
+  border-radius: 50%;
+  width: 13rem;
+  height: 13rem;
+}
+
+.lockImg {
+  height: 128px;
+  width: 128px;
+}
+
+.lockedText {
+  margin-top: 30px;
+  color: #fffffe;
+  font-weight: 700;
 }
 
 #saltyShore {

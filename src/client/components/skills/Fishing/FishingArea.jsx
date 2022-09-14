@@ -1,7 +1,18 @@
 import style from '../../../stylesheets/skills/Fishing.module.css'
 
 export function FishingArea ({locked}) {
-
+  if (locked) {
+    return (
+      <div className={`${style.shadowedContainer} ${style.lockedAreaContainer}`}>
+        <div className={style.lockedFishingArea}>
+          <div className={style.lock}>
+            <img className={style.lockImg} src='https://www.freeiconspng.com/uploads/lock-icon-11.png'></img>
+          </div>
+          <div className={style.lockedText}>Locked: Find An Item To Unlock This Area</div>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className={`${style.shadowedContainer} ${style.fishingAreaContainer}`}>
       <div className={style.fishingAreaHeader}>

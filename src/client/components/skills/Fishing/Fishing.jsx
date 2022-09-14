@@ -1,6 +1,7 @@
 import style from '../../../stylesheets/skills/Fishing.module.css'
 import { expTable } from '../../../tables.js'
 import { FishingArea } from './FishingArea'
+import { useState } from 'react'
 
 const fishingRodType = {
   0: 'BRONZE FISHING ROD',
@@ -13,7 +14,7 @@ const fishingRodType = {
 }
 
 export function Fishing({state, selectedAction, setSelectedAction}) {
-
+  const [fishingAction, setFishingAction] = useState(null);
 
   return (
     <div className={style.fishingSkillContainer}>
