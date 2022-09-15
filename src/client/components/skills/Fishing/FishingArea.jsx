@@ -3,7 +3,11 @@ import { Fish } from './Fish'
 import { SelectedFish } from './SelectedFish'
 import { useState } from 'react'
 
-export function FishingArea ({locked, fishingAction, setFishingAction}) {
+function generateFish(fishTypes) {
+  console.log(fishTypes.map(fish => {<Fish fish={fish}></Fish>}))
+  return fishTypes.map(fish => {<Fish fish={fish}></Fish>})
+}
+export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFishingAction}) {
   const [selectedFish, setSelectedFish] = useState(null)
   if (locked) {
     return (
@@ -20,7 +24,7 @@ export function FishingArea ({locked, fishingAction, setFishingAction}) {
     return (
       <div className={`${style.shadowedContainer} ${style.fishingAreaContainer}`}>
         <div className={style.fishingAreaHeader}>
-          <div className={style.fishingAreaTitle}>Area Title</div>
+          <div className={style.fishingAreaTitle}>{areaName}</div>
           <div className={style.fishingAreaStats}>
             <span>Fish: 80%</span>
             <span>Junk: 20%</span>
@@ -29,9 +33,7 @@ export function FishingArea ({locked, fishingAction, setFishingAction}) {
         </div>
         <div className={style.fishingAreaBody}>
           <div className={style.leftBody}>
-            <Fish></Fish>
-            <Fish></Fish>
-            <Fish></Fish>
+            {generateFish(fishTypes)}
           </div>
           <SelectedFish selected={selectedFish}></SelectedFish>
         </div>
