@@ -36,10 +36,10 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
           <div className={style.progressBar} style={selectedAction === 'Rune Essence' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button> */}
-      <FishingArea id={style['saltyShore']} areaName='Salty Shore' fishTypes={['Raw Shrimp, Raw Lobster, Raw Crab']}></FishingArea>
-      <FishingArea id={style['rustyRiver']} areaName='Rusty River' fishTypes={['Raw Sardine, Raw Herring, Raw Carp']}></FishingArea>
-      <FishingArea id={style['toxicTrench']} areaName='Toxic Trench' fishTypes={['Raw Blowfish, Raw Poison Fish, Raw Anglerfish, Raw Cave Fish']}></FishingArea>
-      <FishingArea id={style['lavishLake']} areaName='Lavish Lake' fishTypes={['Raw Trout, Raw Salmon, Raw Fanfish']}></FishingArea>
+      <FishingArea id={style['saltyShore']} areaName='Salty Shore' fishTypes={['Raw Shrimp', 'Raw Lobster', 'Raw Crab']}></FishingArea>
+      <FishingArea id={style['rustyRiver']} areaName='Rusty River' fishTypes={['Raw Sardine', 'Raw Herring', 'Raw Carp']}></FishingArea>
+      <FishingArea id={style['toxicTrench']} areaName='Toxic Trench' fishTypes={['Raw Blowfish', 'Raw Poison Fish', 'Raw Anglerfish', 'Raw Cave Fish']}></FishingArea>
+      <FishingArea id={style['lavishLake']} areaName='Lavish Lake' fishTypes={['Raw Trout', 'Raw Salmon', 'Raw Fanfish']}></FishingArea>
       <FishingArea id={style['starlightSea']} areaName='Starlight Sea' locked={true}></FishingArea>
       <FishingArea id={style['starlightSea']} areaName='Salty Shore' locked={true}></FishingArea>
     </div>

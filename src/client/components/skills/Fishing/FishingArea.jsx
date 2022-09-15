@@ -2,12 +2,71 @@ import style from '../../../stylesheets/skills/Fishing.module.css'
 import { Fish } from './Fish'
 import { SelectedFish } from './SelectedFish'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { selectUserObject } from '../../../redux/userSlice'
 
-function generateFish(fishTypes) {
-  console.log(fishTypes.map(fish => {<Fish fish={fish}></Fish>}))
-  return fishTypes.map(fish => {<Fish fish={fish}></Fish>})
+// dictionary of fish levels needed
+const fishDict = {
+  "Raw Shrimp": {
+    level: 0
+  },
+  "Raw Sardine": {
+    level: 5
+  },
+  "Raw Blowfish": {
+    level: 8
+  },
+  "Raw Herring": {
+    level: 10
+  },
+  "Raw Trout": {
+    level: 20
+  },
+  "Raw Poison Fish": {
+    level: 30
+  },
+  "Raw Salmon": {
+    level: 35
+  },
+  "Raw Lobster": {
+    level: 40
+  },
+  "Raw Swordfish": {
+    level: 50
+  },
+  "Raw Anglerfish": {
+    level: 50
+  },
+  "Raw Fanfish": {
+    level: 55
+  },
+  "Raw Crab": {
+    level: 60
+  },
+  "Raw Carp": {
+    level: 65
+  },
+  "Raw Shark": {
+    level: 70
+  },
+  "Raw Cave Fish": {
+    level: 75
+  },
+  "Raw Manta Ray": {
+    level: 85
+  },
+  "Raw Whale": {
+    level: 95
+  },
 }
+
+
+function generateFish(fishTypes, state) {
+  return fishTypes.map((fish, index) => <Fish key={index} fish={fish[index]} unlocked={state.levels.fishing.level >= fishDict[fish].level}></Fish>)
+}
+
 export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFishingAction}) {
+  const state = useSelector(selectUserObject)
   const [selectedFish, setSelectedFish] = useState(null)
   if (locked) {
     return (
@@ -33,7 +92,7 @@ export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFi
         </div>
         <div className={style.fishingAreaBody}>
           <div className={style.leftBody}>
-            {generateFish(fishTypes)}
+            {generateFish(fishTypes, state)}
           </div>
           <SelectedFish selected={selectedFish}></SelectedFish>
         </div>

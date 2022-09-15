@@ -1,10 +1,15 @@
 import style from '../../../stylesheets/skills/Fishing.module.css'
 
-// dictionary of fish levels needed
+
 
 export function Fish ({unlocked, fish}) {
   if (unlocked) {
-
+    return (
+      <div>
+        UNLOCKED FISH
+      </div>
+    )
+    
   } else {
     return (
       <div className={style.lockedFish}>
