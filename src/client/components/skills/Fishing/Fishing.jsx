@@ -38,9 +38,9 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
       </button>
       <FishingArea id={style['rustyRiver']}></FishingArea>
       <FishingArea id={style['rustyRiver']}></FishingArea>
-      <FishingArea id={style['rustyRiver']} locked={state.levels}></FishingArea>
-      <FishingArea id={style['rustyRiver']} locked={state.keyItems.fishingKeyItem}></FishingArea>
-
+      <FishingArea id={style['rustyRiver']}></FishingArea>
+      <FishingArea id={style['rustyRiver']} locked={true}></FishingArea>
+      <FishingArea id={style['rustyRiver']} locked={true}></FishingArea>
     </div>
   )
 }

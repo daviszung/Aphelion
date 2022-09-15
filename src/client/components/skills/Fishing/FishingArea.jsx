@@ -1,6 +1,10 @@
 import style from '../../../stylesheets/skills/Fishing.module.css'
+import { Fish } from './Fish'
+import { SelectedFish } from './SelectedFish'
+import { useState } from 'react'
 
-export function FishingArea ({locked}) {
+export function FishingArea ({locked, fishingAction, setFishingAction}) {
+  const [selectedFish, setSelectedFish] = useState(null)
   if (locked) {
     return (
       <div className={`${style.shadowedContainer} ${style.lockedAreaContainer}`}>
@@ -12,25 +16,26 @@ export function FishingArea ({locked}) {
         </div>
       </div>
     )
+  } else {
+    return (
+      <div className={`${style.shadowedContainer} ${style.fishingAreaContainer}`}>
+        <div className={style.fishingAreaHeader}>
+          <div className={style.fishingAreaTitle}>Area Title</div>
+          <div className={style.fishingAreaStats}>
+            <span>Fish: 80%</span>
+            <span>Junk: 20%</span>
+            <span>Special: 0%</span>
+          </div>
+        </div>
+        <div className={style.fishingAreaBody}>
+          <div className={style.leftBody}>
+            <Fish></Fish>
+            <Fish></Fish>
+            <Fish></Fish>
+          </div>
+          <SelectedFish selected={selectedFish}></SelectedFish>
+        </div>
+      </div>
+    )
   }
-  return (
-    <div className={`${style.shadowedContainer} ${style.fishingAreaContainer}`}>
-      <div className={style.fishingAreaHeader}>
-        <div className={style.fishingAreaTitle}>Area Title</div>
-        <div className={style.fishingAreaStats}>
-          <span>Fish: 80%</span>
-          <span>Junk: 20%</span>
-          <span>Special: 0%</span>
-        </div>
-      </div>
-      <div className={style.fishingAreaBody}>
-        <div className={style.leftBody}>
-          <button className={style.fishSelector}></button>
-          <button className={style.fishSelector}>Locked</button>
-          <button className={style.fishSelector}></button>
-        </div>
-        <div className={style.rightBody}>{locked ? 'hi' : 'nah'}</div>
-      </div>
-    </div>
-  )
 }
