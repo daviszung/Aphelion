@@ -8,7 +8,8 @@ import { selectUserObject } from '../../../redux/userSlice'
 // dictionary of fish levels needed
 const fishDict = {
   "Raw Shrimp": {
-    level: 0
+    level: 0,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/shrimp.png'
   },
   "Raw Sardine": {
     level: 5
@@ -62,10 +63,10 @@ const fishDict = {
 
 
 function generateFish(fishTypes, state) {
-  return fishTypes.map((fish, index) => <Fish key={index} fish={fish[index]} unlocked={state.levels.fishing.level >= fishDict[fish].level}></Fish>)
+  return fishTypes.map((fish, index) => <Fish key={index} fish={fish} img={fishDict[fish].img} unlocked={state.levels.fishing.level >= fishDict[fish].level} level={fishDict[fish].level}></Fish>)
 }
 
-export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFishingAction}) {
+export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFishingAction, chanceFish, chanceJunk, chanceSpecial}) {
   const state = useSelector(selectUserObject)
   const [selectedFish, setSelectedFish] = useState(null)
   if (locked) {
@@ -85,9 +86,9 @@ export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFi
         <div className={style.fishingAreaHeader}>
           <div className={style.fishingAreaTitle}>{areaName}</div>
           <div className={style.fishingAreaStats}>
-            <span>Fish: 80%</span>
-            <span>Junk: 20%</span>
-            <span>Special: 0%</span>
+            <span>Fish: {chanceFish}%</span>
+            <span>Junk: {chanceJunk}%</span>
+            <span>Special: {chanceSpecial}%</span>
           </div>
         </div>
         <div className={style.fishingAreaBody}>

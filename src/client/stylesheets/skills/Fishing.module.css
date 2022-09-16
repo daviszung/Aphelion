@@ -219,12 +219,34 @@
   width: 100%;
   height: 20%;
   color: #d56163;
+  background: #232946;
 }
 
-.lockedFishImg {
+.unlockedFish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 100%;
+  background: #232946;
+  border: 0px;
+  color: #fffffe;
+}
+
+.unlockedFish:hover {
+  background: #434654;
+  cursor: pointer;
+}
+
+.fishImg {
   height: 24px;
   width: 24px;
   margin: 0rem .7rem;
+}
+
+.fishName {
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 #saltyShore {
