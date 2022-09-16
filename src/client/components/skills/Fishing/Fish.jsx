@@ -2,10 +2,10 @@ import style from '../../../stylesheets/skills/Fishing.module.css'
 
 
 
-export function Fish ({unlocked, fish, img, level}) {
+export function Fish ({unlocked, fish, img, level, setSelectedFish}) {
   if (unlocked) {
     return (
-      <button className={style.unlockedFish}>
+      <button className={style.unlockedFish} onClick={() => {setSelectedFish(fish)}}>
         <img className={style.fishImg} src={img}></img>
         <div className={style.fishName}>{fish}</div>
       </button>

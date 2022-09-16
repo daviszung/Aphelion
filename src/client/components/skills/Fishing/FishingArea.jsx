@@ -62,13 +62,14 @@ const fishDict = {
 }
 
 
-function generateFish(fishTypes, state) {
-  return fishTypes.map((fish, index) => <Fish key={index} fish={fish} img={fishDict[fish].img} unlocked={state.levels.fishing.level >= fishDict[fish].level} level={fishDict[fish].level}></Fish>)
-}
-
-export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFishingAction, chanceFish, chanceJunk, chanceSpecial}) {
+export function FishingArea ({ areaName, locked, fishTypes, selectedAction, setSelectedAction, chanceFish, chanceJunk, chanceSpecial}) {
   const state = useSelector(selectUserObject)
   const [selectedFish, setSelectedFish] = useState(null)
+
+  function generateFish() {
+    return fishTypes.map((fish, index) => <Fish key={index} fish={fish} img={fishDict[fish].img} setSelectedFish={setSelectedFish} unlocked={state.levels.fishing.level >= fishDict[fish].level} level={fishDict[fish].level}></Fish>)
+  }
+
   if (locked) {
     return (
       <div className={`${style.shadowedContainer} ${style.lockedAreaContainer}`}>
@@ -95,7 +96,7 @@ export function FishingArea ({ areaName, locked, fishTypes, fishingAction, setFi
           <div className={style.leftBody}>
             {generateFish(fishTypes, state)}
           </div>
-          <SelectedFish selected={selectedFish}></SelectedFish>
+          <SelectedFish selectedFish={selectedFish} selectedAction={selectedAction} setSelectedAction={setSelectedAction} ></SelectedFish>
         </div>
       </div>
     )
