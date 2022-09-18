@@ -28,6 +28,14 @@
 }
 /* end of common classes */
 
+.WIP {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  color: #fffffe;
+}
+
 header {
   display: flex;
   justify-content: space-between;

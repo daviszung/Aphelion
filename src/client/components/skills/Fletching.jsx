@@ -1,5 +1,7 @@
+import { WIP } from '../WIP'
+
 export function Fletching() {
   return (
-    <div style={{color: 'white'}}>in fletching</div>
+    <WIP></WIP>
   )
 }

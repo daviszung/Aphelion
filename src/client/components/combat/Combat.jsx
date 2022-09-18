@@ -1,6 +1,6 @@
 import { WIP } from '../WIP'
 
-export function Runecrafting() {
+export function Combat() {
   return (
     <WIP></WIP>
   )

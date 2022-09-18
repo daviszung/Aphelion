@@ -1,5 +1,7 @@
+import { WIP } from '../WIP'
+
 export function Crafting() {
   return (
-    <div style={{color: 'white'}}>in Crafting</div>
+    <WIP></WIP>
   )
 }

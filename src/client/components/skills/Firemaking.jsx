@@ -1,5 +1,7 @@
+import { WIP } from '../WIP'
+
 export function Firemaking() {
   return (
-    <div style={{color: 'white'}}>in firemaking</div>
+    <WIP></WIP>
   )
 }
