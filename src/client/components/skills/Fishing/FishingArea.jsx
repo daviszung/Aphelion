@@ -6,58 +6,74 @@ import { useSelector } from 'react-redux'
 import { selectUserObject } from '../../../redux/userSlice'
 
 // dictionary of fish levels needed
-const fishDict = {
+export const fishDict = {
   "Raw Shrimp": {
     level: 0,
     img: 'https://cdn.melvor.net/core/v018/assets/media/bank/shrimp.png'
   },
   "Raw Sardine": {
-    level: 5
+    level: 5,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/sardine.png'
   },
   "Raw Blowfish": {
-    level: 8
+    level: 8,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/blowfish.png'
   },
   "Raw Herring": {
-    level: 10
+    level: 10,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/herring.png'
   },
   "Raw Trout": {
-    level: 20
+    level: 20,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/trout.png'
   },
   "Raw Poison Fish": {
-    level: 30
+    level: 30,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/poison_fish.png'
   },
   "Raw Salmon": {
-    level: 35
+    level: 35,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/salmon.png'
   },
   "Raw Lobster": {
-    level: 40
+    level: 40,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/lobster.png'
   },
   "Raw Swordfish": {
-    level: 50
+    level: 50,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/swordfish.png'
   },
   "Raw Anglerfish": {
-    level: 50
+    level: 50,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/anglerfish.png'
   },
   "Raw Fanfish": {
-    level: 55
+    level: 55,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/fanfish.png'
   },
   "Raw Crab": {
-    level: 60
+    level: 60,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/crab.png'
   },
   "Raw Carp": {
-    level: 65
+    level: 65,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/carp.png'
   },
   "Raw Shark": {
-    level: 70
+    level: 70,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/shark.png'
   },
   "Raw Cave Fish": {
-    level: 75
+    level: 75,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/cavefish.png'
   },
   "Raw Manta Ray": {
-    level: 85
+    level: 85,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/mantaray.png'
   },
   "Raw Whale": {
-    level: 95
+    level: 95,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/whale.png'
   },
 }
 

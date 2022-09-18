@@ -18,7 +18,7 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
     <div className={style.fishingSkillContainer}>
       <div className={style.skillInfoContainer}>
         <div className={style.innerInfoContainer}>
-          <span>SKILL XP <span className={style.expColor}>{state ? state.levels.fishing.exp.toLocaleString() : null} / {state ? expTable[state.levels.fishing.level + 1].toLocaleString() : null}</span></span>
+          <span>SKILL XP <span className={style.expColor}>{state ? state.levels.fishing.exp : null} / {state ? expTable[state.levels.fishing.level + 1] : null}</span></span>
           <div className={style.flexAlign}><div style={{marginRight: '10px'}}>CURRENT ROD</div><div className={style.axeType}>{fishingRodType[state.modifiers.pickaxe]}</div></div>
         </div>
         <div className={style.expBar}><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${state ? ((state.levels.fishing.exp - expTable[state.levels.fishing.level]) / (expTable[state.levels.fishing.level + 1] - expTable[state.levels.fishing.level])) * 100 : 0}%`}}></div></div>
@@ -38,8 +38,8 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
       <FishingArea id={style['rustyRiver']} areaName='Rusty River' fishTypes={['Raw Sardine', 'Raw Herring', 'Raw Carp']} chanceFish={80} chanceJunk={20} chanceSpecial={0} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
       <FishingArea id={style['toxicTrench']} areaName='Toxic Trench' fishTypes={['Raw Blowfish', 'Raw Poison Fish', 'Raw Anglerfish', 'Raw Cave Fish']} chanceFish={70}chanceJunk={28} chanceSpecial={2} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
       <FishingArea id={style['lavishLake']} areaName='Lavish Lake' fishTypes={['Raw Trout', 'Raw Salmon', 'Raw Fanfish']} chanceFish={70}chanceJunk={29} chanceSpecial={1} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
-      <FishingArea id={style['starlightSea']} areaName='Starlight Sea' locked={true} chanceFish={69}chanceJunk={29} chanceSpecial={2} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
-      <FishingArea id={style['starlightSea']} areaName='Salty Shore' locked={true} chanceFish={90}chanceJunk={10} chanceSpecial={0} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
+      <FishingArea id={style['starlightSea']} areaName='Starlight Sea' fishTypes={['Raw Swordfish', 'Raw Manta Ray']} locked={true} chanceFish={69}chanceJunk={29} chanceSpecial={2} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
+      <FishingArea id={style['starlightSea']} areaName='Salty Shore' fishTypes={['Raw Shark', 'Raw Whale']} locked={true} chanceFish={90}chanceJunk={10} chanceSpecial={0} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
     </div>
   )
 }
