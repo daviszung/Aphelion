@@ -259,6 +259,23 @@ export const actionExpValues = {
   'Adamantite Ore': 85,
   'Runite Ore': 115,
   'Dragonite Ore': 175,
+  'Raw Shrimp': 5,
+  'Raw Sardine': 10,
+  'Raw Blowfish': 12,
+  'Raw Herring': 15,
+  'Raw Trout': 20,
+  'Raw Poison Fish': 25,
+  'Raw Salmon': 40,
+  'Raw Lobster': 50,
+  'Raw Swordfish': 80,
+  'Raw Anglerfish': 100,
+  'Raw Fanfish': 120,
+  'Raw Crab': 120,
+  'Raw Carp': 130,
+  'Raw Shark': 150,
+  'Raw Cave Fish': 300,
+  'Raw Manta Ray': 495,
+  'Raw Whale': 575,
 };
 
 export const itemGoldValues = {
@@ -287,6 +304,23 @@ export const itemGoldValues = {
   'Ruby': 555,
   'Emerald': 555,
   'Diamond': 1150,
+  'Raw Shrimp': 1,
+  'Raw Sardine': 3,
+  'Raw Blowfish': 5,
+  'Raw Herring': 8,
+  'Raw Trout': 16,
+  'Raw Poison Fish': 40,
+  'Raw Salmon': 35,
+  'Raw Lobster': 65,
+  'Raw Swordfish': 80,
+  'Raw Anglerfish': 50,
+  'Raw Fanfish': 120,
+  'Raw Crab': 135,
+  'Raw Carp': 190,
+  'Raw Shark': 270,
+  'Raw Cave Fish': 215,
+  'Raw Manta Ray': 650,
+  'Raw Whale': 750,
 };
 
 export const actionTimeValues = {
@@ -310,4 +344,92 @@ export const actionTimeValues = {
   'Adamantite Ore': 12000,
   'Runite Ore': 15000,
   'Dragonite Ore': 20000,
+  'Raw Shrimp': 6000,
+  'Raw Sardine': 6000,
+  'Raw Blowfish': 5500,
+  'Raw Herring': 6000,
+  'Raw Trout': 7000,
+  'Raw Poison Fish': 6500,
+  'Raw Salmon': 7000,
+  'Raw Lobster': 7500,
+  'Raw Swordfish': 8500,
+  'Raw Anglerfish': 8500,
+  'Raw Fanfish': 7000,
+  'Raw Crab': 8500,
+  'Raw Carp': 10500,
+  'Raw Shark': 11000,
+  'Raw Cave Fish': 11500,
+  'Raw Manta Ray': 17000,
+  'Raw Whale': 17500,
+}
+
+export const fishDict = {
+  "Raw Shrimp": {
+    level: 0,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/shrimp.png',
+  },
+  "Raw Sardine": {
+    level: 5,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/sardine.png',
+  },
+  "Raw Blowfish": {
+    level: 8,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/blowfish.png',
+  },
+  "Raw Herring": {
+    level: 10,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/herring.png',
+  },
+  "Raw Trout": {
+    level: 20,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/trout.png',
+  },
+  "Raw Poison Fish": {
+    level: 30,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/poison_fish.png',
+  },
+  "Raw Salmon": {
+    level: 35,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/salmon.png',
+  },
+  "Raw Lobster": {
+    level: 40,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/lobster.png',
+  },
+  "Raw Swordfish": {
+    level: 50,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/swordfish.png',
+  },
+  "Raw Anglerfish": {
+    level: 50,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/anglerfish.png',
+  },
+  "Raw Fanfish": {
+    level: 55,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/fanfish.png',
+  },
+  "Raw Crab": {
+    level: 60,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/crab.png',
+  },
+  "Raw Carp": {
+    level: 65,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/carp.png',
+  },
+  "Raw Shark": {
+    level: 70,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/shark.png',
+  },
+  "Raw Cave Fish": {
+    level: 75,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/cavefish.png',
+  },
+  "Raw Manta Ray": {
+    level: 85,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/mantaray.png',
+  },
+  "Raw Whale": {
+    level: 95,
+    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/whale.png',
+  },
 }

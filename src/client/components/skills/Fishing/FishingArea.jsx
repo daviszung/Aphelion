@@ -4,78 +4,7 @@ import { SelectedFish } from './SelectedFish'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectUserObject } from '../../../redux/userSlice'
-
-// dictionary of fish levels needed
-export const fishDict = {
-  "Raw Shrimp": {
-    level: 0,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/shrimp.png'
-  },
-  "Raw Sardine": {
-    level: 5,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/sardine.png'
-  },
-  "Raw Blowfish": {
-    level: 8,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/blowfish.png'
-  },
-  "Raw Herring": {
-    level: 10,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/herring.png'
-  },
-  "Raw Trout": {
-    level: 20,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/trout.png'
-  },
-  "Raw Poison Fish": {
-    level: 30,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/poison_fish.png'
-  },
-  "Raw Salmon": {
-    level: 35,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/salmon.png'
-  },
-  "Raw Lobster": {
-    level: 40,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/lobster.png'
-  },
-  "Raw Swordfish": {
-    level: 50,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/swordfish.png'
-  },
-  "Raw Anglerfish": {
-    level: 50,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/anglerfish.png'
-  },
-  "Raw Fanfish": {
-    level: 55,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/fanfish.png'
-  },
-  "Raw Crab": {
-    level: 60,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/crab.png'
-  },
-  "Raw Carp": {
-    level: 65,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/carp.png'
-  },
-  "Raw Shark": {
-    level: 70,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/shark.png'
-  },
-  "Raw Cave Fish": {
-    level: 75,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/cavefish.png'
-  },
-  "Raw Manta Ray": {
-    level: 85,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/mantaray.png'
-  },
-  "Raw Whale": {
-    level: 95,
-    img: 'https://cdn.melvor.net/core/v018/assets/media/bank/whale.png'
-  },
-}
+import { fishDict } from '../../../tables'
 
 
 export function FishingArea ({ areaName, locked, fishTypes, selectedAction, setSelectedAction, chanceFish, chanceJunk, chanceSpecial}) {
@@ -112,7 +41,7 @@ export function FishingArea ({ areaName, locked, fishTypes, selectedAction, setS
           <div className={style.leftBody}>
             {generateFish(fishTypes, state)}
           </div>
-          <SelectedFish selectedFish={selectedFish} selectedAction={selectedAction} setSelectedAction={setSelectedAction} ></SelectedFish>
+          <SelectedFish state={state} selectedFish={selectedFish} selectedAction={selectedAction} setSelectedAction={setSelectedAction} ></SelectedFish>
         </div>
       </div>
     )
