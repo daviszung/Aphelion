@@ -23,17 +23,6 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
         </div>
         <div className={style.expBar}><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${state ? ((state.levels.fishing.exp - expTable[state.levels.fishing.level]) / (expTable[state.levels.fishing.level + 1] - expTable[state.levels.fishing.level])) * 100 : 0}%`}}></div></div>
       </div>
-      {/* <button id={style['saltyShore']} className={`${style.shadowedContainer} ${style.fishingAreaContainer}`} onClick={() => {
-        if (selectedAction === 'Rune Essence') {
-          setSelectedAction(null)
-        } else {setSelectedAction('Rune Essence')}}}>
-        <div>Rune Essence</div>
-        <div>5xp / {(3 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
-        <img className={style.fishImages} src='https://cdn.melvor.net/core/v018/assets/media/bank/rune_essence.png'></img>
-        <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Rune Essence' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
-        </div>
-      </button> */}
       <FishingArea id={style['saltyShore']} areaName='Salty Shore' fishTypes={['Raw Shrimp', 'Raw Lobster', 'Raw Crab']} chanceFish={75} chanceJunk={25} chanceSpecial={0} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
       <FishingArea id={style['rustyRiver']} areaName='Rusty River' fishTypes={['Raw Sardine', 'Raw Herring', 'Raw Carp']} chanceFish={80} chanceJunk={20} chanceSpecial={0} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
       <FishingArea id={style['toxicTrench']} areaName='Toxic Trench' fishTypes={['Raw Blowfish', 'Raw Poison Fish', 'Raw Anglerfish', 'Raw Cave Fish']} chanceFish={70}chanceJunk={28} chanceSpecial={2} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></FishingArea>
