@@ -81,5 +81,8 @@ export const actionDict = {
     action: mine("Dragonite Ore"),
     modifierType: "pickaxe"
   },
-  
+  "Raw Shrimp": {
+    action: fish("Raw Shrimp"),
+    modifierType: "fishingRod"
+  }
 };

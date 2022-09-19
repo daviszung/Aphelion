@@ -81,6 +81,14 @@ export const userSlice = createSlice({
       }
     },
 
+    fish: (state, action) => {
+      // partition a section of a random number out of onehundred chance to each category
+      const chanceJunk = action.payload.chanceJunk;
+      const chanceSpecial = action.payload.chanceSpecial;
+      const chanceFish = 100 - (chanceJunk + chanceSpecial);
+      const chance = Math.random() * 100;
+    },
+
     buyExtraBankSlot: (state) => {
       state.userObject.gold -= bankSlotCosts[state.userObject.maxBankSpace - 12];
       state.userObject.maxBankSpace += 1;
@@ -122,7 +130,7 @@ export const userSlice = createSlice({
     }
   }
 })
-export const { initial, sellItem, cutWood, mine, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, update } = userSlice.actions;
+export const { initial, sellItem, cutWood, mine, fish, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, update } = userSlice.actions;
 
 
 export const selectUserObject = state => state.user.userObject;

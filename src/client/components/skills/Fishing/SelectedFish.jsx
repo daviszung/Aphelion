@@ -1,14 +1,14 @@
 import style from '../../../stylesheets/skills/Fishing.module.css'
 import { fishDict, actionTimeValues, actionExpValues } from '../../../tables'
 
-export function SelectedFish({ state, selectedFish, selectedAction, setSelectedAction}) {
+export function SelectedFish({ state, selectedFish, selectedAction, setSelectedAction, chanceJunk, chanceSpecial}) {
   if (selectedFish) {
     return (
       <div className={style.rightBody}>
         <button className={style.fishActionBtn} onClick={() => {
           if (selectedAction === selectedFish) {
             setSelectedAction(null)
-          } else {setSelectedAction(selectedFish)}
+          } else {setSelectedAction({'fish': selectedFish, 'chanceJunk': chanceJunk, 'chanceSpecial': chanceSpecial})}
         }}>
           <div className={style.selectedFishHeader}>{selectedFish}</div>
           <img className={style.selectedFishImg} src={fishDict[selectedFish].img}></img>
