@@ -19,7 +19,7 @@ export function Fishing({state, selectedAction, setSelectedAction}) {
       <div className={style.skillInfoContainer}>
         <div className={style.innerInfoContainer}>
           <span>SKILL XP <span className={style.expColor}>{state ? state.levels.fishing.exp : null} / {state ? expTable[state.levels.fishing.level + 1] : null}</span></span>
-          <div className={style.flexAlign}><div style={{marginRight: '10px'}}>CURRENT ROD</div><div className={style.axeType}>{fishingRodType[state.modifiers.pickaxe]}</div></div>
+          <div className={style.flexAlign}><div style={{marginRight: '10px'}}>CURRENT ROD</div><div className={style.rodType}>{fishingRodType[state.modifiers.fishingRod]}</div></div>
         </div>
         <div className={style.expBar}><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${state ? ((state.levels.fishing.exp - expTable[state.levels.fishing.level]) / (expTable[state.levels.fishing.level + 1] - expTable[state.levels.fishing.level])) * 100 : 0}%`}}></div></div>
       </div>

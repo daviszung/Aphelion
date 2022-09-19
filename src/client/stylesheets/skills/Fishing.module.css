@@ -141,7 +141,7 @@
   align-items: center;
 }
 
-.axeType {
+.rodType {
   background-color: #e5ae67;
   color: #232946;
   border-radius: 5px;
@@ -193,8 +193,16 @@
 }
 
 .fishInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 15%;
   width: 100%;
+  padding-left: 5.5rem;
+}
+
+.fishStats {
+  
 }
 
 .selectedFishImg {
