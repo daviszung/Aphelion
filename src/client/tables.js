@@ -321,6 +321,8 @@ export const itemGoldValues = {
   'Raw Cave Fish': 215,
   'Raw Manta Ray': 650,
   'Raw Whale': 750,
+  'Seaweed': 10,
+  'Treasure Chest': 500,
 };
 
 export const actionTimeValues = {

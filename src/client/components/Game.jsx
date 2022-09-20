@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.js'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUserObject, initial, cutWood, mine } from '../redux/userSlice'
+import { selectUserObject, initial } from '../redux/userSlice'
 import { actionDict } from '../actionDict'
 
 // Components

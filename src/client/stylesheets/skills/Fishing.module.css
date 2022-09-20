@@ -181,6 +181,15 @@
   background: #92d0f1;
 }
 
+@keyframes load{
+  0%{
+      width: 0%;
+  }
+  100%{
+      width: 100%;
+  }
+}
+
 .fishActionBtn {
   display: flex;
   flex-direction: column;

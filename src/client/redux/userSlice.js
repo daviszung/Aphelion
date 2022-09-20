@@ -83,10 +83,51 @@ export const userSlice = createSlice({
 
     fish: (state, action) => {
       // partition a section of a random number out of onehundred chance to each category
+      console.log(current(state), action)
+      const fish = action.payload.fish
       const chanceJunk = action.payload.chanceJunk;
       const chanceSpecial = action.payload.chanceSpecial;
-      const chanceFish = 100 - (chanceJunk + chanceSpecial);
-      const chance = Math.random() * 100;
+      const chance = Math.floor(Math.random() * 100)
+
+      // fished a fish, add to bank and add exp
+      if (chance >= (chanceJunk + chanceSpecial)) {
+        console.log('FISH', chance)
+        if (state.userObject.bank[fish]) {
+          state.userObject.bank[fish] += 1;
+        } else if (!state.userObject.bank[fish] && state.userObject.bankSpace < state.userObject.maxBankSpace) {
+          state.userObject.bankSpace += 1;
+          state.userObject.bank[fish] = 1;
+        }
+
+        // add experience and potentially level up
+        state.userObject.levels.fishing.exp += actionExpValues[fish];
+        if (state.userObject.levels.fishing.level < 99 && state.userObject.levels.fishing.exp >= expTable[state.userObject.levels.fishing.level + 1]) {
+          state.userObject.levels.fishing.level += 1; 
+          state.userObject.levels.fishing.current += 1;
+        }
+      }
+      // fished up junk, add to bank, no exp
+      else if (chance > chanceSpecial && chance < (chanceJunk + chanceSpecial)) {
+        console.log('JUNK', chance)
+        // im not going to have a random junk table, its unnecessary and an annoying mechanic that clutters bank space
+        if (state.userObject.bank['Seaweed']) {
+          state.userObject.bank['Seaweed'] += 1;
+        } else if (!state.userObject.bank['Seaweed'] && state.userObject.bankSpace < state.userObject.maxBankSpace) {
+          state.userObject.bankSpace += 1;
+          state.userObject.bank['Seaweed'] = 1;
+        }
+      } 
+      // fished up special, add to bank, no exp
+      else {
+        console.log('SPECIAL', chance)
+        // special should just be a treasure chest, opening the chest should give gems or gold etc.
+        if (state.userObject.bank['Treasure Chest']) {
+          state.userObject.bank['Treasure Chest'] += 1;
+        } else if (!state.userObject.bank['Treasure Chest'] && state.userObject.bankSpace < state.userObject.maxBankSpace) {
+          state.userObject.bankSpace += 1;
+          state.userObject.bank['Treasure Chest'] = 1;
+        }
+      }
     },
 
     buyExtraBankSlot: (state) => {

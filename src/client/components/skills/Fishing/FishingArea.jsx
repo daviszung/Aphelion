@@ -41,7 +41,7 @@ export function FishingArea ({ areaName, locked, fishTypes, selectedAction, setS
           <div className={style.leftBody}>
             {generateFish(fishTypes, state)}
           </div>
-          <SelectedFish state={state} selectedFish={selectedFish} selectedAction={selectedAction} setSelectedAction={setSelectedAction} chanceJunk={chanceJunk} chanceSpecial={chanceSpecial}></SelectedFish>
+          <SelectedFish state={state} selectedFish={selectedFish} selectedAction={selectedAction} setSelectedAction={setSelectedAction}></SelectedFish>
         </div>
       </div>
     )

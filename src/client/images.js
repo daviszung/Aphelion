@@ -23,7 +23,26 @@ export const itemImages = {
   'Sapphire': 'https://cdn.melvor.net/core/v018/assets/media/bank/sapphire.png',
   'Ruby': 'https://cdn.melvor.net/core/v018/assets/media/bank/ruby.png',
   'Emerald': 'https://cdn.melvor.net/core/v018/assets/media/bank/emerald.png',
-  'Diamond': 'https://cdn.melvor.net/core/v018/assets/media/bank/diamond.png'
+  'Diamond': 'https://cdn.melvor.net/core/v018/assets/media/bank/diamond.png',
+  'Raw Shrimp': 'https://cdn.melvor.net/core/v018/assets/media/bank/shrimp.png',
+  'Raw Sardine': 'https://cdn.melvor.net/core/v018/assets/media/bank/sardine.png',
+  'Raw Herring': 'https://cdn.melvor.net/core/v018/assets/media/bank/blowfish.png',
+  'Raw Trout': 'https://cdn.melvor.net/core/v018/assets/media/bank/herring.png',
+  'Raw Trout': 'https://cdn.melvor.net/core/v018/assets/media/bank/trout.png',
+  'Raw Poison Fish': 'https://cdn.melvor.net/core/v018/assets/media/bank/poison_fish.png',
+  'Raw Salmon': 'https://cdn.melvor.net/core/v018/assets/media/bank/salmon.png',
+  'Raw Lobster': 'https://cdn.melvor.net/core/v018/assets/media/bank/lobster.png',
+  'Raw Swordfish': 'https://cdn.melvor.net/core/v018/assets/media/bank/swordfish.png',
+  'Raw Anglerfish': 'https://cdn.melvor.net/core/v018/assets/media/bank/anglerfish.png',
+  'Raw Fanfish': 'https://cdn.melvor.net/core/v018/assets/media/bank/fanfish.png',
+  'Raw Crab': 'https://cdn.melvor.net/core/v018/assets/media/bank/crab.png',
+  'Raw Carp': 'https://cdn.melvor.net/core/v018/assets/media/bank/carp.png',
+  'Raw Shark': 'https://cdn.melvor.net/core/v018/assets/media/bank/shark.png',
+  'Raw Cave Fish': 'https://cdn.melvor.net/core/v018/assets/media/bank/cavefish.png',
+  'Raw Manta Ray': 'https://cdn.melvor.net/core/v018/assets/media/bank/mantaray.png',
+  'Raw Whale': 'https://cdn.melvor.net/core/v018/assets/media/bank/whale.png',
+  'Seaweed': 'https://cdn.melvor.net/core/v018/assets/media/bank/seaweed.png',
+  'Treasure Chest': 'https://cdn.melvor.net/core/v018/assets/media/bank/treasure_chest.png',
 }
 
 export const miningImages = {

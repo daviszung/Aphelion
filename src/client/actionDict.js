@@ -1,4 +1,4 @@
-import { cutWood, mine } from "./redux/userSlice";
+import { cutWood, mine, fish } from "./redux/userSlice";
 
 export const actionDict = {
   "Normal Log": {
@@ -82,7 +82,71 @@ export const actionDict = {
     modifierType: "pickaxe"
   },
   "Raw Shrimp": {
-    action: fish("Raw Shrimp"),
+    action: fish({fish: 'Raw Shrimp', chanceJunk: 25, chanceSpecial: 0}),
+    modifierType: "fishingRod"
+  },
+  "Raw Sardine": {
+    action: fish({fish: 'Raw Sardine', chanceJunk: 20, chanceSpecial: 0}),
+    modifierType: "fishingRod"
+  },
+  "Raw Blowfish": {
+    action: fish({fish: 'Raw Blowfish', chanceJunk: 28, chanceSpecial: 2}),
+    modifierType: "fishingRod"
+  },
+  "Raw Herring": {
+    action: fish({fish: 'Raw Herring', chanceJunk: 20, chanceSpecial: 0}),
+    modifierType: "fishingRod"
+  },
+  "Raw Trout": {
+    action: fish({fish: 'Raw Trout', chanceJunk: 29, chanceSpecial: 1}),
+    modifierType: "fishingRod"
+  },
+  "Raw Poison Fish": {
+    action: fish({fish: 'Raw Poison Fish', chanceJunk: 28, chanceSpecial: 2}),
+    modifierType: "fishingRod"
+  },
+  "Raw Salmon": {
+    action: fish({fish: 'Raw Salmon', chanceJunk: 29, chanceSpecial: 1}),
+    modifierType: "fishingRod"
+  },
+  "Raw Lobster": {
+    action: fish({fish: 'Raw Lobster', chanceJunk: 25, chanceSpecial: 0}),
+    modifierType: "fishingRod",
+  },
+  "Raw Swordfish": {
+    action: fish({fish: 'Raw Swordfish', chanceJunk: 29, chanceSpecial: 2}),
+    modifierType: "fishingRod"
+  },
+  "Raw Anglerfish": {
+    action: fish({fish: 'Raw Anglerfish', chanceJunk: 28, chanceSpecial: 2}),
+    modifierType: "fishingRod"
+  },
+  "Raw Fanfish": {
+    action: fish({fish: 'Raw Fanfish', chanceJunk: 29, chanceSpecial: 1}),
+    modifierType: "fishingRod"
+  },
+  "Raw Crab": {
+    action: fish({fish: 'Raw Crab', chanceJunk: 25, chanceSpecial: 0}),
+    modifierType: "fishingRod"
+  },
+  "Raw Carp": {
+    action: fish({fish: 'Raw Carp', chanceJunk: 20, chanceSpecial: 0}),
+    modifierType: "fishingRod"
+  },
+  "Raw Shark": {
+    action: fish({fish: 'Raw Shark', chanceJunk: 10, chanceSpecial: 0}),
+    modifierType: "fishingRod"
+  },
+  "Raw Cave Fish": {
+    action: fish({fish: 'Raw Cave Fish', chanceJunk: 28, chanceSpecial: 2}),
+    modifierType: "fishingRod"
+  },
+  "Raw Manta Ray": {
+    action: fish({fish: 'Raw Manta Ray', chanceJunk: 29, chanceSpecial: 2}),
+    modifierType: "fishingRod"
+  },
+  "Raw Whale": {
+    action: fish({fish: 'Raw Whale', chanceJunk: 10, chanceSpecial: 0}),
     modifierType: "fishingRod"
   }
 };
