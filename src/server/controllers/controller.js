@@ -13,6 +13,22 @@ function createNewUserObject(username, password){
     bankSpace: 0,
     maxBankSpace: 12,
     bank: {},
+    combat: {
+      hp: 100,
+      damageReduction: 0,
+      accuracyMelee: 1000,
+      accuracyRanged: 1000,
+      accuracyMagic: 1000,
+      minDamageMelee: 1,
+      minDamageRanged: 1,
+      minDamageMagic: 1,
+      maxDamageMelee: 23,
+      maxDamageRanged: 23,
+      maxDamageMagic: 23,
+      defenceMelee: 640,
+      defenceRanged: 640,
+      defenceMagic: 640
+    },
     levels: {
       attack: {exp: 0, current: 1, level: 1},
       strength: {exp: 0, current: 1, level: 1},

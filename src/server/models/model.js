@@ -28,6 +28,19 @@ const userSchema = new Schema({
   bankSpace: Number,
   maxBankSpace: Number,
   bank: {},
+  combat: {
+    hp: Number,
+    damageReduction: Number,
+    accuracyMelee: Number,
+    accuracyRanged: Number,
+    accuracyMagic: Number,
+    damageMelee: Number,
+    damageRanged: Number,
+    damageMagic: Number,
+    defenceMelee: Number,
+    defenceRanged: Number,
+    defenceMagic: Number
+  },
   levels: {
     attack: {exp: Number, current: Number, level: Number},
     strength: {exp: Number, current: Number, level: Number},
