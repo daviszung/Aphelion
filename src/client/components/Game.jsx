@@ -92,7 +92,7 @@ function Game() {
       case 'smithing':
         return <Smithing />;
       case 'thieving':
-        return <Thieving />;
+        return <Thieving state={state} selectedAction={selectedAction} setSelectedAction={setSelectedAction}/>;
       case 'fletching':
         return <Fletching />;
       case 'crafting':
