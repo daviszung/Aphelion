@@ -45,10 +45,25 @@ export const itemImages = {
   'Treasure Chest': 'https://cdn.melvor.net/core/v018/assets/media/bank/treasure_chest.png',
 }
 
-export const miningImages = {
-  'Rune Essence': 'https://cdn.melvor.net/core/v018/assets/media/bank/rune_essence.png',
-  'Copper Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_copper.svg',
-  'Tin Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_tin.svg',
-  'Iron Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_iron.svg',
-  'Gold Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_gold.svg',
+// export const miningImages = {
+//   'Rune Essence': 'https://cdn.melvor.net/core/v018/assets/media/bank/rune_essence.png',
+//   'Copper Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_copper.svg',
+//   'Tin Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_tin.svg',
+//   'Iron Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_iron.svg',
+//   'Gold Rock': 'https://cdn.melvor.net/core/v018/assets/media/skills/mining/rock_gold.svg',
+// }
+
+export const thievingImages = {
+  'Man': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/man.svg',
+  'Goblin': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/goblin.svg',
+  'Marauder': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/marauder.svg',
+  'Merchant': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/merchant.svg',
+  'Farmer': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/farmer.svg',
+  'Chef': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/chef.svg',
+  'Fisherman': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/fisherman.svg',
+  'Lumberjack': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/lumberjack.svg',
+  'Miner': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/miner.svg',
+  'Acolyte': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/acolyte.svg',
+  'Wizard': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/wizard.svg',
+  'Knight': 'https://cdn.melvor.net/core/v018/assets/media/skills/thieving/knight.svg',
 }
