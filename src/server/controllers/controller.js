@@ -53,6 +53,7 @@ function createNewUserObject(username, password){
       pickaxe: 0,
       fishingRod: 0,
       pickpocket: 0,
+      stealth: 0,
     },
     boons: {},
     keyItems: {}

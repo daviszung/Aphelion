@@ -65,6 +65,7 @@ const userSchema = new Schema({
     pickaxe: Number,
     fishingRod: Number,
     pickpocket: Number,
+    stealth: Number,
   },
   boons: {},
   keyItems: {}
