@@ -1,4 +1,4 @@
-import { cutWood, mine, fish } from "./redux/userSlice";
+import { cutWood, mine, fish, pickpocket } from "./redux/userSlice";
 
 export const actionDict = {
   "Normal Log": {
@@ -150,3 +150,44 @@ export const actionDict = {
     modifierType: "fishingRod"
   }
 };
+
+
+export const pickpocketTable = {
+  "Pickpocket Man": {
+    action: pickpocket({perception: 210, maxHit: 22, maxGold: 100}),
+    modifierType: "pickpocket"
+  },
+  "Pickpocket Goblin": {
+    
+  },
+  "Pickpocket Marauder": {
+    
+  },
+  "Pickpocket Merchant": {
+    
+  },
+  "Pickpocket Farmer": {
+    
+  },
+  "Pickpocket Chef": {
+    
+  },
+  "Pickpocket Fisherman": {
+    
+  },
+  "Pickpocket Lumberjack": {
+    
+  },
+  "Pickpocket Miner": {
+    
+  },
+  "Pickpocket Acolyte": {
+    
+  },
+  "Pickpocket Wizard": {
+    
+  },
+  "Pickpocket Knight": {
+    
+  },
+}

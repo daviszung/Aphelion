@@ -130,6 +130,10 @@ export const userSlice = createSlice({
       }
     },
 
+    pickpocket: (state, action) => {
+
+    },
+
     buyExtraBankSlot: (state) => {
       state.userObject.gold -= bankSlotCosts[state.userObject.maxBankSpace - 12];
       state.userObject.maxBankSpace += 1;
@@ -171,7 +175,7 @@ export const userSlice = createSlice({
     }
   }
 })
-export const { initial, sellItem, cutWood, mine, fish, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, update } = userSlice.actions;
+export const { initial, sellItem, cutWood, mine, fish, pickpocket, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, update } = userSlice.actions;
 
 
 export const selectUserObject = state => state.user.userObject;

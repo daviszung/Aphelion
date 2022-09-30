@@ -363,6 +363,19 @@ export const actionTimeValues = {
   'Raw Cave Fish': 11500,
   'Raw Manta Ray': 17000,
   'Raw Whale': 17500,
+  'Pickpocket Man': 3000,
+  'Pickpocket Goblin': 3000,
+  'Pickpocket Marauder': 3000,
+  'Pickpocket Merchant': 3000,
+  'Pickpocket Farmer': 3000,
+  'Pickpocket Chef': 3000,
+  'Pickpocket Fisherman': 3000,
+  'Pickpocket Lumberjack': 3000,
+  'Pickpocket Miner': 3000,
+  'Pickpocket Acolyte': 3000,
+  'Pickpocket Wizard': 3000,
+  'Pickpocket Knight': 3000,
+
 }
 
 export const fishDict = {
