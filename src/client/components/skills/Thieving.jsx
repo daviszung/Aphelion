@@ -18,6 +18,7 @@ export function Thieving({state, selectedAction, setSelectedAction}) {
         } else {setSelectedAction('Pickpocket Man')}}}>
         <div>Man</div>
         <div>5xp / {(3 * (100 - state.modifiers.pickpocket) / 100).toFixed(2)} seconds</div>
+        <div>Success chance: {((state.modifiers.stealth + 100) / 210).toFixed(2) * 100}%</div>
         <img className={style.npcImages} src={thievingImages['Man']}></img>
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Pickpocket Man' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
