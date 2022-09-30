@@ -46,7 +46,7 @@
   margin: .1rem 0 0 .1rem;
 }
 
-.miningSkillContainer {
+.skillContainer {
   padding: 3rem 8rem 3rem 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -126,7 +126,7 @@
   }
 }
 
-#runeEssenceBtn {
+#manBtn {
   grid-row: 2 / 2;
   grid-column: 1 / 1;
 }
@@ -171,7 +171,7 @@
   grid-column: 1 / 1;
 }
 
-.rockImages {
+.npcImages {
   height: 100px;
   width: 100px;
 }

@@ -4,7 +4,7 @@ import { thievingImages } from '../../images'
 
 export function Thieving({state, selectedAction, setSelectedAction}) {
   return (
-    <div className={style.miningSkillContainer}>
+    <div className={style.skillContainer}>
       <div className={style.skillInfoContainer}>
         <div className={style.innerInfoContainer}>
           <span>SKILL XP <span className={style.expColor}>{state ? state.levels.thieving.exp.toLocaleString() : null} / {state ? expTable[state.levels.thieving.level + 1].toLocaleString() : null}</span></span>
@@ -12,15 +12,15 @@ export function Thieving({state, selectedAction, setSelectedAction}) {
         </div>
         <div className={style.expBar}><div style={{background: '#5cace5', borderRadius: '25px', height: '100%', "maxWidth": '100%', width: `${state ? ((state.levels.thieving.exp - expTable[state.levels.thieving.level]) / (expTable[state.levels.thieving.level + 1] - expTable[state.levels.thieving.level])) * 100 : 0}%`}}></div></div>
       </div>
-      <button id={style['runeEssenceBtn']} className={style.actionBtn} onClick={() => {
-        if (selectedAction === 'Rune Essence') {
+      <button id={style['manBtn']} className={style.actionBtn} onClick={() => {
+        if (selectedAction === 'Pickpocket Man') {
           setSelectedAction(null)
-        } else {setSelectedAction('Rune Essence')}}}>
+        } else {setSelectedAction('Pickpocket Man')}}}>
         <div>Man</div>
-        <div>5xp / {(3 * (100 - state.modifiers.pickaxe) / 100).toFixed(2)} seconds</div>
-        <img className={style.rockImages} src={thievingImages['Man']}></img>
+        <div>5xp / {(3 * (100 - state.modifiers.pickpocket) / 100).toFixed(2)} seconds</div>
+        <img className={style.npcImages} src={thievingImages['Man']}></img>
         <div className={style.progressBarContainer}>
-          <div className={style.progressBar} style={selectedAction === 'Rune Essence' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
+          <div className={style.progressBar} style={selectedAction === 'Pickpocket Man' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
     </div>
