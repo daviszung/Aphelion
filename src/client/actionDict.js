@@ -148,13 +148,50 @@ export const actionDict = {
   "Raw Whale": {
     action: fish({fish: 'Raw Whale', chanceJunk: 10, chanceSpecial: 0}),
     modifierType: "fishingRod"
-  }
+  },
+  "Pickpocket Man": {
+    action: pickpocket({perception: 210, maxHit: 22, maxGold: 100}),
+    modifierType: "pickpocket"
+  },
+  "Pickpocket Goblin": {
+    
+  },
+  "Pickpocket Marauder": {
+    
+  },
+  "Pickpocket Merchant": {
+    
+  },
+  "Pickpocket Farmer": {
+    
+  },
+  "Pickpocket Chef": {
+    
+  },
+  "Pickpocket Fisherman": {
+    
+  },
+  "Pickpocket Lumberjack": {
+    
+  },
+  "Pickpocket Miner": {
+    
+  },
+  "Pickpocket Acolyte": {
+    
+  },
+  "Pickpocket Wizard": {
+    
+  },
+  "Pickpocket Knight": {
+    
+  },
 };
 
 
 export const pickpocketTable = {
   "Pickpocket Man": {
-    action: pickpocket({perception: 210, maxHit: 22, maxGold: 100}),
+    action: pickpocket({perception: 10, maxHit: 22, maxGold: 100}),
     modifierType: "pickpocket"
   },
   "Pickpocket Goblin": {

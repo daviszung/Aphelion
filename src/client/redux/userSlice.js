@@ -1,6 +1,10 @@
 import { createSlice, current } from '@reduxjs/toolkit';
 import { expTable, actionExpValues, bankSlotCosts, itemGoldValues } from "../tables.js";
 
+function getRandomNum(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 export const userSlice = createSlice({
   name: 'userObject',
   initialState: {
@@ -128,7 +132,21 @@ export const userSlice = createSlice({
     },
 
     pickpocket: (state, action) => {
-      // make a roll
+      // roll for success: Stealth vs Perception
+      const stealth = 100 + state.userObject.modifiers.stealth;
+      const perception = action.payload.perception;
+      const chanceOfSuccess = stealth / perception;
+      const rollForSuccess = Math.random();
+      if (rollForSuccess <= chanceOfSuccess) {
+        console.log('successful pick: ', chanceOfSuccess, rollForSuccess)
+      } else {
+        const rollForDmg = Math.round(getRandomNum(1, action.payload.maxHit));
+        if (state.userObject.combat.hp > rollForDmg) {
+          state.user.combat.hp -= rollForDmg;
+        } else {
+          // player is dead, maybe i should have a function for this?
+        }
+      }
 
     },
 
