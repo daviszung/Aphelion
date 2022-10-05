@@ -33,7 +33,8 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Normal Log' ? {'animation': `${style.load} ${3 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['oakLogBtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 10 ? 'flex' : 'none'}} onClick={() => {
+      {props.state.levels.woodcutting.level >= 10 && 
+      <button id={style['oakLogBtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Oak Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Oak Log')}}}>
@@ -44,7 +45,9 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Oak Log' ? {'animation': `${style.load} ${4 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['willowLogBtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 25 ? 'flex' : 'none'}} onClick={() => {
+      }
+      {props.state.levels.woodcutting.level >= 25 && 
+      <button id={style['willowLogBtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Willow Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Willow Log')}}}>
@@ -55,7 +58,9 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Willow Log' ? {'animation': `${style.load} ${5 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['teakLogBtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 35 ? 'flex' : 'none'}} onClick={() => {
+      }
+      {props.state.levels.woodcutting.level >= 35 && 
+      <button id={style['teakLogBtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Teak Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Teak Log')}}}>
@@ -66,7 +71,9 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Teak Log' ? {'animation': `${style.load} ${6 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['mapleLogBtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 45 ? 'flex' : 'none'}} onClick={() => {
+      }
+      {props.state.levels.woodcutting.level >= 45 && 
+      <button id={style['mapleLogBtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Maple Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Maple Log')}}}>
@@ -77,7 +84,9 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Maple Log' ? {'animation': `${style.load} ${8 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['mahoganyLogBtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 55 ? 'flex' : 'none'}} onClick={() => {
+      }
+      {props.state.levels.woodcutting.level >= 55 && 
+      <button id={style['mahoganyLogBtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Mahogany Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Mahogany Log')}}}>
@@ -88,7 +97,9 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Mahogany Log' ? {'animation': `${style.load} ${10 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['yewLogBtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 60 ? 'flex' : 'none'}} onClick={() => {
+      }
+      {props.state.levels.woodcutting.level >= 60 && 
+      <button id={style['yewLogBtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Yew Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Yew Log')}}}>
@@ -99,7 +110,9 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Yew Log' ? {'animation': `${style.load} ${12 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['magicLogbtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 75 ? 'flex' : 'none'}} onClick={() => {
+      }
+      {props.state.levels.woodcutting.level >= 75 && 
+      <button id={style['magicLogbtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Magic Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Magic Log')}}}>
@@ -110,7 +123,9 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Magic Log' ? {'animation': `${style.load} ${20 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['redwoodLogBtn']} className={style.actionBtn} style={{display: props.state.levels.woodcutting.level >= 90 ? 'flex' : 'none'}} onClick={() => {
+      }
+      {props.state.levels.woodcutting.level >= 90 && 
+      <button id={style['redwoodLogBtn']} className={style.actionBtn} onClick={() => {
         if (props.selectedAction === 'Redwood Log') {
           props.setSelectedAction(null)
         } else {props.setSelectedAction('Redwood Log')}}}>
@@ -121,6 +136,7 @@ export function Woodcutting(props) {
           <div className={style.progressBar} style={props.selectedAction === 'Redwood Log' ? {'animation': `${style.load} ${15 * ((100 - props.state.modifiers.axe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
+      }
     </div>
   )
 }
