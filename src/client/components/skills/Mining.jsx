@@ -1,3 +1,4 @@
+import { PromiseProvider } from 'mongoose'
 import style from '../../stylesheets/skills/Mining.module.css'
 import { expTable } from '../../tables.js'
 
@@ -54,7 +55,8 @@ export function Mining({state, selectedAction, setSelectedAction}) {
           <div className={style.progressBar} style={selectedAction === 'Tin Ore' ? {'animation': `${style.load} ${3 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
       </button>
-      <button id={style['ironRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 15 ? 'flex' : 'none'}} onClick={() => {
+      {state.levels.mining.level >= 15 && 
+      <button id={style['ironRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Iron Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Iron Ore')}}}>
@@ -64,8 +66,9 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Iron Ore' ? {'animation': `${style.load} ${5 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
-      <button id={style['coalRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 25 ? 'flex' : 'none'}}onClick={() => {
+      </button>}
+      {state.levels.mining.level >= 25 && 
+      <button id={style['coalRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Coal Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Coal Ore')}}}>
@@ -75,8 +78,9 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Coal Ore' ? {'animation': `${style.load} ${6 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
-      <button id={style['silverRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 30 ? 'flex' : 'none'}}onClick={() => {
+      </button>}
+      {state.levels.mining.level >= 30 && 
+      <button id={style['silverRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Silver Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Silver Ore')}}}>
@@ -86,8 +90,9 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Silver Ore' ? {'animation': `${style.load} ${7 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
-      <button id={style['goldRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 40 ? 'flex' : 'none'}}onClick={() => {
+      </button>}
+      {state.levels.mining.level >= 40 && 
+      <button id={style['goldRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Gold Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Gold Ore')}}}>
@@ -97,8 +102,9 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Gold Ore' ? {'animation': `${style.load} ${7 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
-      <button id={style['mithrilRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 50 ? 'flex' : 'none'}}onClick={() => {
+      </button>}
+      {state.levels.mining.level >= 50 && 
+      <button id={style['mithrilRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Mithril Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Mithril Ore')}}}>
@@ -108,8 +114,9 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Mithril Ore' ? {'animation': `${style.load} ${10 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
-      <button id={style['adamantiteRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 70 ? 'flex' : 'none'}}onClick={() => {
+      </button>}
+      {state.levels.mining.level >= 70 && 
+      <button id={style['adamantiteRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Adamantite Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Adamantite Ore')}}}>
@@ -119,8 +126,9 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Adamantite Ore' ? {'animation': `${style.load} ${12 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
-      <button id={style['runiteRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 80 ? 'flex' : 'none'}}onClick={() => {
+      </button>}
+      {state.levels.mining.level >= 80 && 
+      <button id={style['runiteRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Runite Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Runite Ore')}}}>
@@ -130,8 +138,9 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Runite Ore' ? {'animation': `${style.load} ${15 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
-      <button id={style['dragoniteRockBtn']} className={style.actionBtn} style={{display: state.levels.mining.level >= 95 ? 'flex' : 'none'}}onClick={() => {
+      </button>}
+      {state.levels.mining.level >= 95 && 
+      <button id={style['dragoniteRockBtn']} className={style.actionBtn} onClick={() => {
         if (selectedAction === 'Dragonite Ore') {
           setSelectedAction(null)
         } else {setSelectedAction('Dragonite Ore')}}}>
@@ -141,7 +150,7 @@ export function Mining({state, selectedAction, setSelectedAction}) {
         <div className={style.progressBarContainer}>
           <div className={style.progressBar} style={selectedAction === 'Dragonite Ore' ? {'animation': `${style.load} ${20 * ((100 - state.modifiers.pickaxe) / 100)}s linear infinite`} : {width: '0%'}}></div>
         </div>
-      </button>
+      </button>}
     </div>
   )
 }
