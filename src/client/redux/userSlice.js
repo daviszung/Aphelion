@@ -5,6 +5,7 @@ function getRandomNum(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+
 export const userSlice = createSlice({
   name: 'userObject',
   initialState: {
@@ -120,7 +121,6 @@ export const userSlice = createSlice({
       } 
       // fished up special, add to bank, no exp
       else {
-        console.log('SPECIAL', chance)
         // special should just be a treasure chest, opening the chest should give gems or gold etc.
         if (state.userObject.bank['Treasure Chest']) {
           state.userObject.bank['Treasure Chest'] += 1;
@@ -142,9 +142,11 @@ export const userSlice = createSlice({
       } else {
         const rollForDmg = Math.round(getRandomNum(1, action.payload.maxHit));
         if (state.userObject.combat.hp > rollForDmg) {
-          state.user.combat.hp -= rollForDmg;
+          state.userObject.combat.hp -= rollForDmg;
         } else {
-          // player is dead, maybe i should have a function for this?
+          // player is dead, for now this just means they lose some gold.
+          // this needs to be done out of redux.
+          // when a player dies, the action interval must be cancelled
         }
       }
 
@@ -185,13 +187,14 @@ export const userSlice = createSlice({
       }
       state.userObject.gold -= action.payload.cost;
     },
-
-    update: (state, action) => {
-      state.userObject = action.payload;
+    regenHP: (state) => {
+      if (state.userObject.combat.hp < state.userObject.levels.constitution.current * 10) {
+        state.userObject.combat.hp += 1;
+      }
     }
   }
 })
-export const { initial, sellItem, cutWood, mine, fish, pickpocket, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, update } = userSlice.actions;
+export const { initial, sellItem, cutWood, mine, fish, pickpocket, buyExtraBankSlot, buyAxeUpgrade, buyPickaxeUpgrade, buyFishingRodUpgrade, addKeyItem, regenHP } = userSlice.actions;
 
 
 export const selectUserObject = state => state.user.userObject;

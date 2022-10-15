@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAllCookies } from './App.jsx'
 import { actionTimeValues } from '../tables.js'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUserObject, initial } from '../redux/userSlice'
+import { selectUserObject, initial, regenHP } from '../redux/userSlice'
 import { actionDict } from '../actionDict'
 
 // Components
@@ -152,6 +152,14 @@ function Game() {
       return () => clearInterval(timer);
     }
   }, [selectedSkill]);
+
+  // regenerate 1 missing hp every 10 seconds
+  useEffect(() => {
+    const regenTimer = setInterval(() => {
+      dispatch(regenHP())
+    }, 10000)
+    return () => clearInterval(regenTimer)
+  }, [])
 
   // set global interval for action
   useEffect(() => {

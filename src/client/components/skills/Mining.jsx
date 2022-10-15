@@ -1,4 +1,3 @@
-import { PromiseProvider } from 'mongoose'
 import style from '../../stylesheets/skills/Mining.module.css'
 import { expTable } from '../../tables.js'
 
